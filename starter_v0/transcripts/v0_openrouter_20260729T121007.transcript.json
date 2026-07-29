@@ -1,0 +1,1756 @@
+{
+  "transcript_id": "v0_openrouter_20260729T121007",
+  "version": "v0",
+  "artifact_version": "v0+pebcaece939c1+t6f22790982b0",
+  "prompt_hash": "ebcaece939c171d31df78b6d5808e3f631a647ea334f83f497e0e2fe7044397c",
+  "tools_hash": "6f22790982b09d598100441dc0b6babb1cc8fcddc3ab0b4cceb3e13ab104e2c4",
+  "provider": "openrouter",
+  "model": null,
+  "system_prompt": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/artifacts/system_prompt.md",
+  "tools": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/artifacts/tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-07-29T12:10:07",
+  "updated_at": "2026-07-29T12:21:31",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T12:10:07",
+      "user": "Tìm cho tôi bài báo liên quan tới Re Act agent",
+      "status": "answered",
+      "assistant_text": "Here are some relevant papers related to \"Re Act agent\":\n\n1. **[C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage](http://arxiv.org/abs/2607.25828v1)**\n   - **Authors**: Pau Baguer, J. Xavier Salvat Lozano, Gines Garcia-Aviles, Xavier Costa-Pérez\n   - **Published**: July 28, 2026\n   - **Summary**: This paper introduces C-RE-ACT, an automated agentic triage framework designed to generate actionable incident reports in O-RAN architectures. It addresses performance-degradation attacks and demonstrates high accuracy in identifying root causes of incidents.\n\n2. **[From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE](http://arxiv.org/abs/2607.21608v1)**\n   - **Authors**: T. Y. Emmy Lai, Sven Giesselbach, Matthias Koch, Héctor Allende-Cid\n   - **Published**: May 18, 2026\n   - **Summary**: This survey discusses the implications of the EU AI Act on Requirements Engineering (RE) and explores the potential of LLM-based agentic validation tools to help organizations meet new obligations.\n\n3. **[Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning](http://arxiv.org/abs/2606.25526v1)**\n   - **Authors**: Bang Giang Le, Viet Cuong Ta\n   - **Published**: June 24, 2026\n   - **Summary**: This paper presents a method for cooperative multi-agent reinforcement learning that addresses high variance issues in advantage estimation, proposing a clipping objective for improved stability.\n\n4. **[Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act](http://arxiv.org/abs/2607.07109v1)**\n   - **Author**: Víctor Mayoral-Vilches\n   - **Published**: July 8, 2026\n   - **Summary**: The paper critiques the EU Cyber Resilience Act, arguing that AI agents can undermine its effectiveness by rapidly identifying and exploiting vulnerabilities, thus challenging traditional security measures.\n\n5. **[Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control](http://arxiv.org/abs/2607.12742v1)**\n   - **Authors**: Sai Sandeep Damera, John S. Baras\n   - **Published**: July 14, 2026\n   - **Summary**: This work models the security of encrypted control systems in a multi-agent context, proposing a dynamic game approach to manage security risks associated with decryption and control.\n\nFeel free to ask if you need more information on any specific paper!",
+      "history_window": 5,
+      "max_tool_rounds": 4,
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "papers",
+              "args": {
+                "query": "Re Act agent",
+                "max_results": 5,
+                "sort_by": "relevance"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "papers",
+              "args": {
+                "query": "Re Act agent",
+                "max_results": 5,
+                "sort_by": "relevance"
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "Re Act agent",
+                "api_query": "all:Re AND all:Act AND all:agent",
+                "total_results": 76,
+                "items": [
+                  {
+                    "arxiv_id": "2607.25828v1",
+                    "title": "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage",
+                    "summary": "The shift to O-RAN architectures marks a turning point in cellular security, where increased openness and modularity directly translate into a broader attack surface. Among the security threats cataloged by the O-RAN Alliance Working Group 11, performance-degradation attacks constitute the largest class. These attacks induce packet losses and latency spikes that are hard to distinguish from operational events such as misconfigurations, transient congestion, or software regressions. Consequently, upon an adverse incident detection, support engineers must rapidly determine whether to route the corresponding incident ticket to network maintenance or escalate it to security operations. This triage phase represents a critical human-in-the-loop bottleneck in the incident response lifecycle. To address this vulnerability, we introduce C-RE-ACT (Causal RE-ACTing agent), an automated agentic triage framework designed to generate actionable incident reports. C-RE-ACT starts constructing a Weighted Directed Acyclic Graph (WDAG) over O-RAN metrics using the Structural Agnostic Model (SAM). The resulting causal topology is encoded into a continuous soft token via a Graph Isomorphism Network (GIN) aligned with the language space of the Large Language Model (LLM) powering a ReAct agent. We evaluate C-RE-ACT on a physical, O-RAN-compliant testbed across 140 distinct performance-degradation experiments. Empirical results demonstrate the causal ranking isolates the correct root cause within the top three candidates in 89% of instances. Furthermore, graph soft-prompting improves LLM accuracy on causal-topology queries from 0.22 (text-only baseline) to 0.72. The autonomous agent achieves anomaly classification accuracies of 83% for delay anomalies and 84% for packet-loss anomalies.",
+                    "authors": [
+                      "Pau Baguer",
+                      "J. Xavier Salvat Lozano",
+                      "Gines Garcia-Aviles",
+                      "Xavier Costa-Pérez"
+                    ],
+                    "published": "2026-07-28T15:07:47Z",
+                    "updated": "2026-07-28T15:07:47Z",
+                    "url": "http://arxiv.org/abs/2607.25828v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.25828v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.NI",
+                    "categories": [
+                      "cs.NI"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.21608v1",
+                    "title": "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE",
+                    "summary": "With the EU AI Act entering into force, organizations developing or operating AI systems face new obligations on transparency, risk management, and traceability. For Requirements Engineering (RE), these obligations must be translated into testable, auditable requirements and verifiable evidence. However, many organizations currently lack systematic processes to achieve this. We hypothesize that LLM-based agentic validation tools can support this translation, thereby helping to close this gap. We present a mixed-method exploratory study with expert interviews (N=10) and an online survey (N=15) to assess organizational preparedness for EU AI Act-oriented RE and perceptions of LLM-based, agentic closed-loop validation tools, with participants spanning RE, data science, development, and compliance roles. Our results show that, although the EU AI Act is viewed as highly relevant, structured mechanisms to capture regulatory obligations, propagate updates into projects, and maintain lifecycle-wide traceability and evidence are often missing. Participants see LLM-based tools as promising for mapping obligations to requirements, assessing coverage, and organizing evidence, but express strong concerns about full automation and stress the need for safeguards. Based on these findings, we outline minimum requirements for an EU AI Act-ready closed-loop approach.",
+                    "authors": [
+                      "T. Y. Emmy Lai",
+                      "Sven Giesselbach",
+                      "Matthias Koch",
+                      "Héctor Allende-Cid"
+                    ],
+                    "published": "2026-05-18T13:02:16Z",
+                    "updated": "2026-05-18T13:02:16Z",
+                    "url": "http://arxiv.org/abs/2607.21608v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.21608v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.SE",
+                    "categories": [
+                      "cs.SE",
+                      "cs.AI",
+                      "cs.CL",
+                      "cs.CY"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2606.25526v1",
+                    "title": "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning",
+                    "summary": "Cooperative multi-agent reinforcement learning assumes each agent shares the same reward function and can be trained effectively using the Trust Region framework of single-agent. Instead of relying on other agents' actions, the independent actors setting considers each agent to act based only on its local information, thus having more flexible applications. However, in the sequential update framework, it is required to re-estimate the joint advantage function after each individual agent's policy step. Despite the practical success of importance sampling, the updated advantage function suffers from exponentially high variance problems, which likely result in unstable convergence. In this work, we first analyze the high variance advantage both empirically and theoretically. To overcome this limitation, we introduce a clipping objective to control the upper bounds of the advantage fluctuation in sequential updates. With the proposed objective, we provide a monotonic bound with sub-linear convergence to $ε$-Nash Equilibria. We further derive two new practical algorithms using our clipping objective. The experiment results on three popular multi-agent reinforcement learning benchmarks show that our proposed method outperforms the tested baselines in most environments. By carefully analyzing different training settings, our proposed method is highlighted with both stable convergence properties and the desired low advantage variance estimation. For reproducibility purposes, our source code is publicly available at https://github.com/giangbang/Low-Variance-Trust-Region-MARL.",
+                    "authors": [
+                      "Bang Giang Le",
+                      "Viet Cuong Ta"
+                    ],
+                    "published": "2026-06-24T08:05:11Z",
+                    "updated": "2026-06-24T08:05:11Z",
+                    "url": "http://arxiv.org/abs/2606.25526v1",
+                    "pdf_url": "https://arxiv.org/pdf/2606.25526v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.LG",
+                    "categories": [
+                      "cs.LG",
+                      "cs.MA"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.07109v1",
+                    "title": "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act",
+                    "summary": "The EU Cyber Resilience Act (CRA) makes a smart bet. It does not demand that products be free of vulnerabilities, but only that manufacturers run a process: assess risk, handle flaws, ship updates. The bet pays off if four things about the world stay true: (P1) finding vulnerabilities is slow, skilled, human work; (P2) a product's exploitable flaws are knowable the day it ships; (P3) exploitation is rare enough to notice; and (P4) fixes keep pace with discovery. Cybersecurity AI (CAI) agents, AI put to work finding and exploiting flaws in other products, falsify all four. The regime answers in two opposite ways. Against the sheer volume of flaws that agents surface it bends (P1): built for scarce attention, it re-centres compliance on defensible, documented prioritisation, and holds. But agents also collapse the speed and economics of the vulnerability lifecycle, and here it breaks (P2, P3, P4): a product that passed every check becomes exploitable without anyone touching it, so its market-entry test, its reporting trigger, and its one-and-done certificate vouch for a security that has quietly expired. The fault is in the landscape, not the product, so running the process more diligently cannot repair it. We map each mechanism to the force that strains or snaps it, and find the cure and the disease cut from the same cloth: because defenders and attackers wield the same AI, the only conformity that survives is one that never stops running. We also carry the remedy from proposal to proof on two CRA-scope robots, a humanoid and a lawn mower, where an agentic defender holds a line their undefended selves cannot. On the evidence already in hand, the CRA reaches full force in December 2027 certifying products against a world that has already changed. Static, human-paced security is finished; what replaces it must be continuous and agent-operated, and that is no longer a matter of taste.",
+                    "authors": [
+                      "Víctor Mayoral-Vilches"
+                    ],
+                    "published": "2026-07-08T07:50:49Z",
+                    "updated": "2026-07-08T07:50:49Z",
+                    "url": "http://arxiv.org/abs/2607.07109v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.07109v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CR",
+                    "categories": [
+                      "cs.CR"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.12742v1",
+                    "title": "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control",
+                    "summary": "Encrypted control lets a cloud coordinate a fleet of agents on fully homomorphically encrypted state, keeping their positions and commands private. The approximate scheme for real-valued control, CKKS, returns decryptions that carry the encryption noise, a key-recovery leak; the loop must decrypt to actuate, so the leak is unavoidable. Yet the security of approximate FHE is studied statically, encrypted control assumes an honest-but-curious cloud, and persistent-threat games never reach inside the cryptosystem. We model the loop's security under an advanced persistent threat as a two-phase game, passive reconnaissance then active manipulation, separated by a measured residual detector that sees only the manipulation. The passive phase reduces to the known flooding tradeoff; the active defense is re-keying, not bootstrapping, since only re-keying resets accumulated leakage. The active phase is a detection-evasion timing game: overt manipulation is caught, so the rational adversary stays stealthy, and at its Stackelberg equilibrium the defender re-keys on the laziest cadence that denies it, set by the control-theoretic fragility of the graph topology. The marginally-stable graph must re-key far more often than the well-connected one. A three-way tension among FHE precision, control accuracy, and re-key cadence sets where this game lives, between a securability floor and a static-suffices ceiling. The efficient secure point is that window, where re-keying is the price of precision efficiency. More broadly, security for an approximate cryptosystem in a feedback loop is a dynamic game whose defender's move is the scheme's own refresh, applying beyond control to any system that must repeatedly decrypt to act.",
+                    "authors": [
+                      "Sai Sandeep Damera",
+                      "John S. Baras"
+                    ],
+                    "published": "2026-07-14T13:13:13Z",
+                    "updated": "2026-07-14T13:13:13Z",
+                    "url": "http://arxiv.org/abs/2607.12742v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.12742v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CR",
+                    "categories": [
+                      "cs.CR",
+                      "cs.GT",
+                      "eess.SY"
+                    ]
+                  }
+                ],
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Here are some relevant papers related to \"Re Act agent\":\n\n1. **[C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage](http://arxiv.org/abs/2607.25828v1)**\n   - **Authors**: Pau Baguer, J. Xavier Salvat Lozano, Gines Garcia-Aviles, Xavier Costa-Pérez\n   - **Published**: July 28, 2026\n   - **Summary**: This paper introduces C-RE-ACT, an automated agentic triage framework designed to generate actionable incident reports in O-RAN architectures. It addresses performance-degradation attacks and demonstrates high accuracy in identifying root causes of incidents.\n\n2. **[From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE](http://arxiv.org/abs/2607.21608v1)**\n   - **Authors**: T. Y. Emmy Lai, Sven Giesselbach, Matthias Koch, Héctor Allende-Cid\n   - **Published**: May 18, 2026\n   - **Summary**: This survey discusses the implications of the EU AI Act on Requirements Engineering (RE) and explores the potential of LLM-based agentic validation tools to help organizations meet new obligations.\n\n3. **[Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning](http://arxiv.org/abs/2606.25526v1)**\n   - **Authors**: Bang Giang Le, Viet Cuong Ta\n   - **Published**: June 24, 2026\n   - **Summary**: This paper presents a method for cooperative multi-agent reinforcement learning that addresses high variance issues in advantage estimation, proposing a clipping objective for improved stability.\n\n4. **[Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act](http://arxiv.org/abs/2607.07109v1)**\n   - **Author**: Víctor Mayoral-Vilches\n   - **Published**: July 8, 2026\n   - **Summary**: The paper critiques the EU Cyber Resilience Act, arguing that AI agents can undermine its effectiveness by rapidly identifying and exploiting vulnerabilities, thus challenging traditional security measures.\n\n5. **[Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control](http://arxiv.org/abs/2607.12742v1)**\n   - **Authors**: Sai Sandeep Damera, John S. Baras\n   - **Published**: July 14, 2026\n   - **Summary**: This work models the security of encrypted control systems in a multi-agent context, proposing a dynamic game approach to manage security risks associated with decryption and control.\n\nFeel free to ask if you need more information on any specific paper!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "Re Act agent",
+            "max_results": 5,
+            "sort_by": "relevance"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "Re Act agent",
+            "api_query": "all:Re AND all:Act AND all:agent",
+            "total_results": 76,
+            "items": [
+              {
+                "arxiv_id": "2607.25828v1",
+                "title": "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage",
+                "summary": "The shift to O-RAN architectures marks a turning point in cellular security, where increased openness and modularity directly translate into a broader attack surface. Among the security threats cataloged by the O-RAN Alliance Working Group 11, performance-degradation attacks constitute the largest class. These attacks induce packet losses and latency spikes that are hard to distinguish from operational events such as misconfigurations, transient congestion, or software regressions. Consequently, upon an adverse incident detection, support engineers must rapidly determine whether to route the corresponding incident ticket to network maintenance or escalate it to security operations. This triage phase represents a critical human-in-the-loop bottleneck in the incident response lifecycle. To address this vulnerability, we introduce C-RE-ACT (Causal RE-ACTing agent), an automated agentic triage framework designed to generate actionable incident reports. C-RE-ACT starts constructing a Weighted Directed Acyclic Graph (WDAG) over O-RAN metrics using the Structural Agnostic Model (SAM). The resulting causal topology is encoded into a continuous soft token via a Graph Isomorphism Network (GIN) aligned with the language space of the Large Language Model (LLM) powering a ReAct agent. We evaluate C-RE-ACT on a physical, O-RAN-compliant testbed across 140 distinct performance-degradation experiments. Empirical results demonstrate the causal ranking isolates the correct root cause within the top three candidates in 89% of instances. Furthermore, graph soft-prompting improves LLM accuracy on causal-topology queries from 0.22 (text-only baseline) to 0.72. The autonomous agent achieves anomaly classification accuracies of 83% for delay anomalies and 84% for packet-loss anomalies.",
+                "authors": [
+                  "Pau Baguer",
+                  "J. Xavier Salvat Lozano",
+                  "Gines Garcia-Aviles",
+                  "Xavier Costa-Pérez"
+                ],
+                "published": "2026-07-28T15:07:47Z",
+                "updated": "2026-07-28T15:07:47Z",
+                "url": "http://arxiv.org/abs/2607.25828v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25828v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.NI",
+                "categories": [
+                  "cs.NI"
+                ]
+              },
+              {
+                "arxiv_id": "2607.21608v1",
+                "title": "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE",
+                "summary": "With the EU AI Act entering into force, organizations developing or operating AI systems face new obligations on transparency, risk management, and traceability. For Requirements Engineering (RE), these obligations must be translated into testable, auditable requirements and verifiable evidence. However, many organizations currently lack systematic processes to achieve this. We hypothesize that LLM-based agentic validation tools can support this translation, thereby helping to close this gap. We present a mixed-method exploratory study with expert interviews (N=10) and an online survey (N=15) to assess organizational preparedness for EU AI Act-oriented RE and perceptions of LLM-based, agentic closed-loop validation tools, with participants spanning RE, data science, development, and compliance roles. Our results show that, although the EU AI Act is viewed as highly relevant, structured mechanisms to capture regulatory obligations, propagate updates into projects, and maintain lifecycle-wide traceability and evidence are often missing. Participants see LLM-based tools as promising for mapping obligations to requirements, assessing coverage, and organizing evidence, but express strong concerns about full automation and stress the need for safeguards. Based on these findings, we outline minimum requirements for an EU AI Act-ready closed-loop approach.",
+                "authors": [
+                  "T. Y. Emmy Lai",
+                  "Sven Giesselbach",
+                  "Matthias Koch",
+                  "Héctor Allende-Cid"
+                ],
+                "published": "2026-05-18T13:02:16Z",
+                "updated": "2026-05-18T13:02:16Z",
+                "url": "http://arxiv.org/abs/2607.21608v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.21608v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.SE",
+                "categories": [
+                  "cs.SE",
+                  "cs.AI",
+                  "cs.CL",
+                  "cs.CY"
+                ]
+              },
+              {
+                "arxiv_id": "2606.25526v1",
+                "title": "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning",
+                "summary": "Cooperative multi-agent reinforcement learning assumes each agent shares the same reward function and can be trained effectively using the Trust Region framework of single-agent. Instead of relying on other agents' actions, the independent actors setting considers each agent to act based only on its local information, thus having more flexible applications. However, in the sequential update framework, it is required to re-estimate the joint advantage function after each individual agent's policy step. Despite the practical success of importance sampling, the updated advantage function suffers from exponentially high variance problems, which likely result in unstable convergence. In this work, we first analyze the high variance advantage both empirically and theoretically. To overcome this limitation, we introduce a clipping objective to control the upper bounds of the advantage fluctuation in sequential updates. With the proposed objective, we provide a monotonic bound with sub-linear convergence to $ε$-Nash Equilibria. We further derive two new practical algorithms using our clipping objective. The experiment results on three popular multi-agent reinforcement learning benchmarks show that our proposed method outperforms the tested baselines in most environments. By carefully analyzing different training settings, our proposed method is highlighted with both stable convergence properties and the desired low advantage variance estimation. For reproducibility purposes, our source code is publicly available at https://github.com/giangbang/Low-Variance-Trust-Region-MARL.",
+                "authors": [
+                  "Bang Giang Le",
+                  "Viet Cuong Ta"
+                ],
+                "published": "2026-06-24T08:05:11Z",
+                "updated": "2026-06-24T08:05:11Z",
+                "url": "http://arxiv.org/abs/2606.25526v1",
+                "pdf_url": "https://arxiv.org/pdf/2606.25526v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG",
+                  "cs.MA"
+                ]
+              },
+              {
+                "arxiv_id": "2607.07109v1",
+                "title": "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act",
+                "summary": "The EU Cyber Resilience Act (CRA) makes a smart bet. It does not demand that products be free of vulnerabilities, but only that manufacturers run a process: assess risk, handle flaws, ship updates. The bet pays off if four things about the world stay true: (P1) finding vulnerabilities is slow, skilled, human work; (P2) a product's exploitable flaws are knowable the day it ships; (P3) exploitation is rare enough to notice; and (P4) fixes keep pace with discovery. Cybersecurity AI (CAI) agents, AI put to work finding and exploiting flaws in other products, falsify all four. The regime answers in two opposite ways. Against the sheer volume of flaws that agents surface it bends (P1): built for scarce attention, it re-centres compliance on defensible, documented prioritisation, and holds. But agents also collapse the speed and economics of the vulnerability lifecycle, and here it breaks (P2, P3, P4): a product that passed every check becomes exploitable without anyone touching it, so its market-entry test, its reporting trigger, and its one-and-done certificate vouch for a security that has quietly expired. The fault is in the landscape, not the product, so running the process more diligently cannot repair it. We map each mechanism to the force that strains or snaps it, and find the cure and the disease cut from the same cloth: because defenders and attackers wield the same AI, the only conformity that survives is one that never stops running. We also carry the remedy from proposal to proof on two CRA-scope robots, a humanoid and a lawn mower, where an agentic defender holds a line their undefended selves cannot. On the evidence already in hand, the CRA reaches full force in December 2027 certifying products against a world that has already changed. Static, human-paced security is finished; what replaces it must be continuous and agent-operated, and that is no longer a matter of taste.",
+                "authors": [
+                  "Víctor Mayoral-Vilches"
+                ],
+                "published": "2026-07-08T07:50:49Z",
+                "updated": "2026-07-08T07:50:49Z",
+                "url": "http://arxiv.org/abs/2607.07109v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.07109v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CR",
+                "categories": [
+                  "cs.CR"
+                ]
+              },
+              {
+                "arxiv_id": "2607.12742v1",
+                "title": "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control",
+                "summary": "Encrypted control lets a cloud coordinate a fleet of agents on fully homomorphically encrypted state, keeping their positions and commands private. The approximate scheme for real-valued control, CKKS, returns decryptions that carry the encryption noise, a key-recovery leak; the loop must decrypt to actuate, so the leak is unavoidable. Yet the security of approximate FHE is studied statically, encrypted control assumes an honest-but-curious cloud, and persistent-threat games never reach inside the cryptosystem. We model the loop's security under an advanced persistent threat as a two-phase game, passive reconnaissance then active manipulation, separated by a measured residual detector that sees only the manipulation. The passive phase reduces to the known flooding tradeoff; the active defense is re-keying, not bootstrapping, since only re-keying resets accumulated leakage. The active phase is a detection-evasion timing game: overt manipulation is caught, so the rational adversary stays stealthy, and at its Stackelberg equilibrium the defender re-keys on the laziest cadence that denies it, set by the control-theoretic fragility of the graph topology. The marginally-stable graph must re-key far more often than the well-connected one. A three-way tension among FHE precision, control accuracy, and re-key cadence sets where this game lives, between a securability floor and a static-suffices ceiling. The efficient secure point is that window, where re-keying is the price of precision efficiency. More broadly, security for an approximate cryptosystem in a feedback loop is a dynamic game whose defender's move is the scheme's own refresh, applying beyond control to any system that must repeatedly decrypt to act.",
+                "authors": [
+                  "Sai Sandeep Damera",
+                  "John S. Baras"
+                ],
+                "published": "2026-07-14T13:13:13Z",
+                "updated": "2026-07-14T13:13:13Z",
+                "url": "http://arxiv.org/abs/2607.12742v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.12742v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CR",
+                "categories": [
+                  "cs.CR",
+                  "cs.GT",
+                  "eess.SY"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T12:10:16"
+    },
+    {
+      "turn_index": 2,
+      "started_at": "2026-07-29T12:13:46",
+      "user": "tóm tắt các bài báo trên đi ",
+      "status": "answered",
+      "assistant_text": "Here are the summaries of the selected papers related to \"Re Act agent\":\n\n1. **[C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage](https://arxiv.org/abs/2607.25828v1)**\n   - **Authors**: Pau Baguer, J. Xavier Salvat Lozano, Gines Garcia-Aviles, Xavier Costa-Pérez\n   - **Summary**: This paper introduces C-RE-ACT, an automated triage framework for Open RAN (O-RAN) architectures, which enhances incident response by generating actionable reports. The framework constructs a causal graph from O-RAN metrics and utilizes a Large Language Model (LLM) to produce structured triage reports. The evaluation shows that C-RE-ACT can accurately identify root causes of performance-degradation incidents in 89% of cases, significantly improving response times and anomaly classification accuracy.\n\n2. **[From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE](https://arxiv.org/abs/2607.21608v1)**\n   - **Authors**: T.Y. Emmy Lai, Sven Giesselbach, Matthias Koch, Héctor Allende-Cid\n   - **Summary**: This survey discusses the implications of the EU AI Act on Requirements Engineering (RE). It highlights the need for organizations to translate new regulatory obligations into testable requirements. The study reveals that while the EU AI Act is seen as relevant, many organizations lack structured processes for compliance. The authors propose that LLM-based validation tools could assist in mapping obligations to requirements and maintaining traceability.\n\n3. **[Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning](https://arxiv.org/abs/2606.25526v1)**\n   - **Authors**: Bang Giang Le, Viet Cuong Ta\n   - **Summary**: This paper addresses the challenges of high variance in cooperative multi-agent reinforcement learning. The authors propose a clipping objective to stabilize the advantage function during updates, leading to improved convergence properties. Experimental results demonstrate that their method outperforms existing baselines in various environments, providing both stable convergence and low variance in advantage estimation.\n\n4. **[Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act](https://arxiv.org/abs/2607.07109v1)**\n   - **Author**: Víctor Mayoral-Vilches\n   - **Summary**: This paper critiques the EU Cyber Resilience Act, arguing that AI agents can undermine its effectiveness by rapidly identifying and exploiting vulnerabilities. The author discusses how the reliance on human-paced security processes is insufficient in the face of AI-driven threats, suggesting that continuous, agent-operated security measures are necessary to maintain compliance and protect against evolving risks.\n\n5. **[Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control](https://arxiv.org/abs/2607.12742v1)**\n   - **Authors**: Sai Sandeep Damera, John S. Baras\n   - **Summary**: This paper models the security of encrypted control systems in a multi-agent context, focusing on the challenges posed by persistent threats. The authors propose a two-phase game model to analyze the security of feedback loops under advanced threats, emphasizing the importance of re-keying to mitigate information leakage. The findings highlight the dynamic nature of security in encrypted systems and the need for adaptive strategies to maintain control accuracy and security.\n\nIf you need further details or specific insights from any of these papers, feel free to ask!",
+      "history_window": 5,
+      "max_tool_rounds": 4,
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "paper_text",
+              "args": {
+                "arxiv_url": "http://arxiv.org/abs/2607.25828v1",
+                "max_pages": 1
+              }
+            },
+            {
+              "name": "paper_text",
+              "args": {
+                "arxiv_url": "http://arxiv.org/abs/2607.21608v1",
+                "max_pages": 1
+              }
+            },
+            {
+              "name": "paper_text",
+              "args": {
+                "arxiv_url": "http://arxiv.org/abs/2606.25526v1",
+                "max_pages": 1
+              }
+            },
+            {
+              "name": "paper_text",
+              "args": {
+                "arxiv_url": "http://arxiv.org/abs/2607.07109v1",
+                "max_pages": 1
+              }
+            },
+            {
+              "name": "paper_text",
+              "args": {
+                "arxiv_url": "http://arxiv.org/abs/2607.12742v1",
+                "max_pages": 1
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "paper_text",
+              "args": {
+                "arxiv_url": "http://arxiv.org/abs/2607.25828v1",
+                "max_pages": 1
+              },
+              "result": {
+                "tool": "get_arxiv_paper_text",
+                "arxiv_id": "2607.25828v1",
+                "url": "https://arxiv.org/abs/2607.25828v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25828v1.pdf",
+                "pdf_path": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/arxiv_papers/2607.25828v1.pdf",
+                "txt_path": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/arxiv_papers/2607.25828v1.txt",
+                "page_count": 19,
+                "pages_read": 1,
+                "chars_returned": 4126,
+                "items": [
+                  {
+                    "title": "arXiv paper 2607.25828v1",
+                    "url": "https://arxiv.org/abs/2607.25828v1",
+                    "source": "arxiv.org",
+                    "summary": "This work has been submitted to the IEEE for possible publication. Copyright may be transferred without notice, after which this version may no\nlonger be accessible.\nC-RE-ACT: Causal RE-ACTing Agent\nfor O-RAN Forensic Triage\nPau Baguer1, J. Xavier Salvat Lozano 2,3, Gines Garcia-Aviles 1, and Xavier\nCosta-P ´erez 1,2,4 (Senior Member, IEEE)\n1i2CAT Foundation, 08034 Barcelona, Spain\n2NEC Laboratories Europe GmbH, 69115 Heidelberg, Germany\n3Universitat Autonoma de Barcelona, 08193 Barcelona, Spain\n4ICREA, 08010 Barcelona, Spain\nCORRESPONDING AUTHOR: Gines Garcia-Aviles (e-mail: gines.garcia@i2cat.net).\nThis work was supported in part by the ORIGAMI Project under Grant 101139270; in part by the CERCA Programme from the Generalitat\nde Catalunya through the ICREA programme; and in part by the funding received from Department de Recerca I Universitats, Generalitat de\nCatalunya for this project\nABSTRACTThe shift to Open RAN (O-RAN) architectures marks a turning point in cellular security,\nwhere increased openness and modularity directly translate into a broader and more intricate attack\nsurface, as disaggregated components and open interfaces introduce additional vectors for misconfiguration,\nfailure, and exploitation. Among the security threats cataloged by the O-RAN Alliance Working Group\n11, performance-degradation attacks constitute the largest class. These attacks induce packet losses and\nlatency spikes that are hard to distinguish from operational events such as misconfigurations, transient\ncongestion, or software regressions. Consequently, upon an adverse incident detection, support engineers\nmust rapidly determine whether to route the corresponding incident ticket to network maintenance or\nescalate it to security operations. This triage phase represents a critical human-in-the-loop bottleneck\nin the incident response lifecycle. To address this vulnerability, we introduce C-RE-ACT (Causal RE-\nACTing agent), an automated agentic triage framework designed to generate actionable incident reports.\nC-RE-ACT starts constructing a Weighted Directed Acyclic Graph (WDAG) over O-RAN metrics using\nthe Structural Agnostic Model (SAM). The resulting causal topology is encoded into a continuous soft\ntoken via a Graph Isomorphism Network (GIN) aligned with the language space of the Large Language\nModel (LLM) powering a ReAct agent. Reasoning over this embedded causal graph, the agent outputs\nstructured triage reports to accelerate response times. We evaluate C-RE-ACT on a physical, O-RAN-\ncompliant testbed across 140 distinct performance-degradation experiments. Empirical results demonstrate\nthe causal ranking isolates the correct root cause within the top three candidates in 89% of instances.\nFurthermore, graph soft-prompting improves LLM accuracy on causal-topology queries from 0.22 (text-\nonly baseline) to 0.72. The autonomous agent achieves anomaly classification accuracies of 83% for delay\nanomalies and 84% for packet-loss anomalies.\nINDEX TERMSAgentic AI, Causal discovery, Incident Triage, Large Language Models, O-RAN Security\nI. INTRODUCTION\nThe transition of current mobile networks towards the\nOpen Radio Access Network (O-RAN) architecture [1]–\n[5] promises an open, virtualized, and disaggregated system\nwith greater flexibility and cost efficiency. However, the dis-\naggregation of traditional monolithic network functions into\nmultiple separated components gives rise to a substantially\nmore complex security landscape, with a greater number of\ninteracting components from (possibly) different providers\nand an expanded attack surface. This complex picture is\ncompounded by the hierarchical, one-to-many topology of\nthe O-RAN architecture: a single O-CU serves multiple O-\nDUs, each of which in turn serves multiple O-RUs [6], [7].\nAttacking interfaces higher in the network’s hierarchy (e.g.\nthe F1-C or F1-U) can degrade service for an entire cluster\nof cells simultaneously.\nThis work is licensed under a Creative Commons Attribution 4.0 License. For more information, see https://creativecommons.org/licenses/by/4.0/\nVOLUME , 1\narXiv:2607.25828v1  [cs.NI]  28 Jul 2026"
+                  }
+                ]
+              }
+            },
+            {
+              "tool": "paper_text",
+              "args": {
+                "arxiv_url": "http://arxiv.org/abs/2607.21608v1",
+                "max_pages": 1
+              },
+              "result": {
+                "tool": "get_arxiv_paper_text",
+                "arxiv_id": "2607.21608v1",
+                "url": "https://arxiv.org/abs/2607.21608v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.21608v1.pdf",
+                "pdf_path": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/arxiv_papers/2607.21608v1.pdf",
+                "txt_path": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/arxiv_papers/2607.21608v1.txt",
+                "page_count": 11,
+                "pages_read": 1,
+                "chars_returned": 5648,
+                "items": [
+                  {
+                    "title": "arXiv paper 2607.21608v1",
+                    "url": "https://arxiv.org/abs/2607.21608v1",
+                    "source": "arxiv.org",
+                    "summary": "From Obligation to Specification: A Survey on\nValidating EU AI Act Requirements in RE\nT.Y . Emmy Lai∗,\n Sven Giesselbach †,\n Matthias Koch‡,\n H´ector Allende-Cid ∗\n∗Fraunhofer IAIS, Sankt Augustin, Germany\n†T-Systems International GmbH, Bonn, Germany\n‡Fraunhofer IESE, Kaiserslautern, Germany\n{emmy.lai, hector.allende-cid}@iais.fraunhofer.de sven.giesselbach@t-systems.com matthias.koch@iese.fraunhofer.de\nAbstract—With the EU AI Act entering into force, orga-\nnizations developing or operating AI systems face new obli-\ngations on transparency, risk management, and traceability.\nFor Requirements Engineering (RE), these obligations must be\ntranslated into testable, auditable requirements and verifiable\nevidence. However, many organizations currently lack systematic\nprocesses to achieve this. We hypothesize that LLM-based agentic\nvalidation tools can support this translation, thereby helping to\nclose this gap.\nWe present a mixed-method exploratory study with expert\ninterviews (N=10) and an online survey (N=15) to assess or-\nganizational preparedness for EU AI Act-oriented RE and\nperceptions of LLM-based, agentic closed-loop validation tools,\nwith participants spanning RE, data science, development, and\ncompliance roles. Our results show that, although the EU AI Act\nis viewed as highly relevant, structured mechanisms to capture\nregulatory obligations, propagate updates into projects, and\nmaintain lifecycle-wide traceability and evidence are often miss-\ning. Participants see LLM-based tools as promising for mapping\nobligations to requirements, assessing coverage, and organizing\nevidence, but express strong concerns about full automation and\nstress the need for safeguards. Based on these findings, we outline\nminimum requirements for an EU AI Act-ready closed-loop\napproach.\nIndex Terms—EU AI Act, Requirements Validation, Com-\npliance, Quality Requirements, Agent-Based Systems, Mixed-\nmethods exploratory study\nI. INTRODUCTION\nArtificial intelligence (AI) systems are increasingly used\nin critical domains such as healthcare, public administration,\nfinance, and automotive systems [1]–[3]. For these systems,\nRequirements Engineering (RE) must address not only func-\ntional and traditional quality requirements, but also regulatory,\nethical, and risk-related constraints [4]–[6]. The entry into\nforce of the European Artificial Intelligence Act (EU AI\nAct) defines explicit obligations for “high-risk” AI systems,\nincluding requirements for risk management, data governance,\ndocumentation, transparency, human oversight, robustness, ac-\ncuracy, and cybersecurity [7].\nFor organizations developing or deploying AI systems in\nEurope, this introduces a new compliance layer. In terms of RE\npractice, this creates a moving target: obligations must be re-\nflected in concrete, testable project requirements and evidence\nartifacts. High-level legal and normative obligations must be\ntranslated into high-level requirements (HLRs), refined into\ntestable, low-level requirements (LLRs), and traced to design,\nimplementation, and evidence artifacts throughout the system\nlifecycle. Because the EU AI Act is recent and standards and\nguidance are still evolving, many teams must prepare under\nregulatory uncertainty while ensuring that their RE and quality\nmanagement processes are ’EU AI Act-ready’.\nExperience from safety-critical and regulated domains sug-\ngests that aligning requirements with regulations, maintaining\ntraceability, and validating quality and risk requirements are\ndemanding and often labour-intensive tasks [1]. In the specific\ncontext of the EU AI Act, several questions remain open from\nan RE perspective [2], [3], [8]. It is unclear how far orga-\nnizations have progressed in building governance structures\nfor AI-Act-oriented RE, for example whether they maintain\nstructured views on applicable obligations, how regulatory\nchanges are propagated into RE and quality management\nprocesses, and to what extent roles, policies, and monitoring\nmechanisms have been defined. Likewise, we lack empirical\ninsight into how practitioners validate EU AI Act-related\nrequirements, which activities they perform, how much effort\nthey spend on mapping obligations and checking coverage, and\nwhere they see the greatest risks in the next 12–24 months.\nRecent advances in Large Language Models (LLMs) and\nMulti-Agent Systems (MAS) are being explored to support\nRE activities [9]–[11]. These explorations have been comple-\nmented by studies such as XTRAREG [12] and LLM-based\ntraceability recovery [13], which demonstrate the potential of\nLLMs in extracting and recovering requirements from legal\ntexts and supplementary sources. We envision an LLM-based\nagentic closed-loop that translates a curated knowledge base\non EU AI regulations into structured checklists and validation\ncriteria for RE. Specialized validation agents continuously map\nHLRs to project-specific LLRs, assess coverage, consistency,\nand traceability across RE artifacts, and support findings with\nreferences to source documents. Human-in-the-loop (HITL)\nreviews, policy gates, and audit logs feed back into the knowl-\nedge base, creating a transparent validation cycle that reduces\nmanual effort while ensuring regulatory control. With this in\nmind, we hypothesize that an LLM-based agentic closed-loop\napproach could be used for EU AI Act validation, where agents\nuse structured regulatory knowledge, requirements artifacts,\nand evaluation data to ensure adherence to the regulation: (i)\nMap AI Act obligations to project-specific requirements, (ii)\nAssess coverage, consistency, and traceability, and (iii) Collect\narXiv:2607.21608v1  [cs.SE]  18 May 2026"
+                  }
+                ]
+              }
+            },
+            {
+              "tool": "paper_text",
+              "args": {
+                "arxiv_url": "http://arxiv.org/abs/2606.25526v1",
+                "max_pages": 1
+              },
+              "result": {
+                "tool": "get_arxiv_paper_text",
+                "arxiv_id": "2606.25526v1",
+                "url": "https://arxiv.org/abs/2606.25526v1",
+                "pdf_url": "https://arxiv.org/pdf/2606.25526v1.pdf",
+                "pdf_path": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/arxiv_papers/2606.25526v1.pdf",
+                "txt_path": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/arxiv_papers/2606.25526v1.txt",
+                "page_count": 36,
+                "pages_read": 1,
+                "chars_returned": 2164,
+                "items": [
+                  {
+                    "title": "arXiv paper 2606.25526v1",
+                    "url": "https://arxiv.org/abs/2606.25526v1",
+                    "source": "arxiv.org",
+                    "summary": "Low Variance Trust Region Optimization with\nIndependent Actors and Sequential Updates in\nCooperative Multi-agent Reinforcement Learning\nBang Giang Le1 and Viet Cuong Ta1*\n1Human Machine Interaction Laboratory, VNU University of Engineering\nand Technology, 144 Xuan Thuy, Cau Giay, 100000, Hanoi, Vietnam.\n*Corresponding author(s). E-mail(s): cuongtv@vnu.edu.vn;\nContributing authors: giangbang@vnu.edu.vn;\nAbstract\nCooperative multi-agent reinforcement learning assumes each agent shares the\nsame reward function and can be trained effectively using the Trust Region frame-\nwork of single-agent. Instead of relying on other agents’ actions, the independent\nactors setting considers each agent to act based only on its local information, thus\nhaving more flexible applications. However, in the sequential update framework,\nit is required to re-estimate the joint advantage function after each individual\nagent’s policy step. Despite the practical success of importance sampling, the\nupdated advantage function suffers from exponentially high variance problems,\nwhich likely results in unstable convergence. In this work, we first analyze the high\nvariance advantage both empirically and theoretically. To overcome this limitation,\nwe introduce a clipping objective to control the upper bounds of the advantage\nfluctuation in sequential updates. With the proposed objective, we provide a\nmonotonic bound with sub-linear convergence to ε-Nash Equilibria. We further\nderive two new practical algorithms using our clipping objective. The experiment\nresults on three popular multi-agent reinforcement learning benchmarks show that\nour proposed method outperforms the tested baselines in most environments. By\ncarefully analyzing different training settings, our proposed method is highlighted\nwith both stable convergence properties and the desired low advantage variance\nestimation. For reproducibility purposes, our source code is publicity available at\nhttps://github.com/giangbang/Low-Variance-Trust-Region-MARL\nKeywords:Multi-agent Reinforcement Learning, Trust Region Policy Optimization,\nLow Variance, Independent Actors\n1\narXiv:2606.25526v1  [cs.LG]  24 Jun 2026"
+                  }
+                ]
+              }
+            },
+            {
+              "tool": "paper_text",
+              "args": {
+                "arxiv_url": "http://arxiv.org/abs/2607.07109v1",
+                "max_pages": 1
+              },
+              "result": {
+                "tool": "get_arxiv_paper_text",
+                "arxiv_id": "2607.07109v1",
+                "url": "https://arxiv.org/abs/2607.07109v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.07109v1.pdf",
+                "pdf_path": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/arxiv_papers/2607.07109v1.pdf",
+                "txt_path": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/arxiv_papers/2607.07109v1.txt",
+                "page_count": 17,
+                "pages_read": 1,
+                "chars_returned": 4742,
+                "items": [
+                  {
+                    "title": "arXiv paper 2607.07109v1",
+                    "url": "https://arxiv.org/abs/2607.07109v1",
+                    "source": "arxiv.org",
+                    "summary": "Certifying Ghosts: How Cybersecurity AI\nAgents Break the EU Cyber Resilience Act\nVíctor Mayoral-Vilches\nAlias Robotics\nThe EU Cyber Resilience Act (cra, Regulation (EU) 2024/2847) makes a smart bet. It does not demand that products be free of\nvulnerabilities, a promise no software can keep, but only that manufacturersrun a process: assess risk, handle flaws, ship updates. The\nbet pays off only while four things about the world stay true:P1 finding vulnerabilities is slow, skilled, human work;P2 a product’s\nexploitable flaws are knowable the day it ships;P3 exploitation is rare enough to notice; andP4 fixes keep pace with discovery.\nCybersecurity AI (cai) agents, AI put to work finding and exploiting flaws inotherproducts, falsify all four. The regime answers\nin two opposite ways. Against the sheervolumeof flaws that agents surface itbends(P1): built for scarce attention, it re-centres\ncompliance on defensible, documented prioritisation, and holds. But agents alsocollapsethe speed and economics of the vulnerability\nlifecycle, and here itbreaks( P2 P3 P4): a product that passed every check becomes exploitable without anyone touching it, so its\nmarket-entry test, its reporting trigger, and its one-and-done certificate vouch for a security that has quietly expired. The fault is in\nthe landscape, not the product, so running the process more diligently cannot repair it. Anchoring every legal claim in the enacted\ntext and every capability claim in dated results, we map each mechanism to the force that strains or snaps it, and find the cure and\nthe disease cut from the same cloth: because defenders and attackers wield the same AI, the only conformity that survives is one that\nnever stops running. We then carry the remedy from proposal to proof on twocra-scope robots, a humanoid and a lawn mower,\nwhere an agentic defender holds a line their undefended selves cannot. On the evidence already in hand, thecrareaches full force in\nDecember 2027 certifying products against a world that has already left the building. Static, human-paced security is finished; what\nreplaces it must be continuous and agent-operated, and that is no longer a matter of taste.\nCybersecurity AI (CAI) agents load the four premises the CRA’s process model rests on\ndiscovery is\nhuman-scarce\nP1\npostureknowable\nat a point in time\nP2\nexploitation a\ndiscrete event\nP3\nremediation\nkeeps pace\nP4\nstrained withdrawn\nBENDS\nthe process flexes under load and\nholds\nBREAKS\nthe process fractures; no re-run\nrestoresit\nStressor: volume & speed\nagents surface candidates far faster than humans triage;\ndiscovery is no longer scarce\nWhy the process holds\nthe CRA never promised zero vulnerabilities; it mandates a\nrisk-based handling process\nCompliance re-centres\nfrom remediation-completeness towarddemonstrable,\ndocumented prioritisation\nMechanisms that bend\nactively-exploited reporting (Art. 14)·24/72h cadence\ncoordinated disclosure·risk-based handling\n1\n2\n3\nStressor: landscape collapse\nagents change thetempo, cost & symmetryof the\nvulnerability lifecycle\nThe certificate goes stale\non-demand rediscovery: certified-secure→exploitable,\nwith no change to the product\nThe triggers stop firing\nexploitation is no longer discrete; the invalidating change\nis in theenvironment\nMechanisms that break\n“no known exploitable vulns”·actively-exploited trigger\npatch remediation·point-in-time conformity\n1\n2\n3\nBends is fixed by re-interpreting existing obligations(guidance, enforcement posture).Breaks requires\nnew regulatory constructs.The mismatch is with thelandscapethe CRA certifies against (stable, human-\npaced, discrete), not with any single product, and no re-run of the process restores a withdrawn premise.\nCAI The agent-native remedy:make conformitycontinuous and agent-operated, a CAI defender that re-establishes the certified posture at\nthe adversary’s tempo, moving security from a periodic human process to a live one (validated on two robots, §4).\nFigure 1: The central distinction.A process-oriented cybersecurity regime drawn as a loaded beam: under thesamerising load from\nCybersecurity AI (cai) agents it eitherbends(flexes and holds; left, teal) orbreaks(fractures irreparably; right, red). Agentsstrain\npremise P1, so the regime bends and compliance re-centres on demonstrable prioritisation; theywithdrawP2–P4, so it breaks, because the\nmechanisms encoding those premises certify a posture that no longer persists.bendsproblems yield to re-interpreting existing obligations;\nbreaksproblems require new constructs, because the mismatch is with the landscape, not any single product. A final band names the\nresolution: an agent-native remedy that makes conformitycontinuous and agent-operated(§4).\n1\narXiv:2607.07109v1  [cs.CR]  8 Jul 2026"
+                  }
+                ]
+              }
+            },
+            {
+              "tool": "paper_text",
+              "args": {
+                "arxiv_url": "http://arxiv.org/abs/2607.12742v1",
+                "max_pages": 1
+              },
+              "result": {
+                "tool": "get_arxiv_paper_text",
+                "arxiv_id": "2607.12742v1",
+                "url": "https://arxiv.org/abs/2607.12742v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.12742v1.pdf",
+                "pdf_path": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/arxiv_papers/2607.12742v1.pdf",
+                "txt_path": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/arxiv_papers/2607.12742v1.txt",
+                "page_count": 20,
+                "pages_read": 1,
+                "chars_returned": 2607,
+                "items": [
+                  {
+                    "title": "arXiv paper 2607.12742v1",
+                    "url": "https://arxiv.org/abs/2607.12742v1",
+                    "source": "arxiv.org",
+                    "summary": "Stability Buys Time: A Re-Keying Game for\nEncrypted Multi-Agent Control\nSai Sandeep Damera[0000−0003−3419−9719] and John S. Baras[0000−0002−4955−8561]\nUniversity of Maryland, College Park, USA\n{sdamera,baras}@umd.edu\nAbstract.Encrypted control lets a cloud coordinate a fleet of agents on\nfully homomorphically encrypted state, keeping their positions and com-\nmands private. The approximate scheme for real-valued control, CKKS,\nreturns decryptions that carry the encryption noise, a key-recovery leak;\ntheloopmustdecrypttoactuate,sotheleakisunavoidable.Yetthesecu-\nrity of approximate FHE is studied statically, encrypted control assumes\nan honest-but-curious cloud, and persistent-threat games never reach in-\nside the cryptosystem. We model the loop’s security under an advanced\npersistent threat as a two-phase game, passive reconnaissance then ac-\ntive manipulation, separated by a measured residual detector that sees\nonly the manipulation. The passive phase reduces to the known flooding\ntradeoff; the active defense is re-keying, not bootstrapping, since only\nre-keying resets accumulated leakage. The active phase is a detection-\nevasion timing game: overt manipulation is caught, so the rational ad-\nversary stays stealthy, and at its Stackelberg equilibrium the defender\nre-keys on the laziest cadence that denies it, set by the control-theoretic\nfragility of the graph topology. The marginally-stable graph must re-key\nfar more often than the well-connected one. A three-way tension among\nFHE precision, control accuracy, and re-key cadence sets where this game\nlives, between a securability floor and a static-suffices ceiling. The effi-\ncient secure point is that window, where re-keying is the price of precision\nefficiency. More broadly, security for an approximate cryptosystem in a\nfeedback loop is a dynamic game whose defender’s move is the scheme’s\nown refresh, applying beyond control to any system that must repeatedly\ndecrypt to act.\nKeywords:Fully Homomorphic Encryption·Encrypted Control·Ad-\nvancedPersistentThreats·Game-theoreticSecurity·StackelbergGames.\n1 Introduction\nAutonomous fleets increasingly offload coordination to the cloud: a server aggre-\ngates the agents’ states and returns their control commands. When the agents\noperate in sensitive settings, those states and commands are private, and fully\nhomomorphic encryption (FHE) lets the cloud run the entire control loop on\nencrypted data, so that neither the server nor a network eavesdropper sees\nplaintext [1,2]. Recent work carries this from single encrypted controllers to\narXiv:2607.12742v1  [cs.CR]  14 Jul 2026"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Here are the summaries of the selected papers related to \"Re Act agent\":\n\n1. **[C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage](https://arxiv.org/abs/2607.25828v1)**\n   - **Authors**: Pau Baguer, J. Xavier Salvat Lozano, Gines Garcia-Aviles, Xavier Costa-Pérez\n   - **Summary**: This paper introduces C-RE-ACT, an automated triage framework for Open RAN (O-RAN) architectures, which enhances incident response by generating actionable reports. The framework constructs a causal graph from O-RAN metrics and utilizes a Large Language Model (LLM) to produce structured triage reports. The evaluation shows that C-RE-ACT can accurately identify root causes of performance-degradation incidents in 89% of cases, significantly improving response times and anomaly classification accuracy.\n\n2. **[From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE](https://arxiv.org/abs/2607.21608v1)**\n   - **Authors**: T.Y. Emmy Lai, Sven Giesselbach, Matthias Koch, Héctor Allende-Cid\n   - **Summary**: This survey discusses the implications of the EU AI Act on Requirements Engineering (RE). It highlights the need for organizations to translate new regulatory obligations into testable requirements. The study reveals that while the EU AI Act is seen as relevant, many organizations lack structured processes for compliance. The authors propose that LLM-based validation tools could assist in mapping obligations to requirements and maintaining traceability.\n\n3. **[Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning](https://arxiv.org/abs/2606.25526v1)**\n   - **Authors**: Bang Giang Le, Viet Cuong Ta\n   - **Summary**: This paper addresses the challenges of high variance in cooperative multi-agent reinforcement learning. The authors propose a clipping objective to stabilize the advantage function during updates, leading to improved convergence properties. Experimental results demonstrate that their method outperforms existing baselines in various environments, providing both stable convergence and low variance in advantage estimation.\n\n4. **[Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act](https://arxiv.org/abs/2607.07109v1)**\n   - **Author**: Víctor Mayoral-Vilches\n   - **Summary**: This paper critiques the EU Cyber Resilience Act, arguing that AI agents can undermine its effectiveness by rapidly identifying and exploiting vulnerabilities. The author discusses how the reliance on human-paced security processes is insufficient in the face of AI-driven threats, suggesting that continuous, agent-operated security measures are necessary to maintain compliance and protect against evolving risks.\n\n5. **[Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control](https://arxiv.org/abs/2607.12742v1)**\n   - **Authors**: Sai Sandeep Damera, John S. Baras\n   - **Summary**: This paper models the security of encrypted control systems in a multi-agent context, focusing on the challenges posed by persistent threats. The authors propose a two-phase game model to analyze the security of feedback loops under advanced threats, emphasizing the importance of re-keying to mitigate information leakage. The findings highlight the dynamic nature of security in encrypted systems and the need for adaptive strategies to maintain control accuracy and security.\n\nIf you need further details or specific insights from any of these papers, feel free to ask!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "paper_text",
+          "args": {
+            "arxiv_url": "http://arxiv.org/abs/2607.25828v1",
+            "max_pages": 1
+          },
+          "result": {
+            "tool": "get_arxiv_paper_text",
+            "arxiv_id": "2607.25828v1",
+            "url": "https://arxiv.org/abs/2607.25828v1",
+            "pdf_url": "https://arxiv.org/pdf/2607.25828v1.pdf",
+            "pdf_path": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/arxiv_papers/2607.25828v1.pdf",
+            "txt_path": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/arxiv_papers/2607.25828v1.txt",
+            "page_count": 19,
+            "pages_read": 1,
+            "chars_returned": 4126,
+            "items": [
+              {
+                "title": "arXiv paper 2607.25828v1",
+                "url": "https://arxiv.org/abs/2607.25828v1",
+                "source": "arxiv.org",
+                "summary": "This work has been submitted to the IEEE for possible publication. Copyright may be transferred without notice, after which this version may no\nlonger be accessible.\nC-RE-ACT: Causal RE-ACTing Agent\nfor O-RAN Forensic Triage\nPau Baguer1, J. Xavier Salvat Lozano 2,3, Gines Garcia-Aviles 1, and Xavier\nCosta-P ´erez 1,2,4 (Senior Member, IEEE)\n1i2CAT Foundation, 08034 Barcelona, Spain\n2NEC Laboratories Europe GmbH, 69115 Heidelberg, Germany\n3Universitat Autonoma de Barcelona, 08193 Barcelona, Spain\n4ICREA, 08010 Barcelona, Spain\nCORRESPONDING AUTHOR: Gines Garcia-Aviles (e-mail: gines.garcia@i2cat.net).\nThis work was supported in part by the ORIGAMI Project under Grant 101139270; in part by the CERCA Programme from the Generalitat\nde Catalunya through the ICREA programme; and in part by the funding received from Department de Recerca I Universitats, Generalitat de\nCatalunya for this project\nABSTRACTThe shift to Open RAN (O-RAN) architectures marks a turning point in cellular security,\nwhere increased openness and modularity directly translate into a broader and more intricate attack\nsurface, as disaggregated components and open interfaces introduce additional vectors for misconfiguration,\nfailure, and exploitation. Among the security threats cataloged by the O-RAN Alliance Working Group\n11, performance-degradation attacks constitute the largest class. These attacks induce packet losses and\nlatency spikes that are hard to distinguish from operational events such as misconfigurations, transient\ncongestion, or software regressions. Consequently, upon an adverse incident detection, support engineers\nmust rapidly determine whether to route the corresponding incident ticket to network maintenance or\nescalate it to security operations. This triage phase represents a critical human-in-the-loop bottleneck\nin the incident response lifecycle. To address this vulnerability, we introduce C-RE-ACT (Causal RE-\nACTing agent), an automated agentic triage framework designed to generate actionable incident reports.\nC-RE-ACT starts constructing a Weighted Directed Acyclic Graph (WDAG) over O-RAN metrics using\nthe Structural Agnostic Model (SAM). The resulting causal topology is encoded into a continuous soft\ntoken via a Graph Isomorphism Network (GIN) aligned with the language space of the Large Language\nModel (LLM) powering a ReAct agent. Reasoning over this embedded causal graph, the agent outputs\nstructured triage reports to accelerate response times. We evaluate C-RE-ACT on a physical, O-RAN-\ncompliant testbed across 140 distinct performance-degradation experiments. Empirical results demonstrate\nthe causal ranking isolates the correct root cause within the top three candidates in 89% of instances.\nFurthermore, graph soft-prompting improves LLM accuracy on causal-topology queries from 0.22 (text-\nonly baseline) to 0.72. The autonomous agent achieves anomaly classification accuracies of 83% for delay\nanomalies and 84% for packet-loss anomalies.\nINDEX TERMSAgentic AI, Causal discovery, Incident Triage, Large Language Models, O-RAN Security\nI. INTRODUCTION\nThe transition of current mobile networks towards the\nOpen Radio Access Network (O-RAN) architecture [1]–\n[5] promises an open, virtualized, and disaggregated system\nwith greater flexibility and cost efficiency. However, the dis-\naggregation of traditional monolithic network functions into\nmultiple separated components gives rise to a substantially\nmore complex security landscape, with a greater number of\ninteracting components from (possibly) different providers\nand an expanded attack surface. This complex picture is\ncompounded by the hierarchical, one-to-many topology of\nthe O-RAN architecture: a single O-CU serves multiple O-\nDUs, each of which in turn serves multiple O-RUs [6], [7].\nAttacking interfaces higher in the network’s hierarchy (e.g.\nthe F1-C or F1-U) can degrade service for an entire cluster\nof cells simultaneously.\nThis work is licensed under a Creative Commons Attribution 4.0 License. For more information, see https://creativecommons.org/licenses/by/4.0/\nVOLUME , 1\narXiv:2607.25828v1  [cs.NI]  28 Jul 2026"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "paper_text",
+          "args": {
+            "arxiv_url": "http://arxiv.org/abs/2607.21608v1",
+            "max_pages": 1
+          },
+          "result": {
+            "tool": "get_arxiv_paper_text",
+            "arxiv_id": "2607.21608v1",
+            "url": "https://arxiv.org/abs/2607.21608v1",
+            "pdf_url": "https://arxiv.org/pdf/2607.21608v1.pdf",
+            "pdf_path": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/arxiv_papers/2607.21608v1.pdf",
+            "txt_path": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/arxiv_papers/2607.21608v1.txt",
+            "page_count": 11,
+            "pages_read": 1,
+            "chars_returned": 5648,
+            "items": [
+              {
+                "title": "arXiv paper 2607.21608v1",
+                "url": "https://arxiv.org/abs/2607.21608v1",
+                "source": "arxiv.org",
+                "summary": "From Obligation to Specification: A Survey on\nValidating EU AI Act Requirements in RE\nT.Y . Emmy Lai∗,\n Sven Giesselbach †,\n Matthias Koch‡,\n H´ector Allende-Cid ∗\n∗Fraunhofer IAIS, Sankt Augustin, Germany\n†T-Systems International GmbH, Bonn, Germany\n‡Fraunhofer IESE, Kaiserslautern, Germany\n{emmy.lai, hector.allende-cid}@iais.fraunhofer.de sven.giesselbach@t-systems.com matthias.koch@iese.fraunhofer.de\nAbstract—With the EU AI Act entering into force, orga-\nnizations developing or operating AI systems face new obli-\ngations on transparency, risk management, and traceability.\nFor Requirements Engineering (RE), these obligations must be\ntranslated into testable, auditable requirements and verifiable\nevidence. However, many organizations currently lack systematic\nprocesses to achieve this. We hypothesize that LLM-based agentic\nvalidation tools can support this translation, thereby helping to\nclose this gap.\nWe present a mixed-method exploratory study with expert\ninterviews (N=10) and an online survey (N=15) to assess or-\nganizational preparedness for EU AI Act-oriented RE and\nperceptions of LLM-based, agentic closed-loop validation tools,\nwith participants spanning RE, data science, development, and\ncompliance roles. Our results show that, although the EU AI Act\nis viewed as highly relevant, structured mechanisms to capture\nregulatory obligations, propagate updates into projects, and\nmaintain lifecycle-wide traceability and evidence are often miss-\ning. Participants see LLM-based tools as promising for mapping\nobligations to requirements, assessing coverage, and organizing\nevidence, but express strong concerns about full automation and\nstress the need for safeguards. Based on these findings, we outline\nminimum requirements for an EU AI Act-ready closed-loop\napproach.\nIndex Terms—EU AI Act, Requirements Validation, Com-\npliance, Quality Requirements, Agent-Based Systems, Mixed-\nmethods exploratory study\nI. INTRODUCTION\nArtificial intelligence (AI) systems are increasingly used\nin critical domains such as healthcare, public administration,\nfinance, and automotive systems [1]–[3]. For these systems,\nRequirements Engineering (RE) must address not only func-\ntional and traditional quality requirements, but also regulatory,\nethical, and risk-related constraints [4]–[6]. The entry into\nforce of the European Artificial Intelligence Act (EU AI\nAct) defines explicit obligations for “high-risk” AI systems,\nincluding requirements for risk management, data governance,\ndocumentation, transparency, human oversight, robustness, ac-\ncuracy, and cybersecurity [7].\nFor organizations developing or deploying AI systems in\nEurope, this introduces a new compliance layer. In terms of RE\npractice, this creates a moving target: obligations must be re-\nflected in concrete, testable project requirements and evidence\nartifacts. High-level legal and normative obligations must be\ntranslated into high-level requirements (HLRs), refined into\ntestable, low-level requirements (LLRs), and traced to design,\nimplementation, and evidence artifacts throughout the system\nlifecycle. Because the EU AI Act is recent and standards and\nguidance are still evolving, many teams must prepare under\nregulatory uncertainty while ensuring that their RE and quality\nmanagement processes are ’EU AI Act-ready’.\nExperience from safety-critical and regulated domains sug-\ngests that aligning requirements with regulations, maintaining\ntraceability, and validating quality and risk requirements are\ndemanding and often labour-intensive tasks [1]. In the specific\ncontext of the EU AI Act, several questions remain open from\nan RE perspective [2], [3], [8]. It is unclear how far orga-\nnizations have progressed in building governance structures\nfor AI-Act-oriented RE, for example whether they maintain\nstructured views on applicable obligations, how regulatory\nchanges are propagated into RE and quality management\nprocesses, and to what extent roles, policies, and monitoring\nmechanisms have been defined. Likewise, we lack empirical\ninsight into how practitioners validate EU AI Act-related\nrequirements, which activities they perform, how much effort\nthey spend on mapping obligations and checking coverage, and\nwhere they see the greatest risks in the next 12–24 months.\nRecent advances in Large Language Models (LLMs) and\nMulti-Agent Systems (MAS) are being explored to support\nRE activities [9]–[11]. These explorations have been comple-\nmented by studies such as XTRAREG [12] and LLM-based\ntraceability recovery [13], which demonstrate the potential of\nLLMs in extracting and recovering requirements from legal\ntexts and supplementary sources. We envision an LLM-based\nagentic closed-loop that translates a curated knowledge base\non EU AI regulations into structured checklists and validation\ncriteria for RE. Specialized validation agents continuously map\nHLRs to project-specific LLRs, assess coverage, consistency,\nand traceability across RE artifacts, and support findings with\nreferences to source documents. Human-in-the-loop (HITL)\nreviews, policy gates, and audit logs feed back into the knowl-\nedge base, creating a transparent validation cycle that reduces\nmanual effort while ensuring regulatory control. With this in\nmind, we hypothesize that an LLM-based agentic closed-loop\napproach could be used for EU AI Act validation, where agents\nuse structured regulatory knowledge, requirements artifacts,\nand evaluation data to ensure adherence to the regulation: (i)\nMap AI Act obligations to project-specific requirements, (ii)\nAssess coverage, consistency, and traceability, and (iii) Collect\narXiv:2607.21608v1  [cs.SE]  18 May 2026"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "paper_text",
+          "args": {
+            "arxiv_url": "http://arxiv.org/abs/2606.25526v1",
+            "max_pages": 1
+          },
+          "result": {
+            "tool": "get_arxiv_paper_text",
+            "arxiv_id": "2606.25526v1",
+            "url": "https://arxiv.org/abs/2606.25526v1",
+            "pdf_url": "https://arxiv.org/pdf/2606.25526v1.pdf",
+            "pdf_path": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/arxiv_papers/2606.25526v1.pdf",
+            "txt_path": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/arxiv_papers/2606.25526v1.txt",
+            "page_count": 36,
+            "pages_read": 1,
+            "chars_returned": 2164,
+            "items": [
+              {
+                "title": "arXiv paper 2606.25526v1",
+                "url": "https://arxiv.org/abs/2606.25526v1",
+                "source": "arxiv.org",
+                "summary": "Low Variance Trust Region Optimization with\nIndependent Actors and Sequential Updates in\nCooperative Multi-agent Reinforcement Learning\nBang Giang Le1 and Viet Cuong Ta1*\n1Human Machine Interaction Laboratory, VNU University of Engineering\nand Technology, 144 Xuan Thuy, Cau Giay, 100000, Hanoi, Vietnam.\n*Corresponding author(s). E-mail(s): cuongtv@vnu.edu.vn;\nContributing authors: giangbang@vnu.edu.vn;\nAbstract\nCooperative multi-agent reinforcement learning assumes each agent shares the\nsame reward function and can be trained effectively using the Trust Region frame-\nwork of single-agent. Instead of relying on other agents’ actions, the independent\nactors setting considers each agent to act based only on its local information, thus\nhaving more flexible applications. However, in the sequential update framework,\nit is required to re-estimate the joint advantage function after each individual\nagent’s policy step. Despite the practical success of importance sampling, the\nupdated advantage function suffers from exponentially high variance problems,\nwhich likely results in unstable convergence. In this work, we first analyze the high\nvariance advantage both empirically and theoretically. To overcome this limitation,\nwe introduce a clipping objective to control the upper bounds of the advantage\nfluctuation in sequential updates. With the proposed objective, we provide a\nmonotonic bound with sub-linear convergence to ε-Nash Equilibria. We further\nderive two new practical algorithms using our clipping objective. The experiment\nresults on three popular multi-agent reinforcement learning benchmarks show that\nour proposed method outperforms the tested baselines in most environments. By\ncarefully analyzing different training settings, our proposed method is highlighted\nwith both stable convergence properties and the desired low advantage variance\nestimation. For reproducibility purposes, our source code is publicity available at\nhttps://github.com/giangbang/Low-Variance-Trust-Region-MARL\nKeywords:Multi-agent Reinforcement Learning, Trust Region Policy Optimization,\nLow Variance, Independent Actors\n1\narXiv:2606.25526v1  [cs.LG]  24 Jun 2026"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "paper_text",
+          "args": {
+            "arxiv_url": "http://arxiv.org/abs/2607.07109v1",
+            "max_pages": 1
+          },
+          "result": {
+            "tool": "get_arxiv_paper_text",
+            "arxiv_id": "2607.07109v1",
+            "url": "https://arxiv.org/abs/2607.07109v1",
+            "pdf_url": "https://arxiv.org/pdf/2607.07109v1.pdf",
+            "pdf_path": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/arxiv_papers/2607.07109v1.pdf",
+            "txt_path": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/arxiv_papers/2607.07109v1.txt",
+            "page_count": 17,
+            "pages_read": 1,
+            "chars_returned": 4742,
+            "items": [
+              {
+                "title": "arXiv paper 2607.07109v1",
+                "url": "https://arxiv.org/abs/2607.07109v1",
+                "source": "arxiv.org",
+                "summary": "Certifying Ghosts: How Cybersecurity AI\nAgents Break the EU Cyber Resilience Act\nVíctor Mayoral-Vilches\nAlias Robotics\nThe EU Cyber Resilience Act (cra, Regulation (EU) 2024/2847) makes a smart bet. It does not demand that products be free of\nvulnerabilities, a promise no software can keep, but only that manufacturersrun a process: assess risk, handle flaws, ship updates. The\nbet pays off only while four things about the world stay true:P1 finding vulnerabilities is slow, skilled, human work;P2 a product’s\nexploitable flaws are knowable the day it ships;P3 exploitation is rare enough to notice; andP4 fixes keep pace with discovery.\nCybersecurity AI (cai) agents, AI put to work finding and exploiting flaws inotherproducts, falsify all four. The regime answers\nin two opposite ways. Against the sheervolumeof flaws that agents surface itbends(P1): built for scarce attention, it re-centres\ncompliance on defensible, documented prioritisation, and holds. But agents alsocollapsethe speed and economics of the vulnerability\nlifecycle, and here itbreaks( P2 P3 P4): a product that passed every check becomes exploitable without anyone touching it, so its\nmarket-entry test, its reporting trigger, and its one-and-done certificate vouch for a security that has quietly expired. The fault is in\nthe landscape, not the product, so running the process more diligently cannot repair it. Anchoring every legal claim in the enacted\ntext and every capability claim in dated results, we map each mechanism to the force that strains or snaps it, and find the cure and\nthe disease cut from the same cloth: because defenders and attackers wield the same AI, the only conformity that survives is one that\nnever stops running. We then carry the remedy from proposal to proof on twocra-scope robots, a humanoid and a lawn mower,\nwhere an agentic defender holds a line their undefended selves cannot. On the evidence already in hand, thecrareaches full force in\nDecember 2027 certifying products against a world that has already left the building. Static, human-paced security is finished; what\nreplaces it must be continuous and agent-operated, and that is no longer a matter of taste.\nCybersecurity AI (CAI) agents load the four premises the CRA’s process model rests on\ndiscovery is\nhuman-scarce\nP1\npostureknowable\nat a point in time\nP2\nexploitation a\ndiscrete event\nP3\nremediation\nkeeps pace\nP4\nstrained withdrawn\nBENDS\nthe process flexes under load and\nholds\nBREAKS\nthe process fractures; no re-run\nrestoresit\nStressor: volume & speed\nagents surface candidates far faster than humans triage;\ndiscovery is no longer scarce\nWhy the process holds\nthe CRA never promised zero vulnerabilities; it mandates a\nrisk-based handling process\nCompliance re-centres\nfrom remediation-completeness towarddemonstrable,\ndocumented prioritisation\nMechanisms that bend\nactively-exploited reporting (Art. 14)·24/72h cadence\ncoordinated disclosure·risk-based handling\n1\n2\n3\nStressor: landscape collapse\nagents change thetempo, cost & symmetryof the\nvulnerability lifecycle\nThe certificate goes stale\non-demand rediscovery: certified-secure→exploitable,\nwith no change to the product\nThe triggers stop firing\nexploitation is no longer discrete; the invalidating change\nis in theenvironment\nMechanisms that break\n“no known exploitable vulns”·actively-exploited trigger\npatch remediation·point-in-time conformity\n1\n2\n3\nBends is fixed by re-interpreting existing obligations(guidance, enforcement posture).Breaks requires\nnew regulatory constructs.The mismatch is with thelandscapethe CRA certifies against (stable, human-\npaced, discrete), not with any single product, and no re-run of the process restores a withdrawn premise.\nCAI The agent-native remedy:make conformitycontinuous and agent-operated, a CAI defender that re-establishes the certified posture at\nthe adversary’s tempo, moving security from a periodic human process to a live one (validated on two robots, §4).\nFigure 1: The central distinction.A process-oriented cybersecurity regime drawn as a loaded beam: under thesamerising load from\nCybersecurity AI (cai) agents it eitherbends(flexes and holds; left, teal) orbreaks(fractures irreparably; right, red). Agentsstrain\npremise P1, so the regime bends and compliance re-centres on demonstrable prioritisation; theywithdrawP2–P4, so it breaks, because the\nmechanisms encoding those premises certify a posture that no longer persists.bendsproblems yield to re-interpreting existing obligations;\nbreaksproblems require new constructs, because the mismatch is with the landscape, not any single product. A final band names the\nresolution: an agent-native remedy that makes conformitycontinuous and agent-operated(§4).\n1\narXiv:2607.07109v1  [cs.CR]  8 Jul 2026"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "paper_text",
+          "args": {
+            "arxiv_url": "http://arxiv.org/abs/2607.12742v1",
+            "max_pages": 1
+          },
+          "result": {
+            "tool": "get_arxiv_paper_text",
+            "arxiv_id": "2607.12742v1",
+            "url": "https://arxiv.org/abs/2607.12742v1",
+            "pdf_url": "https://arxiv.org/pdf/2607.12742v1.pdf",
+            "pdf_path": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/arxiv_papers/2607.12742v1.pdf",
+            "txt_path": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/arxiv_papers/2607.12742v1.txt",
+            "page_count": 20,
+            "pages_read": 1,
+            "chars_returned": 2607,
+            "items": [
+              {
+                "title": "arXiv paper 2607.12742v1",
+                "url": "https://arxiv.org/abs/2607.12742v1",
+                "source": "arxiv.org",
+                "summary": "Stability Buys Time: A Re-Keying Game for\nEncrypted Multi-Agent Control\nSai Sandeep Damera[0000−0003−3419−9719] and John S. Baras[0000−0002−4955−8561]\nUniversity of Maryland, College Park, USA\n{sdamera,baras}@umd.edu\nAbstract.Encrypted control lets a cloud coordinate a fleet of agents on\nfully homomorphically encrypted state, keeping their positions and com-\nmands private. The approximate scheme for real-valued control, CKKS,\nreturns decryptions that carry the encryption noise, a key-recovery leak;\ntheloopmustdecrypttoactuate,sotheleakisunavoidable.Yetthesecu-\nrity of approximate FHE is studied statically, encrypted control assumes\nan honest-but-curious cloud, and persistent-threat games never reach in-\nside the cryptosystem. We model the loop’s security under an advanced\npersistent threat as a two-phase game, passive reconnaissance then ac-\ntive manipulation, separated by a measured residual detector that sees\nonly the manipulation. The passive phase reduces to the known flooding\ntradeoff; the active defense is re-keying, not bootstrapping, since only\nre-keying resets accumulated leakage. The active phase is a detection-\nevasion timing game: overt manipulation is caught, so the rational ad-\nversary stays stealthy, and at its Stackelberg equilibrium the defender\nre-keys on the laziest cadence that denies it, set by the control-theoretic\nfragility of the graph topology. The marginally-stable graph must re-key\nfar more often than the well-connected one. A three-way tension among\nFHE precision, control accuracy, and re-key cadence sets where this game\nlives, between a securability floor and a static-suffices ceiling. The effi-\ncient secure point is that window, where re-keying is the price of precision\nefficiency. More broadly, security for an approximate cryptosystem in a\nfeedback loop is a dynamic game whose defender’s move is the scheme’s\nown refresh, applying beyond control to any system that must repeatedly\ndecrypt to act.\nKeywords:Fully Homomorphic Encryption·Encrypted Control·Ad-\nvancedPersistentThreats·Game-theoreticSecurity·StackelbergGames.\n1 Introduction\nAutonomous fleets increasingly offload coordination to the cloud: a server aggre-\ngates the agents’ states and returns their control commands. When the agents\noperate in sensitive settings, those states and commands are private, and fully\nhomomorphic encryption (FHE) lets the cloud run the entire control loop on\nencrypted data, so that neither the server nor a network eavesdropper sees\nplaintext [1,2]. Recent work carries this from single encrypted controllers to\narXiv:2607.12742v1  [cs.CR]  14 Jul 2026"
+              }
+            ]
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T12:14:18"
+    },
+    {
+      "turn_index": 3,
+      "started_at": "2026-07-29T12:15:18",
+      "user": "so sánh các bài báo với nhau đi ",
+      "status": "answered",
+      "assistant_text": "Here is a comparison of the selected papers related to \"Re Act agent\":\n\n| Paper | Year | Research Focus | Method | Results | Limitations | Implementation |\n| --- | --- | --- | --- | --- | --- | --- |\n| [C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage](https://arxiv.org/abs/2607.25828v1) | 2026 | An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents. | C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents. | C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents. | Not available in provided metadata | Not available in provided metadata |\n| [From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE](https://arxiv.org/abs/2607.21608v1) | 2026 | A survey discussing the implications of the EU AI Act on Requirements Engineering, highlighting the need for organizations to translate regulatory obligations into testable requirements. | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata |\n| [Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning](https://arxiv.org/abs/2606.25526v1) | 2026 | A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for improved stability. | Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for improved stability. | Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for improved stability. | Not available in provided metadata | Not available in provided metadata |\n| [Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act](https://arxiv.org/abs/2607.07109v1) | 2026 | A critique of the EU Cyber Resilience Act, arguing that AI agents can undermine its effectiveness by rapidly exploiting vulnerabilities. | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata |\n| [Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control](https://arxiv.org/abs/2607.12742v1) | 2026 | A model analyzing the security of encrypted control systems in a multi-agent context, proposing a dynamic game approach to manage security risks. | Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control A model analyzing the security of encrypted control systems in a multi-agent context, proposing a dynamic game approach to manage security risks. | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata |\n\n### Key Insights:\n- **Research Focus**: The papers cover a range of topics from automated triage frameworks in telecommunications (C-RE-ACT) to regulatory implications of AI (EU AI Act) and security in multi-agent systems.\n- **Methods and Results**: While some papers provide detailed methodologies and results, others lack this information in the provided metadata.\n- **Limitations and Implementation**: Many papers do not specify limitations or implementation details, indicating a potential area for further exploration.\n\nIf you need more specific comparisons or insights, feel free to ask!",
+      "history_window": 5,
+      "max_tool_rounds": 4,
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "compare_papers",
+              "args": {
+                "papers": [
+                  {
+                    "title": "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage",
+                    "summary": "An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents.",
+                    "authors": [
+                      "Pau Baguer",
+                      "J. Xavier Salvat Lozano",
+                      "Gines Garcia-Aviles",
+                      "Xavier Costa-Pérez"
+                    ],
+                    "published": "July 28, 2026",
+                    "url": "https://arxiv.org/abs/2607.25828v1"
+                  },
+                  {
+                    "title": "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE",
+                    "summary": "A survey discussing the implications of the EU AI Act on Requirements Engineering, highlighting the need for organizations to translate regulatory obligations into testable requirements.",
+                    "authors": [
+                      "T.Y. Emmy Lai",
+                      "Sven Giesselbach",
+                      "Matthias Koch",
+                      "Héctor Allende-Cid"
+                    ],
+                    "published": "May 18, 2026",
+                    "url": "https://arxiv.org/abs/2607.21608v1"
+                  },
+                  {
+                    "title": "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning",
+                    "summary": "A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for improved stability.",
+                    "authors": [
+                      "Bang Giang Le",
+                      "Viet Cuong Ta"
+                    ],
+                    "published": "June 24, 2026",
+                    "url": "https://arxiv.org/abs/2606.25526v1"
+                  },
+                  {
+                    "title": "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act",
+                    "summary": "A critique of the EU Cyber Resilience Act, arguing that AI agents can undermine its effectiveness by rapidly exploiting vulnerabilities.",
+                    "authors": [
+                      "Víctor Mayoral-Vilches"
+                    ],
+                    "published": "July 8, 2026",
+                    "url": "https://arxiv.org/abs/2607.07109v1"
+                  },
+                  {
+                    "title": "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control",
+                    "summary": "A model analyzing the security of encrypted control systems in a multi-agent context, proposing a dynamic game approach to manage security risks.",
+                    "authors": [
+                      "Sai Sandeep Damera",
+                      "John S. Baras"
+                    ],
+                    "published": "July 14, 2026",
+                    "url": "https://arxiv.org/abs/2607.12742v1"
+                  }
+                ],
+                "dimensions": [
+                  "research_focus",
+                  "method",
+                  "results",
+                  "limitations",
+                  "implementation"
+                ],
+                "max_papers": 5
+              }
+            },
+            {
+              "name": "compare_papers",
+              "args": {
+                "papers": [
+                  {
+                    "title": "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage",
+                    "summary": "An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents.",
+                    "authors": [
+                      "Pau Baguer",
+                      "J. Xavier Salvat Lozano",
+                      "Gines Garcia-Aviles",
+                      "Xavier Costa-Pérez"
+                    ],
+                    "published": "July 28, 2026",
+                    "url": "https://arxiv.org/abs/2607.25828v1"
+                  },
+                  {
+                    "title": "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE",
+                    "summary": "A survey discussing the implications of the EU AI Act on Requirements Engineering, highlighting the need for organizations to translate regulatory obligations into testable requirements.",
+                    "authors": [
+                      "T.Y. Emmy Lai",
+                      "Sven Giesselbach",
+                      "Matthias Koch",
+                      "Héctor Allende-Cid"
+                    ],
+                    "published": "May 18, 2026",
+                    "url": "https://arxiv.org/abs/2607.21608v1"
+                  },
+                  {
+                    "title": "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning",
+                    "summary": "A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for improved stability.",
+                    "authors": [
+                      "Bang Giang Le",
+                      "Viet Cuong Ta"
+                    ],
+                    "published": "June 24, 2026",
+                    "url": "https://arxiv.org/abs/2606.25526v1"
+                  },
+                  {
+                    "title": "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act",
+                    "summary": "A critique of the EU Cyber Resilience Act, arguing that AI agents can undermine its effectiveness by rapidly exploiting vulnerabilities.",
+                    "authors": [
+                      "Víctor Mayoral-Vilches"
+                    ],
+                    "published": "July 8, 2026",
+                    "url": "https://arxiv.org/abs/2607.07109v1"
+                  },
+                  {
+                    "title": "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control",
+                    "summary": "A model analyzing the security of encrypted control systems in a multi-agent context, proposing a dynamic game approach to manage security risks.",
+                    "authors": [
+                      "Sai Sandeep Damera",
+                      "John S. Baras"
+                    ],
+                    "published": "July 14, 2026",
+                    "url": "https://arxiv.org/abs/2607.12742v1"
+                  }
+                ],
+                "dimensions": [
+                  "research_focus",
+                  "method",
+                  "results",
+                  "limitations",
+                  "implementation"
+                ],
+                "max_papers": 5
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "compare_papers",
+              "args": {
+                "papers": [
+                  {
+                    "title": "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage",
+                    "summary": "An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents.",
+                    "authors": [
+                      "Pau Baguer",
+                      "J. Xavier Salvat Lozano",
+                      "Gines Garcia-Aviles",
+                      "Xavier Costa-Pérez"
+                    ],
+                    "published": "July 28, 2026",
+                    "url": "https://arxiv.org/abs/2607.25828v1"
+                  },
+                  {
+                    "title": "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE",
+                    "summary": "A survey discussing the implications of the EU AI Act on Requirements Engineering, highlighting the need for organizations to translate regulatory obligations into testable requirements.",
+                    "authors": [
+                      "T.Y. Emmy Lai",
+                      "Sven Giesselbach",
+                      "Matthias Koch",
+                      "Héctor Allende-Cid"
+                    ],
+                    "published": "May 18, 2026",
+                    "url": "https://arxiv.org/abs/2607.21608v1"
+                  },
+                  {
+                    "title": "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning",
+                    "summary": "A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for improved stability.",
+                    "authors": [
+                      "Bang Giang Le",
+                      "Viet Cuong Ta"
+                    ],
+                    "published": "June 24, 2026",
+                    "url": "https://arxiv.org/abs/2606.25526v1"
+                  },
+                  {
+                    "title": "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act",
+                    "summary": "A critique of the EU Cyber Resilience Act, arguing that AI agents can undermine its effectiveness by rapidly exploiting vulnerabilities.",
+                    "authors": [
+                      "Víctor Mayoral-Vilches"
+                    ],
+                    "published": "July 8, 2026",
+                    "url": "https://arxiv.org/abs/2607.07109v1"
+                  },
+                  {
+                    "title": "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control",
+                    "summary": "A model analyzing the security of encrypted control systems in a multi-agent context, proposing a dynamic game approach to manage security risks.",
+                    "authors": [
+                      "Sai Sandeep Damera",
+                      "John S. Baras"
+                    ],
+                    "published": "July 14, 2026",
+                    "url": "https://arxiv.org/abs/2607.12742v1"
+                  }
+                ],
+                "dimensions": [
+                  "research_focus",
+                  "method",
+                  "results",
+                  "limitations",
+                  "implementation"
+                ],
+                "max_papers": 5
+              },
+              "result": {
+                "tool": "compare_papers",
+                "dimensions": [
+                  "research_focus",
+                  "method",
+                  "results",
+                  "limitations",
+                  "implementation"
+                ],
+                "input_count": 5,
+                "item_count": 5,
+                "comparison_rows": [
+                  {
+                    "title": "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage",
+                    "year": 2026,
+                    "authors": "Pau Baguer, J. Xavier Salvat Lozano, Gines Garcia-Aviles, Xavier Costa-Pérez",
+                    "arxiv_id": "",
+                    "url": "https://arxiv.org/abs/2607.25828v1",
+                    "research_focus": "An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents.",
+                    "method": "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents.",
+                    "results": "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents.",
+                    "limitations": "",
+                    "implementation": ""
+                  },
+                  {
+                    "title": "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE",
+                    "year": 2026,
+                    "authors": "T.Y. Emmy Lai, Sven Giesselbach, Matthias Koch, Héctor Allende-Cid",
+                    "arxiv_id": "",
+                    "url": "https://arxiv.org/abs/2607.21608v1",
+                    "research_focus": "A survey discussing the implications of the EU AI Act on Requirements Engineering, highlighting the need for organizations to translate regulatory obligations into testable requirements.",
+                    "method": "",
+                    "results": "",
+                    "limitations": "",
+                    "implementation": ""
+                  },
+                  {
+                    "title": "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning",
+                    "year": 2026,
+                    "authors": "Bang Giang Le, Viet Cuong Ta",
+                    "arxiv_id": "",
+                    "url": "https://arxiv.org/abs/2606.25526v1",
+                    "research_focus": "A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for improved stability.",
+                    "method": "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for improved stability.",
+                    "results": "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for improved stability.",
+                    "limitations": "",
+                    "implementation": ""
+                  },
+                  {
+                    "title": "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act",
+                    "year": 2026,
+                    "authors": "Víctor Mayoral-Vilches",
+                    "arxiv_id": "",
+                    "url": "https://arxiv.org/abs/2607.07109v1",
+                    "research_focus": "A critique of the EU Cyber Resilience Act, arguing that AI agents can undermine its effectiveness by rapidly exploiting vulnerabilities.",
+                    "method": "",
+                    "results": "",
+                    "limitations": "",
+                    "implementation": ""
+                  },
+                  {
+                    "title": "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control",
+                    "year": 2026,
+                    "authors": "Sai Sandeep Damera, John S. Baras",
+                    "arxiv_id": "",
+                    "url": "https://arxiv.org/abs/2607.12742v1",
+                    "research_focus": "A model analyzing the security of encrypted control systems in a multi-agent context, proposing a dynamic game approach to manage security risks.",
+                    "method": "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control A model analyzing the security of encrypted control systems in a multi-agent context, proposing a dynamic game approach to manage security risks.",
+                    "results": "",
+                    "limitations": "",
+                    "implementation": ""
+                  }
+                ],
+                "markdown": "| Paper | Year | Research focus | Method | Results | Limitations | Implementation |\n| --- | --- | --- | --- | --- | --- | --- |\n| C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage | 2026 | An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents. | C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents. | C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents. | Not available in provided metadata | Not available in provided metadata |\n| From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE | 2026 | A survey discussing the implications of the EU AI Act on Requirements Engineering, highlighting the need for organizations to translate regulatory obligations into testable requirements. | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata |\n| Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning | 2026 | A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for improved stability. | Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for i... | Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for i... | Not available in provided metadata | Not available in provided metadata |\n| Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act | 2026 | A critique of the EU Cyber Resilience Act, arguing that AI agents can undermine its effectiveness by rapidly exploiting vulnerabilities. | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata |\n| Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control | 2026 | A model analyzing the security of encrypted control systems in a multi-agent context, proposing a dynamic game approach to manage security risks. | Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control A model analyzing the security of encrypted control systems in a multi-agent context, proposing a dynamic game approach to manage security risks. | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata |",
+                "common_terms": [],
+                "distinctive_terms": {
+                  "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage": [
+                    "acting",
+                    "actionable",
+                    "architectures",
+                    "automated",
+                    "causal",
+                    "causes",
+                    "degradation",
+                    "forensic",
+                    "framework",
+                    "generates"
+                  ],
+                  "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE": [
+                    "discussing",
+                    "engineering",
+                    "highlighting",
+                    "implications",
+                    "into",
+                    "need",
+                    "obligation",
+                    "obligations",
+                    "organizations",
+                    "regulatory"
+                  ],
+                  "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning": [
+                    "actors",
+                    "addressing",
+                    "clipping",
+                    "cooperative",
+                    "high",
+                    "improved",
+                    "independent",
+                    "learning",
+                    "low",
+                    "method"
+                  ],
+                  "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act": [
+                    "agents",
+                    "arguing",
+                    "break",
+                    "certifying",
+                    "critique",
+                    "cyber",
+                    "cybersecurity",
+                    "effectiveness",
+                    "exploiting",
+                    "ghosts"
+                  ],
+                  "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control": [
+                    "analyzing",
+                    "approach",
+                    "buys",
+                    "context",
+                    "control",
+                    "dynamic",
+                    "encrypted",
+                    "game",
+                    "keying",
+                    "manage"
+                  ]
+                },
+                "highlights": {
+                  "newest_paper": "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage",
+                  "highest_ranked_paper": null
+                },
+                "warnings": [
+                  "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage: limitations not available in provided metadata",
+                  "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage: implementation not available in provided metadata",
+                  "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE: method not available in provided metadata",
+                  "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE: results not available in provided metadata",
+                  "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE: limitations not available in provided metadata",
+                  "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE: implementation not available in provided metadata",
+                  "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning: limitations not available in provided metadata",
+                  "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning: implementation not available in provided metadata",
+                  "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act: method not available in provided metadata",
+                  "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act: results not available in provided metadata",
+                  "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act: limitations not available in provided metadata",
+                  "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act: implementation not available in provided metadata",
+                  "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control: results not available in provided metadata",
+                  "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control: limitations not available in provided metadata",
+                  "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control: implementation not available in provided metadata"
+                ],
+                "trust_boundary": "Comparison uses only provided metadata and extractive insights; unavailable claims are left missing."
+              }
+            },
+            {
+              "tool": "compare_papers",
+              "args": {
+                "papers": [
+                  {
+                    "title": "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage",
+                    "summary": "An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents.",
+                    "authors": [
+                      "Pau Baguer",
+                      "J. Xavier Salvat Lozano",
+                      "Gines Garcia-Aviles",
+                      "Xavier Costa-Pérez"
+                    ],
+                    "published": "July 28, 2026",
+                    "url": "https://arxiv.org/abs/2607.25828v1"
+                  },
+                  {
+                    "title": "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE",
+                    "summary": "A survey discussing the implications of the EU AI Act on Requirements Engineering, highlighting the need for organizations to translate regulatory obligations into testable requirements.",
+                    "authors": [
+                      "T.Y. Emmy Lai",
+                      "Sven Giesselbach",
+                      "Matthias Koch",
+                      "Héctor Allende-Cid"
+                    ],
+                    "published": "May 18, 2026",
+                    "url": "https://arxiv.org/abs/2607.21608v1"
+                  },
+                  {
+                    "title": "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning",
+                    "summary": "A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for improved stability.",
+                    "authors": [
+                      "Bang Giang Le",
+                      "Viet Cuong Ta"
+                    ],
+                    "published": "June 24, 2026",
+                    "url": "https://arxiv.org/abs/2606.25526v1"
+                  },
+                  {
+                    "title": "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act",
+                    "summary": "A critique of the EU Cyber Resilience Act, arguing that AI agents can undermine its effectiveness by rapidly exploiting vulnerabilities.",
+                    "authors": [
+                      "Víctor Mayoral-Vilches"
+                    ],
+                    "published": "July 8, 2026",
+                    "url": "https://arxiv.org/abs/2607.07109v1"
+                  },
+                  {
+                    "title": "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control",
+                    "summary": "A model analyzing the security of encrypted control systems in a multi-agent context, proposing a dynamic game approach to manage security risks.",
+                    "authors": [
+                      "Sai Sandeep Damera",
+                      "John S. Baras"
+                    ],
+                    "published": "July 14, 2026",
+                    "url": "https://arxiv.org/abs/2607.12742v1"
+                  }
+                ],
+                "dimensions": [
+                  "research_focus",
+                  "method",
+                  "results",
+                  "limitations",
+                  "implementation"
+                ],
+                "max_papers": 5
+              },
+              "result": {
+                "tool": "compare_papers",
+                "dimensions": [
+                  "research_focus",
+                  "method",
+                  "results",
+                  "limitations",
+                  "implementation"
+                ],
+                "input_count": 5,
+                "item_count": 5,
+                "comparison_rows": [
+                  {
+                    "title": "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage",
+                    "year": 2026,
+                    "authors": "Pau Baguer, J. Xavier Salvat Lozano, Gines Garcia-Aviles, Xavier Costa-Pérez",
+                    "arxiv_id": "",
+                    "url": "https://arxiv.org/abs/2607.25828v1",
+                    "research_focus": "An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents.",
+                    "method": "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents.",
+                    "results": "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents.",
+                    "limitations": "",
+                    "implementation": ""
+                  },
+                  {
+                    "title": "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE",
+                    "year": 2026,
+                    "authors": "T.Y. Emmy Lai, Sven Giesselbach, Matthias Koch, Héctor Allende-Cid",
+                    "arxiv_id": "",
+                    "url": "https://arxiv.org/abs/2607.21608v1",
+                    "research_focus": "A survey discussing the implications of the EU AI Act on Requirements Engineering, highlighting the need for organizations to translate regulatory obligations into testable requirements.",
+                    "method": "",
+                    "results": "",
+                    "limitations": "",
+                    "implementation": ""
+                  },
+                  {
+                    "title": "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning",
+                    "year": 2026,
+                    "authors": "Bang Giang Le, Viet Cuong Ta",
+                    "arxiv_id": "",
+                    "url": "https://arxiv.org/abs/2606.25526v1",
+                    "research_focus": "A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for improved stability.",
+                    "method": "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for improved stability.",
+                    "results": "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for improved stability.",
+                    "limitations": "",
+                    "implementation": ""
+                  },
+                  {
+                    "title": "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act",
+                    "year": 2026,
+                    "authors": "Víctor Mayoral-Vilches",
+                    "arxiv_id": "",
+                    "url": "https://arxiv.org/abs/2607.07109v1",
+                    "research_focus": "A critique of the EU Cyber Resilience Act, arguing that AI agents can undermine its effectiveness by rapidly exploiting vulnerabilities.",
+                    "method": "",
+                    "results": "",
+                    "limitations": "",
+                    "implementation": ""
+                  },
+                  {
+                    "title": "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control",
+                    "year": 2026,
+                    "authors": "Sai Sandeep Damera, John S. Baras",
+                    "arxiv_id": "",
+                    "url": "https://arxiv.org/abs/2607.12742v1",
+                    "research_focus": "A model analyzing the security of encrypted control systems in a multi-agent context, proposing a dynamic game approach to manage security risks.",
+                    "method": "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control A model analyzing the security of encrypted control systems in a multi-agent context, proposing a dynamic game approach to manage security risks.",
+                    "results": "",
+                    "limitations": "",
+                    "implementation": ""
+                  }
+                ],
+                "markdown": "| Paper | Year | Research focus | Method | Results | Limitations | Implementation |\n| --- | --- | --- | --- | --- | --- | --- |\n| C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage | 2026 | An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents. | C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents. | C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents. | Not available in provided metadata | Not available in provided metadata |\n| From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE | 2026 | A survey discussing the implications of the EU AI Act on Requirements Engineering, highlighting the need for organizations to translate regulatory obligations into testable requirements. | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata |\n| Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning | 2026 | A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for improved stability. | Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for i... | Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for i... | Not available in provided metadata | Not available in provided metadata |\n| Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act | 2026 | A critique of the EU Cyber Resilience Act, arguing that AI agents can undermine its effectiveness by rapidly exploiting vulnerabilities. | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata |\n| Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control | 2026 | A model analyzing the security of encrypted control systems in a multi-agent context, proposing a dynamic game approach to manage security risks. | Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control A model analyzing the security of encrypted control systems in a multi-agent context, proposing a dynamic game approach to manage security risks. | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata |",
+                "common_terms": [],
+                "distinctive_terms": {
+                  "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage": [
+                    "acting",
+                    "actionable",
+                    "architectures",
+                    "automated",
+                    "causal",
+                    "causes",
+                    "degradation",
+                    "forensic",
+                    "framework",
+                    "generates"
+                  ],
+                  "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE": [
+                    "discussing",
+                    "engineering",
+                    "highlighting",
+                    "implications",
+                    "into",
+                    "need",
+                    "obligation",
+                    "obligations",
+                    "organizations",
+                    "regulatory"
+                  ],
+                  "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning": [
+                    "actors",
+                    "addressing",
+                    "clipping",
+                    "cooperative",
+                    "high",
+                    "improved",
+                    "independent",
+                    "learning",
+                    "low",
+                    "method"
+                  ],
+                  "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act": [
+                    "agents",
+                    "arguing",
+                    "break",
+                    "certifying",
+                    "critique",
+                    "cyber",
+                    "cybersecurity",
+                    "effectiveness",
+                    "exploiting",
+                    "ghosts"
+                  ],
+                  "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control": [
+                    "analyzing",
+                    "approach",
+                    "buys",
+                    "context",
+                    "control",
+                    "dynamic",
+                    "encrypted",
+                    "game",
+                    "keying",
+                    "manage"
+                  ]
+                },
+                "highlights": {
+                  "newest_paper": "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage",
+                  "highest_ranked_paper": null
+                },
+                "warnings": [
+                  "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage: limitations not available in provided metadata",
+                  "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage: implementation not available in provided metadata",
+                  "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE: method not available in provided metadata",
+                  "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE: results not available in provided metadata",
+                  "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE: limitations not available in provided metadata",
+                  "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE: implementation not available in provided metadata",
+                  "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning: limitations not available in provided metadata",
+                  "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning: implementation not available in provided metadata",
+                  "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act: method not available in provided metadata",
+                  "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act: results not available in provided metadata",
+                  "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act: limitations not available in provided metadata",
+                  "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act: implementation not available in provided metadata",
+                  "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control: results not available in provided metadata",
+                  "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control: limitations not available in provided metadata",
+                  "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control: implementation not available in provided metadata"
+                ],
+                "trust_boundary": "Comparison uses only provided metadata and extractive insights; unavailable claims are left missing."
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Here is a comparison of the selected papers related to \"Re Act agent\":\n\n| Paper | Year | Research Focus | Method | Results | Limitations | Implementation |\n| --- | --- | --- | --- | --- | --- | --- |\n| [C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage](https://arxiv.org/abs/2607.25828v1) | 2026 | An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents. | C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents. | C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents. | Not available in provided metadata | Not available in provided metadata |\n| [From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE](https://arxiv.org/abs/2607.21608v1) | 2026 | A survey discussing the implications of the EU AI Act on Requirements Engineering, highlighting the need for organizations to translate regulatory obligations into testable requirements. | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata |\n| [Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning](https://arxiv.org/abs/2606.25526v1) | 2026 | A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for improved stability. | Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for improved stability. | Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for improved stability. | Not available in provided metadata | Not available in provided metadata |\n| [Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act](https://arxiv.org/abs/2607.07109v1) | 2026 | A critique of the EU Cyber Resilience Act, arguing that AI agents can undermine its effectiveness by rapidly exploiting vulnerabilities. | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata |\n| [Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control](https://arxiv.org/abs/2607.12742v1) | 2026 | A model analyzing the security of encrypted control systems in a multi-agent context, proposing a dynamic game approach to manage security risks. | Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control A model analyzing the security of encrypted control systems in a multi-agent context, proposing a dynamic game approach to manage security risks. | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata |\n\n### Key Insights:\n- **Research Focus**: The papers cover a range of topics from automated triage frameworks in telecommunications (C-RE-ACT) to regulatory implications of AI (EU AI Act) and security in multi-agent systems.\n- **Methods and Results**: While some papers provide detailed methodologies and results, others lack this information in the provided metadata.\n- **Limitations and Implementation**: Many papers do not specify limitations or implementation details, indicating a potential area for further exploration.\n\nIf you need more specific comparisons or insights, feel free to ask!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "compare_papers",
+          "args": {
+            "papers": [
+              {
+                "title": "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage",
+                "summary": "An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents.",
+                "authors": [
+                  "Pau Baguer",
+                  "J. Xavier Salvat Lozano",
+                  "Gines Garcia-Aviles",
+                  "Xavier Costa-Pérez"
+                ],
+                "published": "July 28, 2026",
+                "url": "https://arxiv.org/abs/2607.25828v1"
+              },
+              {
+                "title": "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE",
+                "summary": "A survey discussing the implications of the EU AI Act on Requirements Engineering, highlighting the need for organizations to translate regulatory obligations into testable requirements.",
+                "authors": [
+                  "T.Y. Emmy Lai",
+                  "Sven Giesselbach",
+                  "Matthias Koch",
+                  "Héctor Allende-Cid"
+                ],
+                "published": "May 18, 2026",
+                "url": "https://arxiv.org/abs/2607.21608v1"
+              },
+              {
+                "title": "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning",
+                "summary": "A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for improved stability.",
+                "authors": [
+                  "Bang Giang Le",
+                  "Viet Cuong Ta"
+                ],
+                "published": "June 24, 2026",
+                "url": "https://arxiv.org/abs/2606.25526v1"
+              },
+              {
+                "title": "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act",
+                "summary": "A critique of the EU Cyber Resilience Act, arguing that AI agents can undermine its effectiveness by rapidly exploiting vulnerabilities.",
+                "authors": [
+                  "Víctor Mayoral-Vilches"
+                ],
+                "published": "July 8, 2026",
+                "url": "https://arxiv.org/abs/2607.07109v1"
+              },
+              {
+                "title": "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control",
+                "summary": "A model analyzing the security of encrypted control systems in a multi-agent context, proposing a dynamic game approach to manage security risks.",
+                "authors": [
+                  "Sai Sandeep Damera",
+                  "John S. Baras"
+                ],
+                "published": "July 14, 2026",
+                "url": "https://arxiv.org/abs/2607.12742v1"
+              }
+            ],
+            "dimensions": [
+              "research_focus",
+              "method",
+              "results",
+              "limitations",
+              "implementation"
+            ],
+            "max_papers": 5
+          },
+          "result": {
+            "tool": "compare_papers",
+            "dimensions": [
+              "research_focus",
+              "method",
+              "results",
+              "limitations",
+              "implementation"
+            ],
+            "input_count": 5,
+            "item_count": 5,
+            "comparison_rows": [
+              {
+                "title": "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage",
+                "year": 2026,
+                "authors": "Pau Baguer, J. Xavier Salvat Lozano, Gines Garcia-Aviles, Xavier Costa-Pérez",
+                "arxiv_id": "",
+                "url": "https://arxiv.org/abs/2607.25828v1",
+                "research_focus": "An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents.",
+                "method": "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents.",
+                "results": "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents.",
+                "limitations": "",
+                "implementation": ""
+              },
+              {
+                "title": "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE",
+                "year": 2026,
+                "authors": "T.Y. Emmy Lai, Sven Giesselbach, Matthias Koch, Héctor Allende-Cid",
+                "arxiv_id": "",
+                "url": "https://arxiv.org/abs/2607.21608v1",
+                "research_focus": "A survey discussing the implications of the EU AI Act on Requirements Engineering, highlighting the need for organizations to translate regulatory obligations into testable requirements.",
+                "method": "",
+                "results": "",
+                "limitations": "",
+                "implementation": ""
+              },
+              {
+                "title": "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning",
+                "year": 2026,
+                "authors": "Bang Giang Le, Viet Cuong Ta",
+                "arxiv_id": "",
+                "url": "https://arxiv.org/abs/2606.25526v1",
+                "research_focus": "A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for improved stability.",
+                "method": "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for improved stability.",
+                "results": "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for improved stability.",
+                "limitations": "",
+                "implementation": ""
+              },
+              {
+                "title": "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act",
+                "year": 2026,
+                "authors": "Víctor Mayoral-Vilches",
+                "arxiv_id": "",
+                "url": "https://arxiv.org/abs/2607.07109v1",
+                "research_focus": "A critique of the EU Cyber Resilience Act, arguing that AI agents can undermine its effectiveness by rapidly exploiting vulnerabilities.",
+                "method": "",
+                "results": "",
+                "limitations": "",
+                "implementation": ""
+              },
+              {
+                "title": "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control",
+                "year": 2026,
+                "authors": "Sai Sandeep Damera, John S. Baras",
+                "arxiv_id": "",
+                "url": "https://arxiv.org/abs/2607.12742v1",
+                "research_focus": "A model analyzing the security of encrypted control systems in a multi-agent context, proposing a dynamic game approach to manage security risks.",
+                "method": "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control A model analyzing the security of encrypted control systems in a multi-agent context, proposing a dynamic game approach to manage security risks.",
+                "results": "",
+                "limitations": "",
+                "implementation": ""
+              }
+            ],
+            "markdown": "| Paper | Year | Research focus | Method | Results | Limitations | Implementation |\n| --- | --- | --- | --- | --- | --- | --- |\n| C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage | 2026 | An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents. | C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents. | C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents. | Not available in provided metadata | Not available in provided metadata |\n| From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE | 2026 | A survey discussing the implications of the EU AI Act on Requirements Engineering, highlighting the need for organizations to translate regulatory obligations into testable requirements. | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata |\n| Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning | 2026 | A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for improved stability. | Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for i... | Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for i... | Not available in provided metadata | Not available in provided metadata |\n| Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act | 2026 | A critique of the EU Cyber Resilience Act, arguing that AI agents can undermine its effectiveness by rapidly exploiting vulnerabilities. | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata |\n| Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control | 2026 | A model analyzing the security of encrypted control systems in a multi-agent context, proposing a dynamic game approach to manage security risks. | Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control A model analyzing the security of encrypted control systems in a multi-agent context, proposing a dynamic game approach to manage security risks. | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata |",
+            "common_terms": [],
+            "distinctive_terms": {
+              "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage": [
+                "acting",
+                "actionable",
+                "architectures",
+                "automated",
+                "causal",
+                "causes",
+                "degradation",
+                "forensic",
+                "framework",
+                "generates"
+              ],
+              "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE": [
+                "discussing",
+                "engineering",
+                "highlighting",
+                "implications",
+                "into",
+                "need",
+                "obligation",
+                "obligations",
+                "organizations",
+                "regulatory"
+              ],
+              "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning": [
+                "actors",
+                "addressing",
+                "clipping",
+                "cooperative",
+                "high",
+                "improved",
+                "independent",
+                "learning",
+                "low",
+                "method"
+              ],
+              "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act": [
+                "agents",
+                "arguing",
+                "break",
+                "certifying",
+                "critique",
+                "cyber",
+                "cybersecurity",
+                "effectiveness",
+                "exploiting",
+                "ghosts"
+              ],
+              "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control": [
+                "analyzing",
+                "approach",
+                "buys",
+                "context",
+                "control",
+                "dynamic",
+                "encrypted",
+                "game",
+                "keying",
+                "manage"
+              ]
+            },
+            "highlights": {
+              "newest_paper": "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage",
+              "highest_ranked_paper": null
+            },
+            "warnings": [
+              "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage: limitations not available in provided metadata",
+              "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage: implementation not available in provided metadata",
+              "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE: method not available in provided metadata",
+              "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE: results not available in provided metadata",
+              "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE: limitations not available in provided metadata",
+              "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE: implementation not available in provided metadata",
+              "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning: limitations not available in provided metadata",
+              "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning: implementation not available in provided metadata",
+              "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act: method not available in provided metadata",
+              "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act: results not available in provided metadata",
+              "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act: limitations not available in provided metadata",
+              "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act: implementation not available in provided metadata",
+              "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control: results not available in provided metadata",
+              "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control: limitations not available in provided metadata",
+              "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control: implementation not available in provided metadata"
+            ],
+            "trust_boundary": "Comparison uses only provided metadata and extractive insights; unavailable claims are left missing."
+          }
+        },
+        {
+          "tool": "compare_papers",
+          "args": {
+            "papers": [
+              {
+                "title": "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage",
+                "summary": "An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents.",
+                "authors": [
+                  "Pau Baguer",
+                  "J. Xavier Salvat Lozano",
+                  "Gines Garcia-Aviles",
+                  "Xavier Costa-Pérez"
+                ],
+                "published": "July 28, 2026",
+                "url": "https://arxiv.org/abs/2607.25828v1"
+              },
+              {
+                "title": "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE",
+                "summary": "A survey discussing the implications of the EU AI Act on Requirements Engineering, highlighting the need for organizations to translate regulatory obligations into testable requirements.",
+                "authors": [
+                  "T.Y. Emmy Lai",
+                  "Sven Giesselbach",
+                  "Matthias Koch",
+                  "Héctor Allende-Cid"
+                ],
+                "published": "May 18, 2026",
+                "url": "https://arxiv.org/abs/2607.21608v1"
+              },
+              {
+                "title": "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning",
+                "summary": "A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for improved stability.",
+                "authors": [
+                  "Bang Giang Le",
+                  "Viet Cuong Ta"
+                ],
+                "published": "June 24, 2026",
+                "url": "https://arxiv.org/abs/2606.25526v1"
+              },
+              {
+                "title": "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act",
+                "summary": "A critique of the EU Cyber Resilience Act, arguing that AI agents can undermine its effectiveness by rapidly exploiting vulnerabilities.",
+                "authors": [
+                  "Víctor Mayoral-Vilches"
+                ],
+                "published": "July 8, 2026",
+                "url": "https://arxiv.org/abs/2607.07109v1"
+              },
+              {
+                "title": "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control",
+                "summary": "A model analyzing the security of encrypted control systems in a multi-agent context, proposing a dynamic game approach to manage security risks.",
+                "authors": [
+                  "Sai Sandeep Damera",
+                  "John S. Baras"
+                ],
+                "published": "July 14, 2026",
+                "url": "https://arxiv.org/abs/2607.12742v1"
+              }
+            ],
+            "dimensions": [
+              "research_focus",
+              "method",
+              "results",
+              "limitations",
+              "implementation"
+            ],
+            "max_papers": 5
+          },
+          "result": {
+            "tool": "compare_papers",
+            "dimensions": [
+              "research_focus",
+              "method",
+              "results",
+              "limitations",
+              "implementation"
+            ],
+            "input_count": 5,
+            "item_count": 5,
+            "comparison_rows": [
+              {
+                "title": "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage",
+                "year": 2026,
+                "authors": "Pau Baguer, J. Xavier Salvat Lozano, Gines Garcia-Aviles, Xavier Costa-Pérez",
+                "arxiv_id": "",
+                "url": "https://arxiv.org/abs/2607.25828v1",
+                "research_focus": "An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents.",
+                "method": "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents.",
+                "results": "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents.",
+                "limitations": "",
+                "implementation": ""
+              },
+              {
+                "title": "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE",
+                "year": 2026,
+                "authors": "T.Y. Emmy Lai, Sven Giesselbach, Matthias Koch, Héctor Allende-Cid",
+                "arxiv_id": "",
+                "url": "https://arxiv.org/abs/2607.21608v1",
+                "research_focus": "A survey discussing the implications of the EU AI Act on Requirements Engineering, highlighting the need for organizations to translate regulatory obligations into testable requirements.",
+                "method": "",
+                "results": "",
+                "limitations": "",
+                "implementation": ""
+              },
+              {
+                "title": "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning",
+                "year": 2026,
+                "authors": "Bang Giang Le, Viet Cuong Ta",
+                "arxiv_id": "",
+                "url": "https://arxiv.org/abs/2606.25526v1",
+                "research_focus": "A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for improved stability.",
+                "method": "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for improved stability.",
+                "results": "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for improved stability.",
+                "limitations": "",
+                "implementation": ""
+              },
+              {
+                "title": "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act",
+                "year": 2026,
+                "authors": "Víctor Mayoral-Vilches",
+                "arxiv_id": "",
+                "url": "https://arxiv.org/abs/2607.07109v1",
+                "research_focus": "A critique of the EU Cyber Resilience Act, arguing that AI agents can undermine its effectiveness by rapidly exploiting vulnerabilities.",
+                "method": "",
+                "results": "",
+                "limitations": "",
+                "implementation": ""
+              },
+              {
+                "title": "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control",
+                "year": 2026,
+                "authors": "Sai Sandeep Damera, John S. Baras",
+                "arxiv_id": "",
+                "url": "https://arxiv.org/abs/2607.12742v1",
+                "research_focus": "A model analyzing the security of encrypted control systems in a multi-agent context, proposing a dynamic game approach to manage security risks.",
+                "method": "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control A model analyzing the security of encrypted control systems in a multi-agent context, proposing a dynamic game approach to manage security risks.",
+                "results": "",
+                "limitations": "",
+                "implementation": ""
+              }
+            ],
+            "markdown": "| Paper | Year | Research focus | Method | Results | Limitations | Implementation |\n| --- | --- | --- | --- | --- | --- | --- |\n| C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage | 2026 | An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents. | C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents. | C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage An automated triage framework for O-RAN architectures that generates actionable incident reports and identifies root causes of performance-degradation incidents. | Not available in provided metadata | Not available in provided metadata |\n| From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE | 2026 | A survey discussing the implications of the EU AI Act on Requirements Engineering, highlighting the need for organizations to translate regulatory obligations into testable requirements. | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata |\n| Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning | 2026 | A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for improved stability. | Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for i... | Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning A method addressing high variance in cooperative multi-agent reinforcement learning, proposing a clipping objective for i... | Not available in provided metadata | Not available in provided metadata |\n| Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act | 2026 | A critique of the EU Cyber Resilience Act, arguing that AI agents can undermine its effectiveness by rapidly exploiting vulnerabilities. | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata |\n| Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control | 2026 | A model analyzing the security of encrypted control systems in a multi-agent context, proposing a dynamic game approach to manage security risks. | Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control A model analyzing the security of encrypted control systems in a multi-agent context, proposing a dynamic game approach to manage security risks. | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata |",
+            "common_terms": [],
+            "distinctive_terms": {
+              "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage": [
+                "acting",
+                "actionable",
+                "architectures",
+                "automated",
+                "causal",
+                "causes",
+                "degradation",
+                "forensic",
+                "framework",
+                "generates"
+              ],
+              "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE": [
+                "discussing",
+                "engineering",
+                "highlighting",
+                "implications",
+                "into",
+                "need",
+                "obligation",
+                "obligations",
+                "organizations",
+                "regulatory"
+              ],
+              "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning": [
+                "actors",
+                "addressing",
+                "clipping",
+                "cooperative",
+                "high",
+                "improved",
+                "independent",
+                "learning",
+                "low",
+                "method"
+              ],
+              "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act": [
+                "agents",
+                "arguing",
+                "break",
+                "certifying",
+                "critique",
+                "cyber",
+                "cybersecurity",
+                "effectiveness",
+                "exploiting",
+                "ghosts"
+              ],
+              "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control": [
+                "analyzing",
+                "approach",
+                "buys",
+                "context",
+                "control",
+                "dynamic",
+                "encrypted",
+                "game",
+                "keying",
+                "manage"
+              ]
+            },
+            "highlights": {
+              "newest_paper": "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage",
+              "highest_ranked_paper": null
+            },
+            "warnings": [
+              "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage: limitations not available in provided metadata",
+              "C-RE-ACT: Causal RE-ACTing Agent for O-RAN Forensic Triage: implementation not available in provided metadata",
+              "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE: method not available in provided metadata",
+              "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE: results not available in provided metadata",
+              "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE: limitations not available in provided metadata",
+              "From Obligation to Specification: A Survey on Validating EU AI Act Requirements in RE: implementation not available in provided metadata",
+              "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning: limitations not available in provided metadata",
+              "Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-agent Reinforcement Learning: implementation not available in provided metadata",
+              "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act: method not available in provided metadata",
+              "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act: results not available in provided metadata",
+              "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act: limitations not available in provided metadata",
+              "Certifying Ghosts: How Cybersecurity AI Agents Break the EU Cyber Resilience Act: implementation not available in provided metadata",
+              "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control: results not available in provided metadata",
+              "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control: limitations not available in provided metadata",
+              "Stability Buys Time: A Re-Keying Game for Encrypted Multi-Agent Control: implementation not available in provided metadata"
+            ],
+            "trust_boundary": "Comparison uses only provided metadata and extractive insights; unavailable claims are left missing."
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T12:15:44"
+    },
+    {
+      "turn_index": 4,
+      "started_at": "2026-07-29T12:16:41",
+      "user": "tóm tắt 5 tweet mới nhất giúp mình",
+      "status": "answered",
+      "assistant_text": "I encountered an issue while trying to retrieve the latest tweets. Unfortunately, I cannot access that information at the moment.\n\nIf you have a specific topic or user in mind, I can help you search for relevant tweets or information. Let me know how you'd like to proceed!",
+      "history_window": 5,
+      "max_tool_rounds": 4,
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "timeline",
+              "args": {
+                "screenname": "ResearchPaperScout",
+                "limit": 5
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "timeline",
+              "args": {
+                "screenname": "ResearchPaperScout",
+                "limit": 5
+              },
+              "result": {
+                "tool": "get_user_tweets",
+                "error": "RuntimeError",
+                "message": "Missing RAPIDAPI_KEY env var"
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "I encountered an issue while trying to retrieve the latest tweets. Unfortunately, I cannot access that information at the moment.\n\nIf you have a specific topic or user in mind, I can help you search for relevant tweets or information. Let me know how you'd like to proceed!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "timeline",
+          "args": {
+            "screenname": "ResearchPaperScout",
+            "limit": 5
+          },
+          "result": {
+            "tool": "get_user_tweets",
+            "error": "RuntimeError",
+            "message": "Missing RAPIDAPI_KEY env var"
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T12:16:44"
+    },
+    {
+      "turn_index": 5,
+      "started_at": "2026-07-29T12:17:38",
+      "user": "So sánh paper 'Attention Is All You Need' với các phương pháp attention trước đó xem tốt hơn ở điểm nào.",
+      "status": "provider_error",
+      "assistant_text": null,
+      "history_window": 5,
+      "max_tool_rounds": 4,
+      "rounds": [],
+      "tool_events": [],
+      "error": "JSONDecodeError: Unterminated string starting at: line 1 column 560 (char 559)",
+      "ended_at": "2026-07-29T12:21:31"
+    }
+  ]
+}

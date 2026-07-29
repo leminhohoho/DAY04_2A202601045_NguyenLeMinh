@@ -1,0 +1,101 @@
+{
+  "transcript_id": "v0_openrouter_20260729T120804",
+  "version": "v0",
+  "artifact_version": "v0+pebcaece939c1+t6f22790982b0",
+  "prompt_hash": "ebcaece939c171d31df78b6d5808e3f631a647ea334f83f497e0e2fe7044397c",
+  "tools_hash": "6f22790982b09d598100441dc0b6babb1cc8fcddc3ab0b4cceb3e13ab104e2c4",
+  "provider": "openrouter",
+  "model": null,
+  "system_prompt": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/artifacts/system_prompt.md",
+  "tools": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/artifacts/tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-07-29T12:08:04",
+  "updated_at": "2026-07-29T12:09:10",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T12:08:04",
+      "user": "Bạn ăn cứt ko",
+      "status": "answered",
+      "assistant_text": "Yêu cầu của bạn nằm ngoài phạm vi hỗ trợ của tôi. Tôi chỉ có thể giúp bạn với các thông tin và nghiên cứu khoa học. Nếu bạn có câu hỏi nào liên quan đến nghiên cứu, hãy cho tôi biết!",
+      "history_window": 5,
+      "max_tool_rounds": 4,
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "Yêu cầu của bạn nằm ngoài phạm vi hỗ trợ của tôi. Tôi chỉ có thể giúp bạn với các thông tin và nghiên cứu khoa học. Nếu bạn có câu hỏi nào liên quan đến nghiên cứu, hãy cho tôi biết!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [],
+      "ended_at": "2026-07-29T12:08:06"
+    },
+    {
+      "turn_index": 2,
+      "started_at": "2026-07-29T12:09:07",
+      "user": "Tìm cho tôi các bài bài liên quan tới tung tung tung sahur",
+      "status": "answered",
+      "assistant_text": "Không có bài báo nào liên quan đến \"tung tung tung sahur\" được tìm thấy trong cơ sở dữ liệu. Nếu bạn có một chủ đề khác hoặc từ khóa cụ thể hơn, hãy cho tôi biết để tôi có thể giúp bạn tìm kiếm!",
+      "history_window": 5,
+      "max_tool_rounds": 4,
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "papers",
+              "args": {
+                "query": "tung tung tung sahur",
+                "max_results": 5
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "papers",
+              "args": {
+                "query": "tung tung tung sahur",
+                "max_results": 5
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "tung tung tung sahur",
+                "api_query": "all:tung AND all:tung AND all:tung AND all:sahur",
+                "total_results": 0,
+                "items": [],
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Không có bài báo nào liên quan đến \"tung tung tung sahur\" được tìm thấy trong cơ sở dữ liệu. Nếu bạn có một chủ đề khác hoặc từ khóa cụ thể hơn, hãy cho tôi biết để tôi có thể giúp bạn tìm kiếm!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "tung tung tung sahur",
+            "max_results": 5
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "tung tung tung sahur",
+            "api_query": "all:tung AND all:tung AND all:tung AND all:sahur",
+            "total_results": 0,
+            "items": [],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T12:09:10"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "transcript_id": "v0_openrouter_20260729T120616",
+  "version": "v0",
+  "artifact_version": "v0+pebcaece939c1+t6f22790982b0",
+  "prompt_hash": "ebcaece939c171d31df78b6d5808e3f631a647ea334f83f497e0e2fe7044397c",
+  "tools_hash": "6f22790982b09d598100441dc0b6babb1cc8fcddc3ab0b4cceb3e13ab104e2c4",
+  "provider": "openrouter",
+  "model": null,
+  "system_prompt": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/artifacts/system_prompt.md",
+  "tools": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/artifacts/tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-07-29T12:06:16",
+  "updated_at": "2026-07-29T12:06:48",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T12:06:16",
+      "user": "Hello, remember the number 42.",
+      "status": "answered",
+      "assistant_text": "I'm unable to remember or store information like a human would. However, I can assist you with any questions or tasks related to research or scientific papers. How can I help you today?",
+      "history_window": 5,
+      "max_tool_rounds": 4,
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "I'm unable to remember or store information like a human would. However, I can assist you with any questions or tasks related to research or scientific papers. How can I help you today?",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [],
+      "ended_at": "2026-07-29T12:06:19"
+    },
+    {
+      "turn_index": 2,
+      "started_at": "2026-07-29T12:06:45",
+      "user": "What number did I ask you to remember?",
+      "status": "answered",
+      "assistant_text": "You asked me to remember the number 42. However, I cannot retain information beyond our current conversation. How can I assist you further?",
+      "history_window": 5,
+      "max_tool_rounds": 4,
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "You asked me to remember the number 42. However, I cannot retain information beyond our current conversation. How can I assist you further?",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [],
+      "ended_at": "2026-07-29T12:06:47"
+    }
+  ]
+}

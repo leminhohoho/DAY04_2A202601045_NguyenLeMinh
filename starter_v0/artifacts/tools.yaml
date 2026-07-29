@@ -98,7 +98,7 @@ tools:
       required: [query]
 
   - name: papers
-    description: "Tìm bài báo khoa học."
+    description: "Tìm bài báo khoa học theo từ khóa/chủ đề khi user thực sự muốn KHÁM PHÁ paper mới. Không dùng để tra cứu một paper đã được nêu tên cụ thể chỉ nhằm lấp chỗ trống cho một tác vụ khác (vd: so sánh, xếp hạng) — nếu thiếu paper cụ thể, hỏi lại thay vì tự tìm."
     parameters:
       type: object
       properties:
@@ -156,7 +156,7 @@ tools:
         max_chars: {type: integer, default: 50000, description: "Giới hạn ký tự đọc từ nguồn text."}
 
   - name: compare_papers
-    description: "So sánh từ 2 paper ĐÃ CÓ bằng metadata, abstract, ranking score và insight đã trích; trả dữ liệu có cấu trúc và bảng Markdown. Không tìm arXiv, tải PDF, xếp hạng hoặc bịa claim không có trong input."
+    description: "So sánh từ 2 paper ĐÃ CÓ bằng metadata, abstract, ranking score và insight đã trích; trả dữ liệu có cấu trúc và bảng Markdown. Không tìm arXiv, tải PDF, xếp hạng hoặc bịa claim không có trong input. Nếu user chỉ nêu tên CỤ THỂ một paper và mô tả (các) paper còn lại một cách mơ hồ (vd: 'các phương pháp trước đó', 'nghiên cứu liên quan'), KHÔNG tự tìm paper khác qua papers/arxiv_search để lấp chỗ trống — gọi clarify hỏi paper cụ thể thứ hai trước."
     parameters:
       type: object
       properties:

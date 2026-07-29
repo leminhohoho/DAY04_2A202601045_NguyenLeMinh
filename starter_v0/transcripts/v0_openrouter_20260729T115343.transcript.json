@@ -1,0 +1,72 @@
+{
+  "transcript_id": "v0_openrouter_20260729T115343",
+  "version": "v0",
+  "artifact_version": "v0+pebcaece939c1+t6f22790982b0",
+  "prompt_hash": "ebcaece939c171d31df78b6d5808e3f631a647ea334f83f497e0e2fe7044397c",
+  "tools_hash": "6f22790982b09d598100441dc0b6babb1cc8fcddc3ab0b4cceb3e13ab104e2c4",
+  "provider": "openrouter",
+  "model": null,
+  "system_prompt": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/artifacts/system_prompt.md",
+  "tools": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/artifacts/tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-07-29T11:53:43",
+  "updated_at": "2026-07-29T11:53:45",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T11:53:43",
+      "user": "So sánh cho tôi bài báo \"Attention is all you need\"\n",
+      "status": "waiting_for_user",
+      "assistant_text": "Bạn muốn so sánh bài báo \"Attention is all you need\" với bài báo nào khác?",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "clarify",
+              "args": {
+                "question": "Bạn muốn so sánh bài báo \"Attention is all you need\" với bài báo nào khác?",
+                "response_type": "text"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "clarify",
+              "args": {
+                "question": "Bạn muốn so sánh bài báo \"Attention is all you need\" với bài báo nào khác?",
+                "response_type": "text"
+              },
+              "result": {
+                "tool": "ask_user",
+                "question": "Bạn muốn so sánh bài báo \"Attention is all you need\" với bài báo nào khác?",
+                "response_type": "text",
+                "options": [],
+                "awaiting_user": true
+              }
+            }
+          ]
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "clarify",
+          "args": {
+            "question": "Bạn muốn so sánh bài báo \"Attention is all you need\" với bài báo nào khác?",
+            "response_type": "text"
+          },
+          "result": {
+            "tool": "ask_user",
+            "question": "Bạn muốn so sánh bài báo \"Attention is all you need\" với bài báo nào khác?",
+            "response_type": "text",
+            "options": [],
+            "awaiting_user": true
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T11:53:45"
+    }
+  ]
+}

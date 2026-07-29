@@ -1,0 +1,935 @@
+{
+  "transcript_id": "v0_openrouter_20260729T115740",
+  "version": "v0",
+  "artifact_version": "v0+pebcaece939c1+t6f22790982b0",
+  "prompt_hash": "ebcaece939c171d31df78b6d5808e3f631a647ea334f83f497e0e2fe7044397c",
+  "tools_hash": "6f22790982b09d598100441dc0b6babb1cc8fcddc3ab0b4cceb3e13ab104e2c4",
+  "provider": "openrouter",
+  "model": null,
+  "system_prompt": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/artifacts/system_prompt.md",
+  "tools": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/artifacts/tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-07-29T11:57:40",
+  "updated_at": "2026-07-29T11:58:04",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T11:57:40",
+      "user": "So sánh cho tôi bài báo \"LLaDA\" và \"BERT\"",
+      "status": "answered",
+      "assistant_text": "Here is a comparison of the papers \"LLaDA-V: Large Language Diffusion Models with Visual Instruction Tuning\" and \"A Primer in BERTology: What we know about how BERT works\":\n\n| Paper | Year | Research Focus | Method | Results | Limitations | Implementation |\n| --- | --- | --- | --- | --- | --- | --- |\n| [LLaDA-V: Large Language Diffusion Models with Visual Instruction Tuning](http://arxiv.org/abs/2505.16933v2) | 2025 | Introduces LLaDA-V, a purely diffusion-based Multimodal Large Language Model (MLLM) that integrates visual instruction tuning with masked diffusion models, representing a departure from the autoregressive paradigms dominant in current multimodal approaches. | LLaDA-V integrates visual instruction tuning with masked diffusion models. | Demonstrates promising multimodal performance despite being weaker on purely textual tasks than counterparts like LLaMA3-8B and Qwen2-7B. | Not available in provided metadata. | Project page and codes: [LLaDA-V Demo](https://ml-gsai.github.io/LLaDA-V-demo/). |\n| [A Primer in BERTology: What we know about how BERT works](http://arxiv.org/abs/2002.12327v3) | 2020 | Reviews the current state of knowledge about how BERT works, what kind of information it learns, and common modifications to its training objectives and architecture. | Survey of over 150 studies on BERT. | Not available in provided metadata. | Not available in provided metadata. | Not available in provided metadata. |\n\n### Key Highlights:\n- **Newest Paper**: \"LLaDA-V: Large Language Diffusion Models with Visual Instruction Tuning\" (2025).\n- **Research Focus**: LLaDA-V focuses on multimodal integration, while the BERT paper surveys the understanding of BERT's mechanisms and modifications.\n\n### Warnings:\n- Limitations and results for the BERT paper are not available in the provided metadata.\n\nThis comparison highlights the differences in focus and methodology between the two papers, with LLaDA-V being a recent development in multimodal models and the BERT paper providing a comprehensive overview of existing knowledge about BERT.",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "papers",
+              "args": {
+                "query": "LLaDA",
+                "max_results": 5
+              }
+            },
+            {
+              "name": "papers",
+              "args": {
+                "query": "BERT",
+                "max_results": 5
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "papers",
+              "args": {
+                "query": "LLaDA",
+                "max_results": 5
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "LLaDA",
+                "api_query": "all:LLaDA",
+                "total_results": 154,
+                "items": [
+                  {
+                    "arxiv_id": "2505.16933v2",
+                    "title": "LLaDA-V: Large Language Diffusion Models with Visual Instruction Tuning",
+                    "summary": "In this work, we introduce LLaDA-V, a purely diffusion-based Multimodal Large Language Model (MLLM) that integrates visual instruction tuning with masked diffusion models, representing a departure from the autoregressive paradigms dominant in current multimodal approaches. Built upon LLaDA, a representative large language diffusion model, LLaDA-V incorporates a vision encoder and MLP connector that projects visual features into the language embedding space, enabling effective multimodal alignment. Our empirical investigation reveals several intriguing results: First, LLaDA-V demonstrates promising multimodal performance despite its language model being weaker on purely textual tasks than counterparts like LLaMA3-8B and Qwen2-7B. When trained on the same instruction data, LLaDA-V is highly competitive to LLaMA3-V across multimodal tasks with better data scalability. It also narrows the performance gap to Qwen2-VL, suggesting the effectiveness of its architecture for multimodal tasks. Second, LLaDA-V achieves state-of-the-art performance in multimodal understanding compared to existing hybrid autoregressive-diffusion and purely diffusion-based MLLMs. Our findings suggest that large language diffusion models show promise in multimodal contexts and warrant further investigation in future research. Project page and codes: https://ml-gsai.github.io/LLaDA-V-demo/.",
+                    "authors": [
+                      "Zebin You",
+                      "Shen Nie",
+                      "Xiaolu Zhang",
+                      "Jun Hu",
+                      "Jun Zhou",
+                      "Zhiwu Lu",
+                      "Ji-Rong Wen",
+                      "Chongxuan Li"
+                    ],
+                    "published": "2025-05-22T17:23:26Z",
+                    "updated": "2025-06-04T05:52:10Z",
+                    "url": "http://arxiv.org/abs/2505.16933v2",
+                    "pdf_url": "https://arxiv.org/pdf/2505.16933v2",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.LG",
+                    "categories": [
+                      "cs.LG",
+                      "cs.CL",
+                      "cs.CV"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2505.19223v2",
+                    "title": "LLaDA 1.5: Variance-Reduced Preference Optimization for Large Language Diffusion Models",
+                    "summary": "While Masked Diffusion Models (MDMs), such as LLaDA, present a promising paradigm for language modeling, there has been relatively little effort in aligning these models with human preferences via reinforcement learning. The challenge primarily arises from the high variance in Evidence Lower Bound (ELBO)-based likelihood estimates required for preference optimization. To address this issue, we propose Variance-Reduced Preference Optimization (VRPO), a framework that formally analyzes the variance of ELBO estimators and derives bounds on both the bias and variance of preference optimization gradients. Building on this theoretical foundation, we introduce unbiased variance reduction strategies, including optimal Monte Carlo budget allocation and antithetic sampling, that significantly improve the performance of MDM alignment. We demonstrate the effectiveness of VRPO by applying it to LLaDA, and the resulting model, LLaDA 1.5, outperforms its SFT-only predecessor consistently and significantly across mathematical (GSM8K +4.7), code (HumanEval +3.0, MBPP +1.8), and alignment benchmarks (IFEval +4.0, Arena-Hard +4.3). Furthermore, LLaDA 1.5 demonstrates a highly competitive mathematical performance compared to strong language MDMs and ARMs. Project page: https://ml-gsai.github.io/LLaDA-1.5-Demo/.",
+                    "authors": [
+                      "Fengqi Zhu",
+                      "Rongzhen Wang",
+                      "Shen Nie",
+                      "Xiaolu Zhang",
+                      "Chunwei Wu",
+                      "Jun Hu",
+                      "Jun Zhou",
+                      "Jianfei Chen",
+                      "Yankai Lin",
+                      "Ji-Rong Wen",
+                      "Chongxuan Li"
+                    ],
+                    "published": "2025-05-25T16:36:20Z",
+                    "updated": "2025-10-12T15:42:47Z",
+                    "url": "http://arxiv.org/abs/2505.19223v2",
+                    "pdf_url": "https://arxiv.org/pdf/2505.19223v2",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.LG",
+                    "categories": [
+                      "cs.LG"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2509.24389v1",
+                    "title": "LLaDA-MoE: A Sparse MoE Diffusion Language Model",
+                    "summary": "We introduce LLaDA-MoE, a large language diffusion model with the Mixture-of-Experts (MoE) architecture, trained from scratch on approximately 20T tokens. LLaDA-MoE achieves competitive performance with significantly reduced computational overhead by maintaining a 7B-parameter capacity while activating only 1.4B parameters during inference. Our empirical evaluation reveals that LLaDA-MoE achieves state-of-the-art performance among diffusion language models with larger parameters, surpassing previous diffusion language models LLaDA, LLaDA 1.5, and Dream across multiple benchmarks. The instruct-tuned model LLaDA-MoE-7B-A1B-Instruct demonstrates capabilities comparable to Qwen2.5-3B-Instruct in knowledge understanding, code generation, mathematical reasoning, agent and alignment tasks, despite using fewer active parameters. Our results show that integrating a sparse MoE architecture into the training objective of masked diffusion language models still brings out MoE's strengths under efficient inference with few active parameters, and opens ample room for further exploration of diffusion language models. LLaDA-MoE models are available at Huggingface.",
+                    "authors": [
+                      "Fengqi Zhu",
+                      "Zebin You",
+                      "Yipeng Xing",
+                      "Zenan Huang",
+                      "Lin Liu",
+                      "Yihong Zhuang",
+                      "Guoshan Lu",
+                      "Kangyu Wang",
+                      "Xudong Wang",
+                      "Lanning Wei",
+                      "Hongrui Guo",
+                      "Jiaqi Hu",
+                      "Wentao Ye",
+                      "Tieyuan Chen",
+                      "Chenchen Li",
+                      "Chengfu Tang",
+                      "Haibo Feng",
+                      "Jun Hu",
+                      "Jun Zhou",
+                      "Xiaolu Zhang",
+                      "Zhenzhong Lan",
+                      "Junbo Zhao",
+                      "Da Zheng",
+                      "Chongxuan Li",
+                      "Jianguo Li",
+                      "Ji-Rong Wen"
+                    ],
+                    "published": "2025-09-29T07:38:59Z",
+                    "updated": "2025-09-29T07:38:59Z",
+                    "url": "http://arxiv.org/abs/2509.24389v1",
+                    "pdf_url": "https://arxiv.org/pdf/2509.24389v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CL",
+                    "categories": [
+                      "cs.CL",
+                      "cs.AI"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2508.01617v2",
+                    "title": "LLaDA-MedV: Exploring Large Language Diffusion Models for Biomedical Image Understanding",
+                    "summary": "Autoregressive models (ARMs) have long dominated the landscape of biomedical vision-language models (VLMs). Recently, masked diffusion models such as LLaDA have emerged as promising alternatives, yet their application in the biomedical domain remains largely underexplored. To bridge this gap, we introduce LLaDA-MedV, the first large language diffusion model tailored for biomedical image understanding through vision instruction tuning. LLaDA-MedV achieves relative performance gains of 7.855% over LLaVA-Med and 1.867% over LLaDA-V in the open-ended biomedical visual conversation task, and sets new state-of-the-art accuracy on the closed-form subset of three VQA benchmarks: 84.93% on VQA-RAD, 92.31% on SLAKE, and 95.15% on PathVQA. Furthermore, a detailed comparison with LLaVA-Med suggests that LLaDA-MedV is capable of generating reasonably longer responses by explicitly controlling response length, which can lead to more informative outputs. We also conduct an in-depth analysis of both the training and inference stages, highlighting the critical roles of initialization weight selection, fine-tuning strategies, and the interplay between sampling steps and response repetition. The code and model weight is released at https://github.com/LLM-VLM-GSL/LLaDA-MedV.",
+                    "authors": [
+                      "Xuanzhao Dong",
+                      "Wenhui Zhu",
+                      "Xiwen Chen",
+                      "Zhipeng Wang",
+                      "Peijie Qiu",
+                      "Shao Tang",
+                      "Xin Li",
+                      "Yalin Wang"
+                    ],
+                    "published": "2025-08-03T06:46:46Z",
+                    "updated": "2026-02-25T18:15:23Z",
+                    "url": "http://arxiv.org/abs/2508.01617v2",
+                    "pdf_url": "https://arxiv.org/pdf/2508.01617v2",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2601.20168v1",
+                    "title": "Efficient Token Pruning for LLaDA-V",
+                    "summary": "Diffusion-based large multimodal models, such as LLaDA-V, have demonstrated impressive capabilities in vision-language understanding and generation. However, their bidirectional attention mechanism and diffusion-style iterative denoising paradigm introduce significant computational overhead, as visual tokens are repeatedly processed across all layers and denoising steps. In this work, we conduct an in-depth attention analysis and reveal that, unlike autoregressive decoders, LLaDA-V aggregates cross-modal information predominantly in middle-to-late layers, leading to delayed semantic alignment. Motivated by this observation, we propose a structured token pruning strategy inspired by FastV, selectively removing a proportion of visual tokens at designated layers to reduce FLOPs while preserving critical semantic information. To the best of our knowledge, this is the first work to investigate structured token pruning in diffusion-based large multimodal models. Unlike FastV, which focuses on shallow-layer pruning, our method targets the middle-to-late layers of the first denoising step to align with LLaDA-V's delayed attention aggregation to maintain output quality, and the first-step pruning strategy reduces the computation across all subsequent steps. Our framework provides an empirical basis for efficient LLaDA-V inference and highlights the potential of vision-aware pruning in diffusion-based multimodal models. Across multiple benchmarks, our best configuration reduces computational cost by up to 65% while preserving an average of 95% task performance.",
+                    "authors": [
+                      "Zhewen Wan",
+                      "Tianchen Song",
+                      "Chen Lin",
+                      "Zhiyong Zhao",
+                      "Xianpeng Lang"
+                    ],
+                    "published": "2026-01-28T02:03:03Z",
+                    "updated": "2026-01-28T02:03:03Z",
+                    "url": "http://arxiv.org/abs/2601.20168v1",
+                    "pdf_url": "https://arxiv.org/pdf/2601.20168v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV"
+                    ]
+                  }
+                ],
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            },
+            {
+              "tool": "papers",
+              "args": {
+                "query": "BERT",
+                "max_results": 5
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "BERT",
+                "api_query": "all:BERT",
+                "total_results": 8252,
+                "items": [
+                  {
+                    "arxiv_id": "2307.02054v3",
+                    "title": "Emoji Prediction in Tweets using BERT",
+                    "summary": "In recent years, the use of emojis in social media has increased dramatically, making them an important element in understanding online communication. However, predicting the meaning of emojis in a given text is a challenging task due to their ambiguous nature. In this study, we propose a transformer-based approach for emoji prediction using BERT, a widely-used pre-trained language model. We fine-tuned BERT on a large corpus of text (tweets) containing both text and emojis to predict the most appropriate emoji for a given text. Our experimental results demonstrate that our approach outperforms several state-of-the-art models in predicting emojis with an accuracy of over 75 percent. This work has potential applications in natural language processing, sentiment analysis, and social media marketing.",
+                    "authors": [
+                      "Muhammad Osama Nusrat",
+                      "Zeeshan Habib",
+                      "Mehreen Alam",
+                      "Saad Ahmed Jamal"
+                    ],
+                    "published": "2023-07-05T06:38:52Z",
+                    "updated": "2023-08-26T11:02:16Z",
+                    "url": "http://arxiv.org/abs/2307.02054v3",
+                    "pdf_url": "https://arxiv.org/pdf/2307.02054v3",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CL",
+                    "categories": [
+                      "cs.CL",
+                      "cs.AI"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2006.05987v3",
+                    "title": "Revisiting Few-sample BERT Fine-tuning",
+                    "summary": "This paper is a study of fine-tuning of BERT contextual representations, with focus on commonly observed instabilities in few-sample scenarios. We identify several factors that cause this instability: the common use of a non-standard optimization method with biased gradient estimation; the limited applicability of significant parts of the BERT network for down-stream tasks; and the prevalent practice of using a pre-determined, and small number of training iterations. We empirically test the impact of these factors, and identify alternative practices that resolve the commonly observed instability of the process. In light of these observations, we re-visit recently proposed methods to improve few-sample fine-tuning with BERT and re-evaluate their effectiveness. Generally, we observe the impact of these methods diminishes significantly with our modified process.",
+                    "authors": [
+                      "Tianyi Zhang",
+                      "Felix Wu",
+                      "Arzoo Katiyar",
+                      "Kilian Q. Weinberger",
+                      "Yoav Artzi"
+                    ],
+                    "published": "2020-06-10T17:57:03Z",
+                    "updated": "2021-03-11T17:22:50Z",
+                    "url": "http://arxiv.org/abs/2006.05987v3",
+                    "pdf_url": "https://arxiv.org/pdf/2006.05987v3",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CL",
+                    "categories": [
+                      "cs.CL",
+                      "cs.LG"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2106.11740v2",
+                    "title": "LV-BERT: Exploiting Layer Variety for BERT",
+                    "summary": "Modern pre-trained language models are mostly built upon backbones stacking self-attention and feed-forward layers in an interleaved order. In this paper, beyond this stereotyped layer pattern, we aim to improve pre-trained models by exploiting layer variety from two aspects: the layer type set and the layer order. Specifically, besides the original self-attention and feed-forward layers, we introduce convolution into the layer type set, which is experimentally found beneficial to pre-trained models. Furthermore, beyond the original interleaved order, we explore more layer orders to discover more powerful architectures. However, the introduced layer variety leads to a large architecture space of more than billions of candidates, while training a single candidate model from scratch already requires huge computation cost, making it not affordable to search such a space by directly training large amounts of candidate models. To solve this problem, we first pre-train a supernet from which the weights of all candidate models can be inherited, and then adopt an evolutionary algorithm guided by pre-training accuracy to find the optimal architecture. Extensive experiments show that LV-BERT model obtained by our method outperforms BERT and its variants on various downstream tasks. For example, LV-BERT-small achieves 79.8 on the GLUE testing set, 1.8 higher than the strong baseline ELECTRA-small.",
+                    "authors": [
+                      "Weihao Yu",
+                      "Zihang Jiang",
+                      "Fei Chen",
+                      "Qibin Hou",
+                      "Jiashi Feng"
+                    ],
+                    "published": "2021-06-22T13:20:14Z",
+                    "updated": "2021-06-25T03:58:57Z",
+                    "url": "http://arxiv.org/abs/2106.11740v2",
+                    "pdf_url": "https://arxiv.org/pdf/2106.11740v2",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CL",
+                    "categories": [
+                      "cs.CL",
+                      "cs.AI",
+                      "cs.LG"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2106.08254v2",
+                    "title": "BEiT: BERT Pre-Training of Image Transformers",
+                    "summary": "We introduce a self-supervised vision representation model BEiT, which stands for Bidirectional Encoder representation from Image Transformers. Following BERT developed in the natural language processing area, we propose a masked image modeling task to pretrain vision Transformers. Specifically, each image has two views in our pre-training, i.e, image patches (such as 16x16 pixels), and visual tokens (i.e., discrete tokens). We first \"tokenize\" the original image into visual tokens. Then we randomly mask some image patches and fed them into the backbone Transformer. The pre-training objective is to recover the original visual tokens based on the corrupted image patches. After pre-training BEiT, we directly fine-tune the model parameters on downstream tasks by appending task layers upon the pretrained encoder. Experimental results on image classification and semantic segmentation show that our model achieves competitive results with previous pre-training methods. For example, base-size BEiT achieves 83.2% top-1 accuracy on ImageNet-1K, significantly outperforming from-scratch DeiT training (81.8%) with the same setup. Moreover, large-size BEiT obtains 86.3% only using ImageNet-1K, even outperforming ViT-L with supervised pre-training on ImageNet-22K (85.2%). The code and pretrained models are available at https://aka.ms/beit.",
+                    "authors": [
+                      "Hangbo Bao",
+                      "Li Dong",
+                      "Songhao Piao",
+                      "Furu Wei"
+                    ],
+                    "published": "2021-06-15T16:02:37Z",
+                    "updated": "2022-09-03T14:11:33Z",
+                    "url": "http://arxiv.org/abs/2106.08254v2",
+                    "pdf_url": "https://arxiv.org/pdf/2106.08254v2",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV",
+                      "cs.LG"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2002.12327v3",
+                    "title": "A Primer in BERTology: What we know about how BERT works",
+                    "summary": "Transformer-based models have pushed state of the art in many areas of NLP, but our understanding of what is behind their success is still limited. This paper is the first survey of over 150 studies of the popular BERT model. We review the current state of knowledge about how BERT works, what kind of information it learns and how it is represented, common modifications to its training objectives and architecture, the overparameterization issue and approaches to compression. We then outline directions for future research.",
+                    "authors": [
+                      "Anna Rogers",
+                      "Olga Kovaleva",
+                      "Anna Rumshisky"
+                    ],
+                    "published": "2020-02-27T18:46:42Z",
+                    "updated": "2020-11-09T15:33:50Z",
+                    "url": "http://arxiv.org/abs/2002.12327v3",
+                    "pdf_url": "https://arxiv.org/pdf/2002.12327v3",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CL",
+                    "categories": [
+                      "cs.CL"
+                    ]
+                  }
+                ],
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "compare_papers",
+              "args": {
+                "papers": [
+                  {
+                    "arxiv_id": "2505.16933v2",
+                    "title": "LLaDA-V: Large Language Diffusion Models with Visual Instruction Tuning",
+                    "summary": "In this work, we introduce LLaDA-V, a purely diffusion-based Multimodal Large Language Model (MLLM) that integrates visual instruction tuning with masked diffusion models, representing a departure from the autoregressive paradigms dominant in current multimodal approaches. Built upon LLaDA, a representative large language diffusion model, LLaDA-V incorporates a vision encoder and MLP connector that projects visual features into the language embedding space, enabling effective multimodal alignment. Our empirical investigation reveals several intriguing results: First, LLaDA-V demonstrates promising multimodal performance despite its language model being weaker on purely textual tasks than counterparts like LLaMA3-8B and Qwen2-7B. When trained on the same instruction data, LLaDA-V is highly competitive to LLaMA3-V across multimodal tasks with better data scalability. It also narrows the performance gap to Qwen2-VL, suggesting the effectiveness of its architecture for multimodal tasks. Second, LLaDA-V achieves state-of-the-art performance in multimodal understanding compared to existing hybrid autoregressive-diffusion and purely diffusion-based MLLMs. Our findings suggest that large language diffusion models show promise in multimodal contexts and warrant further investigation in future research. Project page and codes: https://ml-gsai.github.io/LLaDA-V-demo/.",
+                    "authors": [
+                      "Zebin You",
+                      "Shen Nie",
+                      "Xiaolu Zhang",
+                      "Jun Hu",
+                      "Jun Zhou",
+                      "Zhiwu Lu",
+                      "Ji-Rong Wen",
+                      "Chongxuan Li"
+                    ],
+                    "published": "2025-05-22T17:23:26Z",
+                    "url": "http://arxiv.org/abs/2505.16933v2"
+                  },
+                  {
+                    "arxiv_id": "2002.12327v3",
+                    "title": "A Primer in BERTology: What we know about how BERT works",
+                    "summary": "Transformer-based models have pushed state of the art in many areas of NLP, but our understanding of what is behind their success is still limited. This paper is the first survey of over 150 studies of the popular BERT model. We review the current state of knowledge about how BERT works, what kind of information it learns and how it is represented, common modifications to its training objectives and architecture, the overparameterization issue and approaches to compression. We then outline directions for future research.",
+                    "authors": [
+                      "Anna Rogers",
+                      "Olga Kovaleva",
+                      "Anna Rumshisky"
+                    ],
+                    "published": "2020-02-27T18:46:42Z",
+                    "url": "http://arxiv.org/abs/2002.12327v3"
+                  }
+                ],
+                "dimensions": [
+                  "research_focus",
+                  "method",
+                  "results",
+                  "limitations",
+                  "implementation"
+                ],
+                "max_papers": 2
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "compare_papers",
+              "args": {
+                "papers": [
+                  {
+                    "arxiv_id": "2505.16933v2",
+                    "title": "LLaDA-V: Large Language Diffusion Models with Visual Instruction Tuning",
+                    "summary": "In this work, we introduce LLaDA-V, a purely diffusion-based Multimodal Large Language Model (MLLM) that integrates visual instruction tuning with masked diffusion models, representing a departure from the autoregressive paradigms dominant in current multimodal approaches. Built upon LLaDA, a representative large language diffusion model, LLaDA-V incorporates a vision encoder and MLP connector that projects visual features into the language embedding space, enabling effective multimodal alignment. Our empirical investigation reveals several intriguing results: First, LLaDA-V demonstrates promising multimodal performance despite its language model being weaker on purely textual tasks than counterparts like LLaMA3-8B and Qwen2-7B. When trained on the same instruction data, LLaDA-V is highly competitive to LLaMA3-V across multimodal tasks with better data scalability. It also narrows the performance gap to Qwen2-VL, suggesting the effectiveness of its architecture for multimodal tasks. Second, LLaDA-V achieves state-of-the-art performance in multimodal understanding compared to existing hybrid autoregressive-diffusion and purely diffusion-based MLLMs. Our findings suggest that large language diffusion models show promise in multimodal contexts and warrant further investigation in future research. Project page and codes: https://ml-gsai.github.io/LLaDA-V-demo/.",
+                    "authors": [
+                      "Zebin You",
+                      "Shen Nie",
+                      "Xiaolu Zhang",
+                      "Jun Hu",
+                      "Jun Zhou",
+                      "Zhiwu Lu",
+                      "Ji-Rong Wen",
+                      "Chongxuan Li"
+                    ],
+                    "published": "2025-05-22T17:23:26Z",
+                    "url": "http://arxiv.org/abs/2505.16933v2"
+                  },
+                  {
+                    "arxiv_id": "2002.12327v3",
+                    "title": "A Primer in BERTology: What we know about how BERT works",
+                    "summary": "Transformer-based models have pushed state of the art in many areas of NLP, but our understanding of what is behind their success is still limited. This paper is the first survey of over 150 studies of the popular BERT model. We review the current state of knowledge about how BERT works, what kind of information it learns and how it is represented, common modifications to its training objectives and architecture, the overparameterization issue and approaches to compression. We then outline directions for future research.",
+                    "authors": [
+                      "Anna Rogers",
+                      "Olga Kovaleva",
+                      "Anna Rumshisky"
+                    ],
+                    "published": "2020-02-27T18:46:42Z",
+                    "url": "http://arxiv.org/abs/2002.12327v3"
+                  }
+                ],
+                "dimensions": [
+                  "research_focus",
+                  "method",
+                  "results",
+                  "limitations",
+                  "implementation"
+                ],
+                "max_papers": 2
+              },
+              "result": {
+                "tool": "compare_papers",
+                "dimensions": [
+                  "research_focus",
+                  "method",
+                  "results",
+                  "limitations",
+                  "implementation"
+                ],
+                "input_count": 2,
+                "item_count": 2,
+                "comparison_rows": [
+                  {
+                    "title": "LLaDA-V: Large Language Diffusion Models with Visual Instruction Tuning",
+                    "year": 2025,
+                    "authors": "Zebin You, Shen Nie, Xiaolu Zhang, Jun Hu, Jun Zhou, Zhiwu Lu, Ji-Rong Wen, Chongxuan Li",
+                    "arxiv_id": "2505.16933v2",
+                    "url": "http://arxiv.org/abs/2505.16933v2",
+                    "research_focus": "In this work, we introduce LLaDA-V, a purely diffusion-based Multimodal Large Language Model (MLLM) that integrates visual instruction tuning with masked diffusion models, representing a departure from the autoregressive paradigms dominant in current multimodal approaches.",
+                    "method": "LLaDA-V: Large Language Diffusion Models with Visual Instruction Tuning In this work, we introduce LLaDA-V, a purely diffusion-based Multimodal Large Language Model (MLLM) that integrates visual instruction tuning with masked diffusion models, representing a departure from the autoregressive paradigms dominant in current multimodal approaches.",
+                    "results": "Our empirical investigation reveals several intriguing results: First, LLaDA-V demonstrates promising multimodal performance despite its language model being weaker on purely textual tasks than counterparts like LLaMA3-8B and Qwen2-7B.",
+                    "limitations": "",
+                    "implementation": "Project page and codes: https://ml-gsai.github.io/LLaDA-V-demo/."
+                  },
+                  {
+                    "title": "A Primer in BERTology: What we know about how BERT works",
+                    "year": 2020,
+                    "authors": "Anna Rogers, Olga Kovaleva, Anna Rumshisky",
+                    "arxiv_id": "2002.12327v3",
+                    "url": "http://arxiv.org/abs/2002.12327v3",
+                    "research_focus": "Transformer-based models have pushed state of the art in many areas of NLP, but our understanding of what is behind their success is still limited.",
+                    "method": "A Primer in BERTology: What we know about how BERT works Transformer-based models have pushed state of the art in many areas of NLP, but our understanding of what is behind their success is still limited.",
+                    "results": "",
+                    "limitations": "",
+                    "implementation": ""
+                  }
+                ],
+                "markdown": "| Paper | Year | Research focus | Method | Results | Limitations | Implementation |\n| --- | --- | --- | --- | --- | --- | --- |\n| LLaDA-V: Large Language Diffusion Models with Visual Instruction Tuning | 2025 | In this work, we introduce LLaDA-V, a purely diffusion-based Multimodal Large Language Model (MLLM) that integrates visual instruction tuning with masked diffusion models, representing a departure from the autoregressive paradigms dominant in current multim... | LLaDA-V: Large Language Diffusion Models with Visual Instruction Tuning In this work, we introduce LLaDA-V, a purely diffusion-based Multimodal Large Language Model (MLLM) that integrates visual instruction tuning with masked diffusion models, representing... | Our empirical investigation reveals several intriguing results: First, LLaDA-V demonstrates promising multimodal performance despite its language model being weaker on purely textual tasks than counterparts like LLaMA3-8B and Qwen2-7B. | Not available in provided metadata | Project page and codes: https://ml-gsai.github.io/LLaDA-V-demo/. |\n| A Primer in BERTology: What we know about how BERT works | 2020 | Transformer-based models have pushed state of the art in many areas of NLP, but our understanding of what is behind their success is still limited. | A Primer in BERTology: What we know about how BERT works Transformer-based models have pushed state of the art in many areas of NLP, but our understanding of what is behind their success is still limited. | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata |",
+                "common_terms": [
+                  "approaches",
+                  "architecture",
+                  "art",
+                  "based",
+                  "current",
+                  "first",
+                  "future",
+                  "it",
+                  "its",
+                  "model",
+                  "models",
+                  "our"
+                ],
+                "distinctive_terms": {
+                  "LLaDA-V: Large Language Diffusion Models with Visual Instruction Tuning": [
+                    "7b",
+                    "8b",
+                    "achieves",
+                    "across",
+                    "alignment",
+                    "also",
+                    "autoregressive",
+                    "being",
+                    "better",
+                    "built"
+                  ],
+                  "A Primer in BERTology: What we know about how BERT works": [
+                    "150",
+                    "about",
+                    "areas",
+                    "behind",
+                    "bert",
+                    "bertology",
+                    "but",
+                    "common",
+                    "compression",
+                    "directions"
+                  ]
+                },
+                "highlights": {
+                  "newest_paper": "LLaDA-V: Large Language Diffusion Models with Visual Instruction Tuning",
+                  "highest_ranked_paper": null
+                },
+                "warnings": [
+                  "LLaDA-V: Large Language Diffusion Models with Visual Instruction Tuning: limitations not available in provided metadata",
+                  "A Primer in BERTology: What we know about how BERT works: results not available in provided metadata",
+                  "A Primer in BERTology: What we know about how BERT works: limitations not available in provided metadata",
+                  "A Primer in BERTology: What we know about how BERT works: implementation not available in provided metadata"
+                ],
+                "trust_boundary": "Comparison uses only provided metadata and extractive insights; unavailable claims are left missing."
+              }
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "assistant_text": "Here is a comparison of the papers \"LLaDA-V: Large Language Diffusion Models with Visual Instruction Tuning\" and \"A Primer in BERTology: What we know about how BERT works\":\n\n| Paper | Year | Research Focus | Method | Results | Limitations | Implementation |\n| --- | --- | --- | --- | --- | --- | --- |\n| [LLaDA-V: Large Language Diffusion Models with Visual Instruction Tuning](http://arxiv.org/abs/2505.16933v2) | 2025 | Introduces LLaDA-V, a purely diffusion-based Multimodal Large Language Model (MLLM) that integrates visual instruction tuning with masked diffusion models, representing a departure from the autoregressive paradigms dominant in current multimodal approaches. | LLaDA-V integrates visual instruction tuning with masked diffusion models. | Demonstrates promising multimodal performance despite being weaker on purely textual tasks than counterparts like LLaMA3-8B and Qwen2-7B. | Not available in provided metadata. | Project page and codes: [LLaDA-V Demo](https://ml-gsai.github.io/LLaDA-V-demo/). |\n| [A Primer in BERTology: What we know about how BERT works](http://arxiv.org/abs/2002.12327v3) | 2020 | Reviews the current state of knowledge about how BERT works, what kind of information it learns, and common modifications to its training objectives and architecture. | Survey of over 150 studies on BERT. | Not available in provided metadata. | Not available in provided metadata. | Not available in provided metadata. |\n\n### Key Highlights:\n- **Newest Paper**: \"LLaDA-V: Large Language Diffusion Models with Visual Instruction Tuning\" (2025).\n- **Research Focus**: LLaDA-V focuses on multimodal integration, while the BERT paper surveys the understanding of BERT's mechanisms and modifications.\n\n### Warnings:\n- Limitations and results for the BERT paper are not available in the provided metadata.\n\nThis comparison highlights the differences in focus and methodology between the two papers, with LLaDA-V being a recent development in multimodal models and the BERT paper providing a comprehensive overview of existing knowledge about BERT.",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "LLaDA",
+            "max_results": 5
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "LLaDA",
+            "api_query": "all:LLaDA",
+            "total_results": 154,
+            "items": [
+              {
+                "arxiv_id": "2505.16933v2",
+                "title": "LLaDA-V: Large Language Diffusion Models with Visual Instruction Tuning",
+                "summary": "In this work, we introduce LLaDA-V, a purely diffusion-based Multimodal Large Language Model (MLLM) that integrates visual instruction tuning with masked diffusion models, representing a departure from the autoregressive paradigms dominant in current multimodal approaches. Built upon LLaDA, a representative large language diffusion model, LLaDA-V incorporates a vision encoder and MLP connector that projects visual features into the language embedding space, enabling effective multimodal alignment. Our empirical investigation reveals several intriguing results: First, LLaDA-V demonstrates promising multimodal performance despite its language model being weaker on purely textual tasks than counterparts like LLaMA3-8B and Qwen2-7B. When trained on the same instruction data, LLaDA-V is highly competitive to LLaMA3-V across multimodal tasks with better data scalability. It also narrows the performance gap to Qwen2-VL, suggesting the effectiveness of its architecture for multimodal tasks. Second, LLaDA-V achieves state-of-the-art performance in multimodal understanding compared to existing hybrid autoregressive-diffusion and purely diffusion-based MLLMs. Our findings suggest that large language diffusion models show promise in multimodal contexts and warrant further investigation in future research. Project page and codes: https://ml-gsai.github.io/LLaDA-V-demo/.",
+                "authors": [
+                  "Zebin You",
+                  "Shen Nie",
+                  "Xiaolu Zhang",
+                  "Jun Hu",
+                  "Jun Zhou",
+                  "Zhiwu Lu",
+                  "Ji-Rong Wen",
+                  "Chongxuan Li"
+                ],
+                "published": "2025-05-22T17:23:26Z",
+                "updated": "2025-06-04T05:52:10Z",
+                "url": "http://arxiv.org/abs/2505.16933v2",
+                "pdf_url": "https://arxiv.org/pdf/2505.16933v2",
+                "source": "arxiv.org",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG",
+                  "cs.CL",
+                  "cs.CV"
+                ]
+              },
+              {
+                "arxiv_id": "2505.19223v2",
+                "title": "LLaDA 1.5: Variance-Reduced Preference Optimization for Large Language Diffusion Models",
+                "summary": "While Masked Diffusion Models (MDMs), such as LLaDA, present a promising paradigm for language modeling, there has been relatively little effort in aligning these models with human preferences via reinforcement learning. The challenge primarily arises from the high variance in Evidence Lower Bound (ELBO)-based likelihood estimates required for preference optimization. To address this issue, we propose Variance-Reduced Preference Optimization (VRPO), a framework that formally analyzes the variance of ELBO estimators and derives bounds on both the bias and variance of preference optimization gradients. Building on this theoretical foundation, we introduce unbiased variance reduction strategies, including optimal Monte Carlo budget allocation and antithetic sampling, that significantly improve the performance of MDM alignment. We demonstrate the effectiveness of VRPO by applying it to LLaDA, and the resulting model, LLaDA 1.5, outperforms its SFT-only predecessor consistently and significantly across mathematical (GSM8K +4.7), code (HumanEval +3.0, MBPP +1.8), and alignment benchmarks (IFEval +4.0, Arena-Hard +4.3). Furthermore, LLaDA 1.5 demonstrates a highly competitive mathematical performance compared to strong language MDMs and ARMs. Project page: https://ml-gsai.github.io/LLaDA-1.5-Demo/.",
+                "authors": [
+                  "Fengqi Zhu",
+                  "Rongzhen Wang",
+                  "Shen Nie",
+                  "Xiaolu Zhang",
+                  "Chunwei Wu",
+                  "Jun Hu",
+                  "Jun Zhou",
+                  "Jianfei Chen",
+                  "Yankai Lin",
+                  "Ji-Rong Wen",
+                  "Chongxuan Li"
+                ],
+                "published": "2025-05-25T16:36:20Z",
+                "updated": "2025-10-12T15:42:47Z",
+                "url": "http://arxiv.org/abs/2505.19223v2",
+                "pdf_url": "https://arxiv.org/pdf/2505.19223v2",
+                "source": "arxiv.org",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2509.24389v1",
+                "title": "LLaDA-MoE: A Sparse MoE Diffusion Language Model",
+                "summary": "We introduce LLaDA-MoE, a large language diffusion model with the Mixture-of-Experts (MoE) architecture, trained from scratch on approximately 20T tokens. LLaDA-MoE achieves competitive performance with significantly reduced computational overhead by maintaining a 7B-parameter capacity while activating only 1.4B parameters during inference. Our empirical evaluation reveals that LLaDA-MoE achieves state-of-the-art performance among diffusion language models with larger parameters, surpassing previous diffusion language models LLaDA, LLaDA 1.5, and Dream across multiple benchmarks. The instruct-tuned model LLaDA-MoE-7B-A1B-Instruct demonstrates capabilities comparable to Qwen2.5-3B-Instruct in knowledge understanding, code generation, mathematical reasoning, agent and alignment tasks, despite using fewer active parameters. Our results show that integrating a sparse MoE architecture into the training objective of masked diffusion language models still brings out MoE's strengths under efficient inference with few active parameters, and opens ample room for further exploration of diffusion language models. LLaDA-MoE models are available at Huggingface.",
+                "authors": [
+                  "Fengqi Zhu",
+                  "Zebin You",
+                  "Yipeng Xing",
+                  "Zenan Huang",
+                  "Lin Liu",
+                  "Yihong Zhuang",
+                  "Guoshan Lu",
+                  "Kangyu Wang",
+                  "Xudong Wang",
+                  "Lanning Wei",
+                  "Hongrui Guo",
+                  "Jiaqi Hu",
+                  "Wentao Ye",
+                  "Tieyuan Chen",
+                  "Chenchen Li",
+                  "Chengfu Tang",
+                  "Haibo Feng",
+                  "Jun Hu",
+                  "Jun Zhou",
+                  "Xiaolu Zhang",
+                  "Zhenzhong Lan",
+                  "Junbo Zhao",
+                  "Da Zheng",
+                  "Chongxuan Li",
+                  "Jianguo Li",
+                  "Ji-Rong Wen"
+                ],
+                "published": "2025-09-29T07:38:59Z",
+                "updated": "2025-09-29T07:38:59Z",
+                "url": "http://arxiv.org/abs/2509.24389v1",
+                "pdf_url": "https://arxiv.org/pdf/2509.24389v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL",
+                  "cs.AI"
+                ]
+              },
+              {
+                "arxiv_id": "2508.01617v2",
+                "title": "LLaDA-MedV: Exploring Large Language Diffusion Models for Biomedical Image Understanding",
+                "summary": "Autoregressive models (ARMs) have long dominated the landscape of biomedical vision-language models (VLMs). Recently, masked diffusion models such as LLaDA have emerged as promising alternatives, yet their application in the biomedical domain remains largely underexplored. To bridge this gap, we introduce LLaDA-MedV, the first large language diffusion model tailored for biomedical image understanding through vision instruction tuning. LLaDA-MedV achieves relative performance gains of 7.855% over LLaVA-Med and 1.867% over LLaDA-V in the open-ended biomedical visual conversation task, and sets new state-of-the-art accuracy on the closed-form subset of three VQA benchmarks: 84.93% on VQA-RAD, 92.31% on SLAKE, and 95.15% on PathVQA. Furthermore, a detailed comparison with LLaVA-Med suggests that LLaDA-MedV is capable of generating reasonably longer responses by explicitly controlling response length, which can lead to more informative outputs. We also conduct an in-depth analysis of both the training and inference stages, highlighting the critical roles of initialization weight selection, fine-tuning strategies, and the interplay between sampling steps and response repetition. The code and model weight is released at https://github.com/LLM-VLM-GSL/LLaDA-MedV.",
+                "authors": [
+                  "Xuanzhao Dong",
+                  "Wenhui Zhu",
+                  "Xiwen Chen",
+                  "Zhipeng Wang",
+                  "Peijie Qiu",
+                  "Shao Tang",
+                  "Xin Li",
+                  "Yalin Wang"
+                ],
+                "published": "2025-08-03T06:46:46Z",
+                "updated": "2026-02-25T18:15:23Z",
+                "url": "http://arxiv.org/abs/2508.01617v2",
+                "pdf_url": "https://arxiv.org/pdf/2508.01617v2",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV"
+                ]
+              },
+              {
+                "arxiv_id": "2601.20168v1",
+                "title": "Efficient Token Pruning for LLaDA-V",
+                "summary": "Diffusion-based large multimodal models, such as LLaDA-V, have demonstrated impressive capabilities in vision-language understanding and generation. However, their bidirectional attention mechanism and diffusion-style iterative denoising paradigm introduce significant computational overhead, as visual tokens are repeatedly processed across all layers and denoising steps. In this work, we conduct an in-depth attention analysis and reveal that, unlike autoregressive decoders, LLaDA-V aggregates cross-modal information predominantly in middle-to-late layers, leading to delayed semantic alignment. Motivated by this observation, we propose a structured token pruning strategy inspired by FastV, selectively removing a proportion of visual tokens at designated layers to reduce FLOPs while preserving critical semantic information. To the best of our knowledge, this is the first work to investigate structured token pruning in diffusion-based large multimodal models. Unlike FastV, which focuses on shallow-layer pruning, our method targets the middle-to-late layers of the first denoising step to align with LLaDA-V's delayed attention aggregation to maintain output quality, and the first-step pruning strategy reduces the computation across all subsequent steps. Our framework provides an empirical basis for efficient LLaDA-V inference and highlights the potential of vision-aware pruning in diffusion-based multimodal models. Across multiple benchmarks, our best configuration reduces computational cost by up to 65% while preserving an average of 95% task performance.",
+                "authors": [
+                  "Zhewen Wan",
+                  "Tianchen Song",
+                  "Chen Lin",
+                  "Zhiyong Zhao",
+                  "Xianpeng Lang"
+                ],
+                "published": "2026-01-28T02:03:03Z",
+                "updated": "2026-01-28T02:03:03Z",
+                "url": "http://arxiv.org/abs/2601.20168v1",
+                "pdf_url": "https://arxiv.org/pdf/2601.20168v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        },
+        {
+          "tool": "papers",
+          "args": {
+            "query": "BERT",
+            "max_results": 5
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "BERT",
+            "api_query": "all:BERT",
+            "total_results": 8252,
+            "items": [
+              {
+                "arxiv_id": "2307.02054v3",
+                "title": "Emoji Prediction in Tweets using BERT",
+                "summary": "In recent years, the use of emojis in social media has increased dramatically, making them an important element in understanding online communication. However, predicting the meaning of emojis in a given text is a challenging task due to their ambiguous nature. In this study, we propose a transformer-based approach for emoji prediction using BERT, a widely-used pre-trained language model. We fine-tuned BERT on a large corpus of text (tweets) containing both text and emojis to predict the most appropriate emoji for a given text. Our experimental results demonstrate that our approach outperforms several state-of-the-art models in predicting emojis with an accuracy of over 75 percent. This work has potential applications in natural language processing, sentiment analysis, and social media marketing.",
+                "authors": [
+                  "Muhammad Osama Nusrat",
+                  "Zeeshan Habib",
+                  "Mehreen Alam",
+                  "Saad Ahmed Jamal"
+                ],
+                "published": "2023-07-05T06:38:52Z",
+                "updated": "2023-08-26T11:02:16Z",
+                "url": "http://arxiv.org/abs/2307.02054v3",
+                "pdf_url": "https://arxiv.org/pdf/2307.02054v3",
+                "source": "arxiv.org",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL",
+                  "cs.AI"
+                ]
+              },
+              {
+                "arxiv_id": "2006.05987v3",
+                "title": "Revisiting Few-sample BERT Fine-tuning",
+                "summary": "This paper is a study of fine-tuning of BERT contextual representations, with focus on commonly observed instabilities in few-sample scenarios. We identify several factors that cause this instability: the common use of a non-standard optimization method with biased gradient estimation; the limited applicability of significant parts of the BERT network for down-stream tasks; and the prevalent practice of using a pre-determined, and small number of training iterations. We empirically test the impact of these factors, and identify alternative practices that resolve the commonly observed instability of the process. In light of these observations, we re-visit recently proposed methods to improve few-sample fine-tuning with BERT and re-evaluate their effectiveness. Generally, we observe the impact of these methods diminishes significantly with our modified process.",
+                "authors": [
+                  "Tianyi Zhang",
+                  "Felix Wu",
+                  "Arzoo Katiyar",
+                  "Kilian Q. Weinberger",
+                  "Yoav Artzi"
+                ],
+                "published": "2020-06-10T17:57:03Z",
+                "updated": "2021-03-11T17:22:50Z",
+                "url": "http://arxiv.org/abs/2006.05987v3",
+                "pdf_url": "https://arxiv.org/pdf/2006.05987v3",
+                "source": "arxiv.org",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL",
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2106.11740v2",
+                "title": "LV-BERT: Exploiting Layer Variety for BERT",
+                "summary": "Modern pre-trained language models are mostly built upon backbones stacking self-attention and feed-forward layers in an interleaved order. In this paper, beyond this stereotyped layer pattern, we aim to improve pre-trained models by exploiting layer variety from two aspects: the layer type set and the layer order. Specifically, besides the original self-attention and feed-forward layers, we introduce convolution into the layer type set, which is experimentally found beneficial to pre-trained models. Furthermore, beyond the original interleaved order, we explore more layer orders to discover more powerful architectures. However, the introduced layer variety leads to a large architecture space of more than billions of candidates, while training a single candidate model from scratch already requires huge computation cost, making it not affordable to search such a space by directly training large amounts of candidate models. To solve this problem, we first pre-train a supernet from which the weights of all candidate models can be inherited, and then adopt an evolutionary algorithm guided by pre-training accuracy to find the optimal architecture. Extensive experiments show that LV-BERT model obtained by our method outperforms BERT and its variants on various downstream tasks. For example, LV-BERT-small achieves 79.8 on the GLUE testing set, 1.8 higher than the strong baseline ELECTRA-small.",
+                "authors": [
+                  "Weihao Yu",
+                  "Zihang Jiang",
+                  "Fei Chen",
+                  "Qibin Hou",
+                  "Jiashi Feng"
+                ],
+                "published": "2021-06-22T13:20:14Z",
+                "updated": "2021-06-25T03:58:57Z",
+                "url": "http://arxiv.org/abs/2106.11740v2",
+                "pdf_url": "https://arxiv.org/pdf/2106.11740v2",
+                "source": "arxiv.org",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL",
+                  "cs.AI",
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2106.08254v2",
+                "title": "BEiT: BERT Pre-Training of Image Transformers",
+                "summary": "We introduce a self-supervised vision representation model BEiT, which stands for Bidirectional Encoder representation from Image Transformers. Following BERT developed in the natural language processing area, we propose a masked image modeling task to pretrain vision Transformers. Specifically, each image has two views in our pre-training, i.e, image patches (such as 16x16 pixels), and visual tokens (i.e., discrete tokens). We first \"tokenize\" the original image into visual tokens. Then we randomly mask some image patches and fed them into the backbone Transformer. The pre-training objective is to recover the original visual tokens based on the corrupted image patches. After pre-training BEiT, we directly fine-tune the model parameters on downstream tasks by appending task layers upon the pretrained encoder. Experimental results on image classification and semantic segmentation show that our model achieves competitive results with previous pre-training methods. For example, base-size BEiT achieves 83.2% top-1 accuracy on ImageNet-1K, significantly outperforming from-scratch DeiT training (81.8%) with the same setup. Moreover, large-size BEiT obtains 86.3% only using ImageNet-1K, even outperforming ViT-L with supervised pre-training on ImageNet-22K (85.2%). The code and pretrained models are available at https://aka.ms/beit.",
+                "authors": [
+                  "Hangbo Bao",
+                  "Li Dong",
+                  "Songhao Piao",
+                  "Furu Wei"
+                ],
+                "published": "2021-06-15T16:02:37Z",
+                "updated": "2022-09-03T14:11:33Z",
+                "url": "http://arxiv.org/abs/2106.08254v2",
+                "pdf_url": "https://arxiv.org/pdf/2106.08254v2",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV",
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2002.12327v3",
+                "title": "A Primer in BERTology: What we know about how BERT works",
+                "summary": "Transformer-based models have pushed state of the art in many areas of NLP, but our understanding of what is behind their success is still limited. This paper is the first survey of over 150 studies of the popular BERT model. We review the current state of knowledge about how BERT works, what kind of information it learns and how it is represented, common modifications to its training objectives and architecture, the overparameterization issue and approaches to compression. We then outline directions for future research.",
+                "authors": [
+                  "Anna Rogers",
+                  "Olga Kovaleva",
+                  "Anna Rumshisky"
+                ],
+                "published": "2020-02-27T18:46:42Z",
+                "updated": "2020-11-09T15:33:50Z",
+                "url": "http://arxiv.org/abs/2002.12327v3",
+                "pdf_url": "https://arxiv.org/pdf/2002.12327v3",
+                "source": "arxiv.org",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        },
+        {
+          "tool": "compare_papers",
+          "args": {
+            "papers": [
+              {
+                "arxiv_id": "2505.16933v2",
+                "title": "LLaDA-V: Large Language Diffusion Models with Visual Instruction Tuning",
+                "summary": "In this work, we introduce LLaDA-V, a purely diffusion-based Multimodal Large Language Model (MLLM) that integrates visual instruction tuning with masked diffusion models, representing a departure from the autoregressive paradigms dominant in current multimodal approaches. Built upon LLaDA, a representative large language diffusion model, LLaDA-V incorporates a vision encoder and MLP connector that projects visual features into the language embedding space, enabling effective multimodal alignment. Our empirical investigation reveals several intriguing results: First, LLaDA-V demonstrates promising multimodal performance despite its language model being weaker on purely textual tasks than counterparts like LLaMA3-8B and Qwen2-7B. When trained on the same instruction data, LLaDA-V is highly competitive to LLaMA3-V across multimodal tasks with better data scalability. It also narrows the performance gap to Qwen2-VL, suggesting the effectiveness of its architecture for multimodal tasks. Second, LLaDA-V achieves state-of-the-art performance in multimodal understanding compared to existing hybrid autoregressive-diffusion and purely diffusion-based MLLMs. Our findings suggest that large language diffusion models show promise in multimodal contexts and warrant further investigation in future research. Project page and codes: https://ml-gsai.github.io/LLaDA-V-demo/.",
+                "authors": [
+                  "Zebin You",
+                  "Shen Nie",
+                  "Xiaolu Zhang",
+                  "Jun Hu",
+                  "Jun Zhou",
+                  "Zhiwu Lu",
+                  "Ji-Rong Wen",
+                  "Chongxuan Li"
+                ],
+                "published": "2025-05-22T17:23:26Z",
+                "url": "http://arxiv.org/abs/2505.16933v2"
+              },
+              {
+                "arxiv_id": "2002.12327v3",
+                "title": "A Primer in BERTology: What we know about how BERT works",
+                "summary": "Transformer-based models have pushed state of the art in many areas of NLP, but our understanding of what is behind their success is still limited. This paper is the first survey of over 150 studies of the popular BERT model. We review the current state of knowledge about how BERT works, what kind of information it learns and how it is represented, common modifications to its training objectives and architecture, the overparameterization issue and approaches to compression. We then outline directions for future research.",
+                "authors": [
+                  "Anna Rogers",
+                  "Olga Kovaleva",
+                  "Anna Rumshisky"
+                ],
+                "published": "2020-02-27T18:46:42Z",
+                "url": "http://arxiv.org/abs/2002.12327v3"
+              }
+            ],
+            "dimensions": [
+              "research_focus",
+              "method",
+              "results",
+              "limitations",
+              "implementation"
+            ],
+            "max_papers": 2
+          },
+          "result": {
+            "tool": "compare_papers",
+            "dimensions": [
+              "research_focus",
+              "method",
+              "results",
+              "limitations",
+              "implementation"
+            ],
+            "input_count": 2,
+            "item_count": 2,
+            "comparison_rows": [
+              {
+                "title": "LLaDA-V: Large Language Diffusion Models with Visual Instruction Tuning",
+                "year": 2025,
+                "authors": "Zebin You, Shen Nie, Xiaolu Zhang, Jun Hu, Jun Zhou, Zhiwu Lu, Ji-Rong Wen, Chongxuan Li",
+                "arxiv_id": "2505.16933v2",
+                "url": "http://arxiv.org/abs/2505.16933v2",
+                "research_focus": "In this work, we introduce LLaDA-V, a purely diffusion-based Multimodal Large Language Model (MLLM) that integrates visual instruction tuning with masked diffusion models, representing a departure from the autoregressive paradigms dominant in current multimodal approaches.",
+                "method": "LLaDA-V: Large Language Diffusion Models with Visual Instruction Tuning In this work, we introduce LLaDA-V, a purely diffusion-based Multimodal Large Language Model (MLLM) that integrates visual instruction tuning with masked diffusion models, representing a departure from the autoregressive paradigms dominant in current multimodal approaches.",
+                "results": "Our empirical investigation reveals several intriguing results: First, LLaDA-V demonstrates promising multimodal performance despite its language model being weaker on purely textual tasks than counterparts like LLaMA3-8B and Qwen2-7B.",
+                "limitations": "",
+                "implementation": "Project page and codes: https://ml-gsai.github.io/LLaDA-V-demo/."
+              },
+              {
+                "title": "A Primer in BERTology: What we know about how BERT works",
+                "year": 2020,
+                "authors": "Anna Rogers, Olga Kovaleva, Anna Rumshisky",
+                "arxiv_id": "2002.12327v3",
+                "url": "http://arxiv.org/abs/2002.12327v3",
+                "research_focus": "Transformer-based models have pushed state of the art in many areas of NLP, but our understanding of what is behind their success is still limited.",
+                "method": "A Primer in BERTology: What we know about how BERT works Transformer-based models have pushed state of the art in many areas of NLP, but our understanding of what is behind their success is still limited.",
+                "results": "",
+                "limitations": "",
+                "implementation": ""
+              }
+            ],
+            "markdown": "| Paper | Year | Research focus | Method | Results | Limitations | Implementation |\n| --- | --- | --- | --- | --- | --- | --- |\n| LLaDA-V: Large Language Diffusion Models with Visual Instruction Tuning | 2025 | In this work, we introduce LLaDA-V, a purely diffusion-based Multimodal Large Language Model (MLLM) that integrates visual instruction tuning with masked diffusion models, representing a departure from the autoregressive paradigms dominant in current multim... | LLaDA-V: Large Language Diffusion Models with Visual Instruction Tuning In this work, we introduce LLaDA-V, a purely diffusion-based Multimodal Large Language Model (MLLM) that integrates visual instruction tuning with masked diffusion models, representing... | Our empirical investigation reveals several intriguing results: First, LLaDA-V demonstrates promising multimodal performance despite its language model being weaker on purely textual tasks than counterparts like LLaMA3-8B and Qwen2-7B. | Not available in provided metadata | Project page and codes: https://ml-gsai.github.io/LLaDA-V-demo/. |\n| A Primer in BERTology: What we know about how BERT works | 2020 | Transformer-based models have pushed state of the art in many areas of NLP, but our understanding of what is behind their success is still limited. | A Primer in BERTology: What we know about how BERT works Transformer-based models have pushed state of the art in many areas of NLP, but our understanding of what is behind their success is still limited. | Not available in provided metadata | Not available in provided metadata | Not available in provided metadata |",
+            "common_terms": [
+              "approaches",
+              "architecture",
+              "art",
+              "based",
+              "current",
+              "first",
+              "future",
+              "it",
+              "its",
+              "model",
+              "models",
+              "our"
+            ],
+            "distinctive_terms": {
+              "LLaDA-V: Large Language Diffusion Models with Visual Instruction Tuning": [
+                "7b",
+                "8b",
+                "achieves",
+                "across",
+                "alignment",
+                "also",
+                "autoregressive",
+                "being",
+                "better",
+                "built"
+              ],
+              "A Primer in BERTology: What we know about how BERT works": [
+                "150",
+                "about",
+                "areas",
+                "behind",
+                "bert",
+                "bertology",
+                "but",
+                "common",
+                "compression",
+                "directions"
+              ]
+            },
+            "highlights": {
+              "newest_paper": "LLaDA-V: Large Language Diffusion Models with Visual Instruction Tuning",
+              "highest_ranked_paper": null
+            },
+            "warnings": [
+              "LLaDA-V: Large Language Diffusion Models with Visual Instruction Tuning: limitations not available in provided metadata",
+              "A Primer in BERTology: What we know about how BERT works: results not available in provided metadata",
+              "A Primer in BERTology: What we know about how BERT works: limitations not available in provided metadata",
+              "A Primer in BERTology: What we know about how BERT works: implementation not available in provided metadata"
+            ],
+            "trust_boundary": "Comparison uses only provided metadata and extractive insights; unavailable claims are left missing."
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T11:58:04"
+    }
+  ]
+}
