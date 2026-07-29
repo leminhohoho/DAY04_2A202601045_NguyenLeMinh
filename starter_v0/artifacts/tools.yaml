@@ -9,36 +9,56 @@
 tools:
   # ---------------- Core tools ----------------
   - name: clarify
-    description: "Gửi một câu hỏi cho người dùng."
+    description: "Hỏi người dùng khi thông tin bắt buộc còn thiếu hoặc mơ hồ. Dùng clarify thay vì tự đoán, dùng placeholder, hoặc bịa paper/tool arguments. Khi thiếu thông tin để thực hiện một tác vụ nghiên cứu, dùng clarify(response_type='text') để xin thông tin cần thiết. Khi cần xác nhận hành động có tác động bên ngoài như gửi/post/chia sẻ, dùng clarify(response_type='yes_no') trước khi gọi send."
     parameters:
       type: object
       properties:
-        question: {type: string, default: "", description: "Câu hỏi"}
-        response_type: {type: string, enum: [text, yes_no, choice], default: "text", description: "Kiểu trả lời"}
+        question: {type: string, description: "Câu hỏi ngắn về thông tin còn thiếu."}
+        response_type: {type: string, enum: [text, yes_no, choice], default: "text", description: "text cho thông tin còn thiếu; yes_no cho xác nhận hành động;
+            choice khi có danh sách lựa chọn."}
         options: {type: array, default: [], items: {type: string}, description: "Các lựa chọn"}
-      required: [question]
+      required: [question,response_type]
 
   - name: timeline
-    description: "Lấy các bài tweet của 1 user theo tên"
+    description: "Lấy các bài đăng gần đây của một tài khoản cụ thể.
+      ĐIỀU KIỆN BẮT BUỘC: hội thoại phải nêu rõ một người hoặc một account
+      handle. Nếu người dùng không nêu bất kỳ người hoặc tài khoản nào, phải
+      dùng clarify với response_type=text. Tuyệt đối không chọn một người từ
+      danh sách mapping làm giá trị mặc định.
+      Chỉ khi tên người thực sự xuất hiện trong hội thoại, mới áp dụng canonical
+      mapping sau:
+      Sam Altman -> sama;
+      Elon Musk -> elonmusk;
+      Andrej Karpathy -> karpathy.
+      Luôn dùng correction mới nhất. Không tự tạo handle bằng cách nối tên,
+      không dùng placeholder và không thêm ký tự @. Khi follow-up đổi hoặc sửa người cần lấy, ưu tiên giá trị mới nhất trong hội thoại.
+      Chỉ truyền limit khi người dùng đề cập rõ số lượng hoặc khi đoạn hội thoại trước đó đã đặt rõ số lượng đó; đừng tự thêm limit mặc định."
     parameters:
       type: object
       properties:
-        screenname: {type: string, default: "", description: "Tên tài khoản"}
-        limit: {type: integer, default: 5, description: "Số lượng"}
+        screenname: {type: string, description: "Canonical handle của người hoặc tài khoản đã được nêu rõ trong
+            hội thoại. Mapping chỉ được dùng khi đúng tên người đó xuất hiện;
+            không được chọn một mapping làm mặc định."}
+        limit: {type: integer, default: 5, minimum: 1, description: "Số lượng"}
       required: [screenname]
 
   - name: social_search
-    description: "Tìm các bài đăng trên mạng xã hội."
+    description: "Tìm bài đăng công khai trên mạng xã hội theo chủ đề. Chỉ dùng khi người
+      dùng nói rõ Twitter, X, tweet, mạng xã hội, social post, bài đăng hoặc
+      hỏi mọi người đang thảo luận gì trên mạng xã hội.
+      Không dùng cho yêu cầu tin tức hoặc web chung chỉ vì có từ như 'mới nhất', 'gần đây' hoặc 'hôm nay'. Với 'tin', 'tin tức', 'web news' hoặc cập nhật chung,dùng lookup.
+      Nếu một request cần cả thông tin web/news lẫn các bài đăng mạng xã hội, gọi lookup và social_search trong cùng một phản hồi.
+      Nếu lượt mới nhất explicitly chuyển sang web/news và không còn muốn social, đừng gọi social_search."
     parameters:
       type: object
       properties:
-        query: {type: string, default: "", description: "Từ khóa"}
+        query: {type: string, default: "", description: "Chủ đề chính cần tìm trên mạng xã hội."}
         search_type: {type: string, enum: [Latest, Top], default: "Latest", description: "Cách sắp xếp"}
         limit: {type: integer, default: 5, description: "Số lượng"}
       required: [query]
 
   - name: lookup
-    description: "Tra cứu thông tin trên internet."
+    description: "Tra cứu thông tin trên internet. Dùng cho các yêu cầu web/news/tin tức/general. Khi người dùng hỏi về tin hôm nay, tuần này, tháng này, map thành topic=news và timeframe=day/week/month phù hợp. Nếu các lượt hội thoại trước đó đã nêu topic/timeframe, hãy giữ lại chúng trừ khi người dùng đổi rõ. Không thêm timeframe khi người dùng chưa yêu cầu rõ thời gian."
     parameters:
       type: object
       properties:
@@ -98,7 +118,7 @@ tools:
       required: [query]
 
   - name: papers
-    description: "Tìm bài báo khoa học theo từ khóa/chủ đề khi user thực sự muốn KHÁM PHÁ paper mới. Không dùng để tra cứu một paper đã được nêu tên cụ thể chỉ nhằm lấp chỗ trống cho một tác vụ khác (vd: so sánh, xếp hạng) — nếu thiếu paper cụ thể, hỏi lại thay vì tự tìm."
+    description: "Tìm bài báo khoa học theo từ khóa/chủ đề khi user thực sự muốn KHÁM PHÁ paper mới. Không dùng để tra cứu một paper đã được nêu tên cụ thể, và không dùng để đoán/tìm hộ một paper còn thiếu, chỉ nhằm lấp chỗ trống cho một tác vụ khác (vd: so sánh, xếp hạng) — nếu thiếu paper cụ thể, hỏi lại (clarify) thay vì tự tìm. Đừng dùng papers để bù cho trường hợp user đã có sẵn danh sách paper và chỉ cần xếp hạng hoặc so sánh chúng. Nếu user nêu tên MỘT paper cụ thể nhưng phần còn lại chỉ được mô tả mơ hồ (vd: 'các phương pháp trước đó', 'nghiên cứu liên quan'), tuyệt đối không gọi papers cho paper đã nêu tên lẫn không gọi papers để đoán paper còn thiếu — phải dùng clarify(response_type='text') hỏi lại paper cụ thể thứ hai."
     parameters:
       type: object
       properties:
@@ -108,7 +128,7 @@ tools:
       required: [query]
 
   - name: paper_text
-    description: "Lấy nội dung text của một bài báo."
+    description: "Lấy nội dung text của một bài báo khi người dùng cung cấp một arxiv URL hoặc ID cụ thể. Không dùng để bù cho thiếu thông tin trong extract/compare/rank; nếu chưa có nguồn text hoặc URL, hãy dùng clarify thay vì tự đoán."
     parameters:
       type: object
       properties:
@@ -119,7 +139,7 @@ tools:
 
   # ---------------- Team-authored Research Paper Scout tools ----------------
   - name: rank_papers
-    description: "Xếp hạng danh sách paper ĐÃ CÓ theo câu hỏi nghiên cứu bằng relevance, recency, implementation hoặc balanced. Không dùng để tìm arXiv, đọc PDF, trích insight hoặc so sánh paper."
+    description: "Xếp hạng danh sách paper ĐÃ CÓ theo câu hỏi nghiên cứu bằng relevance, recency, implementation hoặc balanced. Dùng khi user đã đưa sẵn danh sách paper và chỉ cần xếp hạng chúng, hoặc khi user nói rõ 'đừng tìm thêm', 'đã có sẵn', hoặc 'chỉ xếp hạng lại'. Không dùng để tìm arXiv, đọc PDF, trích insight hoặc so sánh paper."
     parameters:
       type: object
       properties:
@@ -144,7 +164,7 @@ tools:
       required: [papers, research_question]
 
   - name: extract_paper_insights
-    description: "Trích xuất evidence cho problem, method, dataset, results, limitations và implementation từ paper text ĐÃ CÓ. Ưu tiên txt_path do paper_text trả về; cũng nhận text trực tiếp. Không tìm, xếp hạng hoặc so sánh paper và không tự bịa phần bị thiếu."
+    description: "Trích xuất evidence cho problem, method, dataset, results, limitations và implementation từ paper text ĐÃ CÓ. Ưu tiên txt_path do paper_text trả về; cũng nhận text trực tiếp. Không tìm, xếp hạng hoặc so sánh paper và không tự bịa phần bị thiếu. Nếu user chưa cung cấp nguồn text hoặc đường dẫn thực sự, hãy dùng clarify(response_type='text') thay vì giả định hoặc gọi tool khác."
     parameters:
       type: object
       properties:
@@ -156,7 +176,7 @@ tools:
         max_chars: {type: integer, default: 50000, description: "Giới hạn ký tự đọc từ nguồn text."}
 
   - name: compare_papers
-    description: "So sánh từ 2 paper ĐÃ CÓ bằng metadata, abstract, ranking score và insight đã trích; trả dữ liệu có cấu trúc và bảng Markdown. Không tìm arXiv, tải PDF, xếp hạng hoặc bịa claim không có trong input. Nếu user chỉ nêu tên CỤ THỂ một paper và mô tả (các) paper còn lại một cách mơ hồ (vd: 'các phương pháp trước đó', 'nghiên cứu liên quan'), KHÔNG tự tìm paper khác qua papers/arxiv_search để lấp chỗ trống — gọi clarify hỏi paper cụ thể thứ hai trước."
+    description: "So sánh từ 2 paper ĐÃ CÓ bằng metadata, abstract, ranking score và insight đã trích; trả dữ liệu có cấu trúc và bảng Markdown. Không tìm arXiv, tải PDF, xếp hạng hoặc bịa claim không có trong input. Nếu user chỉ nêu tên CỤ THỂ một paper và mô tả các paper còn lại một cách mơ hồ (vd: 'các phương pháp trước đó', 'nghiên cứu liên quan'), hãy dùng clarify(response_type='text') và hỏi paper cụ thể thứ hai trước. Khi follow-up lặp lại một so sánh, giữ nguyên danh sách paper và dimensions trước đó trừ khi user đổi rõ."
     parameters:
       type: object
       properties:

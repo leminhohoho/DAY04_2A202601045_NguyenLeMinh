@@ -1,35 +1,31 @@
 {
-  "run_id": "v3_B_group_openrouter_20260729T112810648500",
+  "run_id": "v3_B_group_openai_20260729T145245546713",
   "version": "v3",
-  "artifact_version": "v3+p058fc2509c30+te10158475377",
-  "prompt_hash": "058fc2509c3008a95091a71f24cb6674f911e84e8e6bbdd4667642eece095e5c",
-  "tools_hash": "e10158475377d887381aa7ab3b0e49be18c29e318a504c1588f3aff4eb1ae6a4",
+  "artifact_version": "v3+p0fc75afac829+tef84123f3186",
+  "prompt_hash": "0fc75afac8299f9b3a209354cf9d7b7ce85853a6fdac0e056da5b35497a5c6f9",
+  "tools_hash": "ef84123f318643dc3ce59a69a22f754f6320f1964f5c7d0601efaac651691cc9",
   "phase": "B",
   "suite": "group",
-  "provider": "openrouter",
-  "model": "openai/gpt-4o-mini",
-  "system_prompt": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/artifacts/system_prompt.md",
-  "tools": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/artifacts/tools.yaml",
-  "eval_cases": "data/eval_group.json",
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "system_prompt": "C:\\Users\\ADMIN\\Desktop\\VinUniSchool\\Day4\\DAY04_2A202601045_NguyenLeMinh\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "C:\\Users\\ADMIN\\Desktop\\VinUniSchool\\Day4\\DAY04_2A202601045_NguyenLeMinh\\starter_v0\\artifacts\\tools.yaml",
+  "eval_cases": "data\\eval_group.json",
   "dataset_id": "day04_v2_research_group",
   "dataset_role": "group",
   "description": "Template để NHÓM tự viết đúng 10 case: 5 single-turn dùng query và 5 multi-turn dùng turns. Mỗi case cần: id, phase='B', failure_type (thuộc allowed_failure_types), expect (tool_calls[...] hoặc no_tool=true), và metadata.what_it_tests. File để trống có chủ đích vì mỗi nhóm phải tự thiết kế các case này.",
-  "generated_at": "2026-07-29T11:28:10",
+  "generated_at": "2026-07-29T14:52:45",
   "summary": {
     "total_cases": 10,
     "measured_cases": 10,
     "provider_error_cases": 0,
-    "passed_cases": 9,
-    "case_accuracy": 0.9,
-    "tool_routing_accuracy": 0.9,
-    "argument_accuracy": 0.9,
+    "passed_cases": 10,
+    "case_accuracy": 1.0,
+    "tool_routing_accuracy": 1.0,
+    "argument_accuracy": 1.0,
     "multiturn_accuracy": 1.0,
-    "failure_counts": {
-      "missing_info": 1
-    },
-    "observed_mismatch_counts": {
-      "missing_tool_call": 1
-    }
+    "failure_counts": {},
+    "observed_mismatch_counts": {}
   },
   "results": [
     {
@@ -80,9 +76,8 @@
                   "abstract": "xấp xỉ attention tuyến tính bằng low-rank projection."
                 }
               ],
-              "research_question": "Mức độ liên quan của các phương pháp sparse attention trong việc giảm chi phí tính toán và cải thiện hiệu suất cho các mô hình học sâu.",
-              "criteria": "relevance",
-              "top_k": 4
+              "research_question": "sparse attention",
+              "criteria": "relevance"
             }
           }
         ],
@@ -114,41 +109,40 @@
                 "abstract": "xấp xỉ attention tuyến tính bằng low-rank projection."
               }
             ],
-            "research_question": "Mức độ liên quan của các phương pháp sparse attention trong việc giảm chi phí tính toán và cải thiện hiệu suất cho các mô hình học sâu.",
-            "criteria": "relevance",
-            "top_k": 4
+            "research_question": "sparse attention",
+            "criteria": "relevance"
           },
           "result": {
             "tool": "rank_papers",
-            "research_question": "Mức độ liên quan của các phương pháp sparse attention trong việc giảm chi phí tính toán và cải thiện hiệu suất cho các mô hình học sâu.",
+            "research_question": "sparse attention",
             "criteria": "relevance",
-            "top_k": 4,
+            "top_k": 5,
             "items": [
               {
                 "title": "Sparse Transformers",
                 "abstract": "attention thưa giảm chi phí tính toán.",
-                "score": 0.2227,
-                "relevance_score": 0.2227,
+                "score": 0.825,
+                "relevance_score": 0.825,
                 "recency_score": 0.0,
                 "implementation_score": 0.0,
-                "ranking_reason": "limited keyword relevance",
+                "ranking_reason": "high research-question relevance",
                 "rank": 1
               },
               {
-                "title": "Linformer",
-                "abstract": "xấp xỉ attention tuyến tính bằng low-rank projection.",
-                "score": 0.0591,
-                "relevance_score": 0.0591,
+                "title": "BigBird",
+                "abstract": "attention ngẫu nhiên kết hợp block-local.",
+                "score": 0.325,
+                "relevance_score": 0.325,
                 "recency_score": 0.0,
                 "implementation_score": 0.0,
                 "ranking_reason": "limited keyword relevance",
                 "rank": 2
               },
               {
-                "title": "BigBird",
-                "abstract": "attention ngẫu nhiên kết hợp block-local.",
-                "score": 0.0295,
-                "relevance_score": 0.0295,
+                "title": "Linformer",
+                "abstract": "xấp xỉ attention tuyến tính bằng low-rank projection.",
+                "score": 0.325,
+                "relevance_score": 0.325,
                 "recency_score": 0.0,
                 "implementation_score": 0.0,
                 "ranking_reason": "limited keyword relevance",
@@ -157,8 +151,8 @@
               {
                 "title": "Longformer",
                 "abstract": "attention cục bộ + global cho văn bản dài.",
-                "score": 0.0295,
-                "relevance_score": 0.0295,
+                "score": 0.325,
+                "relevance_score": 0.325,
                 "recency_score": 0.0,
                 "implementation_score": 0.0,
                 "ranking_reason": "limited keyword relevance",
@@ -169,28 +163,28 @@
               {
                 "title": "Sparse Transformers",
                 "abstract": "attention thưa giảm chi phí tính toán.",
-                "score": 0.2227,
-                "relevance_score": 0.2227,
+                "score": 0.825,
+                "relevance_score": 0.825,
                 "recency_score": 0.0,
                 "implementation_score": 0.0,
-                "ranking_reason": "limited keyword relevance",
+                "ranking_reason": "high research-question relevance",
                 "rank": 1
               },
               {
-                "title": "Linformer",
-                "abstract": "xấp xỉ attention tuyến tính bằng low-rank projection.",
-                "score": 0.0591,
-                "relevance_score": 0.0591,
+                "title": "BigBird",
+                "abstract": "attention ngẫu nhiên kết hợp block-local.",
+                "score": 0.325,
+                "relevance_score": 0.325,
                 "recency_score": 0.0,
                 "implementation_score": 0.0,
                 "ranking_reason": "limited keyword relevance",
                 "rank": 2
               },
               {
-                "title": "BigBird",
-                "abstract": "attention ngẫu nhiên kết hợp block-local.",
-                "score": 0.0295,
-                "relevance_score": 0.0295,
+                "title": "Linformer",
+                "abstract": "xấp xỉ attention tuyến tính bằng low-rank projection.",
+                "score": 0.325,
+                "relevance_score": 0.325,
                 "recency_score": 0.0,
                 "implementation_score": 0.0,
                 "ranking_reason": "limited keyword relevance",
@@ -199,8 +193,8 @@
               {
                 "title": "Longformer",
                 "abstract": "attention cục bộ + global cho văn bản dài.",
-                "score": 0.0295,
-                "relevance_score": 0.0295,
+                "score": 0.325,
+                "relevance_score": 0.325,
                 "recency_score": 0.0,
                 "implementation_score": 0.0,
                 "ranking_reason": "limited keyword relevance",
@@ -244,8 +238,7 @@
             "name": "extract_paper_insights",
             "args": {
               "text": "Our method achieves state-of-the-art accuracy but requires 4x more GPU memory than baseline and does not generalize well to low-resource languages.",
-              "focus": "limitations",
-              "max_sentences_per_section": 5
+              "focus": "limitations"
             }
           }
         ],
@@ -260,8 +253,7 @@
           "tool": "extract_paper_insights",
           "args": {
             "text": "Our method achieves state-of-the-art accuracy but requires 4x more GPU memory than baseline and does not generalize well to low-resource languages.",
-            "focus": "limitations",
-            "max_sentences_per_section": 5
+            "focus": "limitations"
           },
           "result": {
             "tool": "extract_paper_insights",
@@ -353,39 +345,37 @@
         ]
       },
       "result": {
-        "passed": false,
-        "routing_correct": false,
-        "args_correct": false,
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
         "actual_tool_calls": [
           {
-            "name": "papers",
+            "name": "clarify",
             "args": {
-              "query": "Attention Is All You Need"
+              "question": "Bạn có thể cho biết cụ thể tên của các phương pháp attention trước đó mà bạn muốn so sánh không?",
+              "response_type": "text"
             }
           }
         ],
         "actual_text": null,
         "case_failure_type": "missing_info",
-        "observed_mismatch": "missing_tool_call",
-        "failure_type": "missing_info",
-        "failures": [
-          "missing tool call clarify",
-          "extra tool call papers"
-        ]
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
       },
       "tool_results": [
         {
-          "tool": "papers",
+          "tool": "clarify",
           "args": {
-            "query": "Attention Is All You Need"
+            "question": "Bạn có thể cho biết cụ thể tên của các phương pháp attention trước đó mà bạn muốn so sánh không?",
+            "response_type": "text"
           },
           "result": {
-            "tool": "arxiv_search",
-            "query": "Attention Is All You Need",
-            "api_query": "all:Attention AND all:Is AND all:All AND all:You AND all:Need",
-            "total_results": 0,
-            "items": [],
-            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+            "tool": "ask_user",
+            "question": "Bạn có thể cho biết cụ thể tên của các phương pháp attention trước đó mà bạn muốn so sánh không?",
+            "response_type": "text",
+            "options": [],
+            "awaiting_user": true
           }
         }
       ]
@@ -411,7 +401,7 @@
         "routing_correct": true,
         "args_correct": true,
         "actual_tool_calls": [],
-        "actual_text": "Xin lỗi, nhưng yêu cầu của bạn không nằm trong phạm vi của Research Paper Scout. Tôi chỉ có thể hỗ trợ các tác vụ liên quan đến nghiên cứu và tài liệu khoa học. Nếu bạn cần tìm kiếm thông tin nghiên cứu hoặc bài báo khoa học, hãy cho tôi biết!",
+        "actual_text": "Yêu cầu của bạn nằm ngoài phạm vi hỗ trợ của Research Paper Scout. Tôi chỉ có thể giúp bạn với các thông tin liên quan đến nghiên cứu và tài liệu khoa học. Nếu bạn cần thông tin về các quán cà phê, bạn có thể tìm kiếm trên các trang web đánh giá hoặc ứng dụng địa điểm.",
         "case_failure_type": "out_of_scope",
         "observed_mismatch": null,
         "failure_type": null,
@@ -440,7 +430,7 @@
         "routing_correct": true,
         "args_correct": true,
         "actual_tool_calls": [],
-        "actual_text": "Hàm `compare_papers` cho phép so sánh các bài báo dựa trên các tiêu chí (dimensions) sau:\n\n1. **research_focus**: Tập trung nghiên cứu của bài báo.\n2. **method**: Phương pháp được sử dụng trong nghiên cứu.\n3. **dataset**: Dữ liệu được sử dụng trong nghiên cứu.\n4. **results**: Kết quả đạt được từ nghiên cứu.\n5. **limitations**: Hạn chế của nghiên cứu.\n6. **implementation**: Ghi chú về việc triển khai nghiên cứu.\n7. **relevance**: Mức độ liên quan của bài báo.\n\nNgười dùng có thể chọn các chiều cần so sánh trong số những chiều này.",
+        "actual_text": "Khi so sánh các bài báo bằng công cụ `compare_papers`, bạn có thể sử dụng các tiêu chí/dimension sau:\n\n1. **research_focus**: Tập trung nghiên cứu của bài báo.\n2. **method**: Phương pháp được sử dụng trong nghiên cứu.\n3. **dataset**: Dữ liệu được sử dụng trong nghiên cứu.\n4. **results**: Kết quả đạt được từ nghiên cứu.\n5. **limitations**: Hạn chế của nghiên cứu.\n6. **implementation**: Ghi chú về việc triển khai nghiên cứu.\n7. **relevance**: Mức độ liên quan của bài báo đến câu hỏi nghiên cứu.\n\nMặc định, công cụ sẽ so sánh theo các chiều: `research_focus`, `method`, `dataset`, `results`, và `limitations`. Bạn có thể điều chỉnh các chiều này theo yêu cầu của mình.",
         "case_failure_type": "unnecessary_tool",
         "observed_mismatch": null,
         "failure_type": null,
@@ -487,7 +477,7 @@
           {
             "name": "clarify",
             "args": {
-              "question": "Bạn có chắc chắn muốn đăng phần method vừa trích lên kênh Telegram nhóm không?",
+              "question": "Bạn có chắc chắn muốn đăng phần method vừa trích lên kênh Telegram không?",
               "response_type": "yes_no"
             }
           }
@@ -502,12 +492,12 @@
         {
           "tool": "clarify",
           "args": {
-            "question": "Bạn có chắc chắn muốn đăng phần method vừa trích lên kênh Telegram nhóm không?",
+            "question": "Bạn có chắc chắn muốn đăng phần method vừa trích lên kênh Telegram không?",
             "response_type": "yes_no"
           },
           "result": {
             "tool": "ask_user",
-            "question": "Bạn có chắc chắn muốn đăng phần method vừa trích lên kênh Telegram nhóm không?",
+            "question": "Bạn có chắc chắn muốn đăng phần method vừa trích lên kênh Telegram không?",
             "response_type": "yes_no",
             "options": [],
             "awaiting_user": true
@@ -556,33 +546,57 @@
             "args": {
               "papers": [
                 {
-                  "arxiv_id": "1234",
-                  "title": "Evaluating LLM Agents: A Comprehensive Study",
-                  "summary": "This paper presents a detailed evaluation framework for LLM agents.",
-                  "abstract": "In this study, we propose a novel evaluation framework for LLM agents, focusing on performance metrics and user satisfaction.",
+                  "arxiv_id": "2301.00001",
+                  "title": "Evaluating LLM Agents: A Comprehensive Framework",
+                  "summary": "This paper presents a framework for evaluating LLM agents based on various metrics.",
+                  "abstract": "The evaluation of LLM agents is crucial for understanding their capabilities and limitations. This paper proposes a comprehensive framework that includes performance metrics, user satisfaction, and adaptability.",
                   "authors": [
                     "Author A",
                     "Author B"
                   ],
-                  "published": "2023-10-01",
-                  "url": "https://arxiv.org/abs/1234"
+                  "published": "2023-01-01",
+                  "primary_category": "cs.AI",
+                  "categories": [
+                    "Artificial Intelligence"
+                  ],
+                  "url": "https://arxiv.org/abs/2301.00001"
                 },
                 {
-                  "arxiv_id": "5678",
-                  "title": "A New Approach to LLM Agent Evaluation",
-                  "summary": "This research introduces a new methodology for assessing LLM agents.",
-                  "abstract": "We introduce a new methodology for evaluating LLM agents, emphasizing adaptability and robustness.",
+                  "arxiv_id": "2302.00002",
+                  "title": "A Novel Approach to LLM Agent Evaluation",
+                  "summary": "This research introduces a new method for evaluating LLM agents focusing on real-world applications.",
+                  "abstract": "In this study, we introduce a novel approach to evaluate LLM agents, emphasizing their performance in real-world scenarios. We present case studies and experimental results to support our findings.",
                   "authors": [
                     "Author C",
                     "Author D"
                   ],
-                  "published": "2023-09-15",
-                  "url": "https://arxiv.org/abs/5678"
+                  "published": "2023-02-01",
+                  "primary_category": "cs.AI",
+                  "categories": [
+                    "Artificial Intelligence"
+                  ],
+                  "url": "https://arxiv.org/abs/2302.00002"
+                },
+                {
+                  "arxiv_id": "2303.00003",
+                  "title": "Comparative Analysis of LLM Agent Evaluation Techniques",
+                  "summary": "This paper compares various techniques for evaluating LLM agents and their effectiveness.",
+                  "abstract": "We conduct a comparative analysis of different evaluation techniques for LLM agents. Our findings highlight the strengths and weaknesses of each method, providing insights for future research.",
+                  "authors": [
+                    "Author E",
+                    "Author F"
+                  ],
+                  "published": "2023-03-01",
+                  "primary_category": "cs.AI",
+                  "categories": [
+                    "Artificial Intelligence"
+                  ],
+                  "url": "https://arxiv.org/abs/2303.00003"
                 }
               ],
-              "research_question": "LLM agent evaluation",
+              "research_question": "Xếp hạng các paper về 'LLM agent evaluation' theo mức độ mới nhất.",
               "criteria": "recency",
-              "top_k": 5
+              "top_k": 3
             }
           }
         ],
@@ -598,117 +612,201 @@
           "args": {
             "papers": [
               {
-                "arxiv_id": "1234",
-                "title": "Evaluating LLM Agents: A Comprehensive Study",
-                "summary": "This paper presents a detailed evaluation framework for LLM agents.",
-                "abstract": "In this study, we propose a novel evaluation framework for LLM agents, focusing on performance metrics and user satisfaction.",
+                "arxiv_id": "2301.00001",
+                "title": "Evaluating LLM Agents: A Comprehensive Framework",
+                "summary": "This paper presents a framework for evaluating LLM agents based on various metrics.",
+                "abstract": "The evaluation of LLM agents is crucial for understanding their capabilities and limitations. This paper proposes a comprehensive framework that includes performance metrics, user satisfaction, and adaptability.",
                 "authors": [
                   "Author A",
                   "Author B"
                 ],
-                "published": "2023-10-01",
-                "url": "https://arxiv.org/abs/1234"
+                "published": "2023-01-01",
+                "primary_category": "cs.AI",
+                "categories": [
+                  "Artificial Intelligence"
+                ],
+                "url": "https://arxiv.org/abs/2301.00001"
               },
               {
-                "arxiv_id": "5678",
-                "title": "A New Approach to LLM Agent Evaluation",
-                "summary": "This research introduces a new methodology for assessing LLM agents.",
-                "abstract": "We introduce a new methodology for evaluating LLM agents, emphasizing adaptability and robustness.",
+                "arxiv_id": "2302.00002",
+                "title": "A Novel Approach to LLM Agent Evaluation",
+                "summary": "This research introduces a new method for evaluating LLM agents focusing on real-world applications.",
+                "abstract": "In this study, we introduce a novel approach to evaluate LLM agents, emphasizing their performance in real-world scenarios. We present case studies and experimental results to support our findings.",
                 "authors": [
                   "Author C",
                   "Author D"
                 ],
-                "published": "2023-09-15",
-                "url": "https://arxiv.org/abs/5678"
+                "published": "2023-02-01",
+                "primary_category": "cs.AI",
+                "categories": [
+                  "Artificial Intelligence"
+                ],
+                "url": "https://arxiv.org/abs/2302.00002"
+              },
+              {
+                "arxiv_id": "2303.00003",
+                "title": "Comparative Analysis of LLM Agent Evaluation Techniques",
+                "summary": "This paper compares various techniques for evaluating LLM agents and their effectiveness.",
+                "abstract": "We conduct a comparative analysis of different evaluation techniques for LLM agents. Our findings highlight the strengths and weaknesses of each method, providing insights for future research.",
+                "authors": [
+                  "Author E",
+                  "Author F"
+                ],
+                "published": "2023-03-01",
+                "primary_category": "cs.AI",
+                "categories": [
+                  "Artificial Intelligence"
+                ],
+                "url": "https://arxiv.org/abs/2303.00003"
               }
             ],
-            "research_question": "LLM agent evaluation",
+            "research_question": "Xếp hạng các paper về 'LLM agent evaluation' theo mức độ mới nhất.",
             "criteria": "recency",
-            "top_k": 5
+            "top_k": 3
           },
           "result": {
             "tool": "rank_papers",
-            "research_question": "LLM agent evaluation",
+            "research_question": "Xếp hạng các paper về 'LLM agent evaluation' theo mức độ mới nhất.",
             "criteria": "recency",
-            "top_k": 5,
+            "top_k": 3,
             "items": [
               {
-                "arxiv_id": "5678",
-                "title": "A New Approach to LLM Agent Evaluation",
-                "summary": "This research introduces a new methodology for assessing LLM agents.",
-                "abstract": "We introduce a new methodology for evaluating LLM agents, emphasizing adaptability and robustness.",
+                "arxiv_id": "2302.00002",
+                "title": "A Novel Approach to LLM Agent Evaluation",
+                "summary": "This research introduces a new method for evaluating LLM agents focusing on real-world applications.",
+                "abstract": "In this study, we introduce a novel approach to evaluate LLM agents, emphasizing their performance in real-world scenarios. We present case studies and experimental results to support our findings.",
                 "authors": [
                   "Author C",
                   "Author D"
                 ],
-                "published": "2023-09-15",
-                "url": "https://arxiv.org/abs/5678",
+                "published": "2023-02-01",
+                "primary_category": "cs.AI",
+                "categories": [
+                  "Artificial Intelligence"
+                ],
+                "url": "https://arxiv.org/abs/2302.00002",
                 "score": 0.7,
-                "relevance_score": 1.0,
+                "relevance_score": 0.2727,
                 "recency_score": 0.7,
-                "implementation_score": 0.25,
-                "ranking_reason": "high research-question relevance",
+                "implementation_score": 0.5,
+                "ranking_reason": "limited keyword relevance; implementation evidence: evaluation, experiment",
                 "rank": 1
               },
               {
-                "arxiv_id": "1234",
-                "title": "Evaluating LLM Agents: A Comprehensive Study",
-                "summary": "This paper presents a detailed evaluation framework for LLM agents.",
-                "abstract": "In this study, we propose a novel evaluation framework for LLM agents, focusing on performance metrics and user satisfaction.",
+                "arxiv_id": "2303.00003",
+                "title": "Comparative Analysis of LLM Agent Evaluation Techniques",
+                "summary": "This paper compares various techniques for evaluating LLM agents and their effectiveness.",
+                "abstract": "We conduct a comparative analysis of different evaluation techniques for LLM agents. Our findings highlight the strengths and weaknesses of each method, providing insights for future research.",
+                "authors": [
+                  "Author E",
+                  "Author F"
+                ],
+                "published": "2023-03-01",
+                "primary_category": "cs.AI",
+                "categories": [
+                  "Artificial Intelligence"
+                ],
+                "url": "https://arxiv.org/abs/2303.00003",
+                "score": 0.7,
+                "relevance_score": 0.3318,
+                "recency_score": 0.7,
+                "implementation_score": 0.25,
+                "ranking_reason": "limited keyword relevance",
+                "rank": 2
+              },
+              {
+                "arxiv_id": "2301.00001",
+                "title": "Evaluating LLM Agents: A Comprehensive Framework",
+                "summary": "This paper presents a framework for evaluating LLM agents based on various metrics.",
+                "abstract": "The evaluation of LLM agents is crucial for understanding their capabilities and limitations. This paper proposes a comprehensive framework that includes performance metrics, user satisfaction, and adaptability.",
                 "authors": [
                   "Author A",
                   "Author B"
                 ],
-                "published": "2023-10-01",
-                "url": "https://arxiv.org/abs/1234",
+                "published": "2023-01-01",
+                "primary_category": "cs.AI",
+                "categories": [
+                  "Artificial Intelligence"
+                ],
+                "url": "https://arxiv.org/abs/2301.00001",
                 "score": 0.7,
-                "relevance_score": 0.55,
+                "relevance_score": 0.2091,
                 "recency_score": 0.7,
                 "implementation_score": 0.5,
-                "ranking_reason": "partial research-question relevance; implementation evidence: evaluation, framework",
-                "rank": 2
+                "ranking_reason": "limited keyword relevance; implementation evidence: evaluation, framework",
+                "rank": 3
               }
             ],
             "ranked_items": [
               {
-                "arxiv_id": "5678",
-                "title": "A New Approach to LLM Agent Evaluation",
-                "summary": "This research introduces a new methodology for assessing LLM agents.",
-                "abstract": "We introduce a new methodology for evaluating LLM agents, emphasizing adaptability and robustness.",
+                "arxiv_id": "2302.00002",
+                "title": "A Novel Approach to LLM Agent Evaluation",
+                "summary": "This research introduces a new method for evaluating LLM agents focusing on real-world applications.",
+                "abstract": "In this study, we introduce a novel approach to evaluate LLM agents, emphasizing their performance in real-world scenarios. We present case studies and experimental results to support our findings.",
                 "authors": [
                   "Author C",
                   "Author D"
                 ],
-                "published": "2023-09-15",
-                "url": "https://arxiv.org/abs/5678",
+                "published": "2023-02-01",
+                "primary_category": "cs.AI",
+                "categories": [
+                  "Artificial Intelligence"
+                ],
+                "url": "https://arxiv.org/abs/2302.00002",
                 "score": 0.7,
-                "relevance_score": 1.0,
+                "relevance_score": 0.2727,
                 "recency_score": 0.7,
-                "implementation_score": 0.25,
-                "ranking_reason": "high research-question relevance",
+                "implementation_score": 0.5,
+                "ranking_reason": "limited keyword relevance; implementation evidence: evaluation, experiment",
                 "rank": 1
               },
               {
-                "arxiv_id": "1234",
-                "title": "Evaluating LLM Agents: A Comprehensive Study",
-                "summary": "This paper presents a detailed evaluation framework for LLM agents.",
-                "abstract": "In this study, we propose a novel evaluation framework for LLM agents, focusing on performance metrics and user satisfaction.",
+                "arxiv_id": "2303.00003",
+                "title": "Comparative Analysis of LLM Agent Evaluation Techniques",
+                "summary": "This paper compares various techniques for evaluating LLM agents and their effectiveness.",
+                "abstract": "We conduct a comparative analysis of different evaluation techniques for LLM agents. Our findings highlight the strengths and weaknesses of each method, providing insights for future research.",
+                "authors": [
+                  "Author E",
+                  "Author F"
+                ],
+                "published": "2023-03-01",
+                "primary_category": "cs.AI",
+                "categories": [
+                  "Artificial Intelligence"
+                ],
+                "url": "https://arxiv.org/abs/2303.00003",
+                "score": 0.7,
+                "relevance_score": 0.3318,
+                "recency_score": 0.7,
+                "implementation_score": 0.25,
+                "ranking_reason": "limited keyword relevance",
+                "rank": 2
+              },
+              {
+                "arxiv_id": "2301.00001",
+                "title": "Evaluating LLM Agents: A Comprehensive Framework",
+                "summary": "This paper presents a framework for evaluating LLM agents based on various metrics.",
+                "abstract": "The evaluation of LLM agents is crucial for understanding their capabilities and limitations. This paper proposes a comprehensive framework that includes performance metrics, user satisfaction, and adaptability.",
                 "authors": [
                   "Author A",
                   "Author B"
                 ],
-                "published": "2023-10-01",
-                "url": "https://arxiv.org/abs/1234",
+                "published": "2023-01-01",
+                "primary_category": "cs.AI",
+                "categories": [
+                  "Artificial Intelligence"
+                ],
+                "url": "https://arxiv.org/abs/2301.00001",
                 "score": 0.7,
-                "relevance_score": 0.55,
+                "relevance_score": 0.2091,
                 "recency_score": 0.7,
                 "implementation_score": 0.5,
-                "ranking_reason": "partial research-question relevance; implementation evidence: evaluation, framework",
-                "rank": 2
+                "ranking_reason": "limited keyword relevance; implementation evidence: evaluation, framework",
+                "rank": 3
               }
             ],
-            "input_count": 2,
-            "item_count": 2
+            "input_count": 3,
+            "item_count": 3
           }
         }
       ]
@@ -758,38 +856,17 @@
             "args": {
               "papers": [
                 {
-                  "title": "GPT-4 Technical Report",
-                  "summary": "",
-                  "abstract": "",
-                  "authors": [],
-                  "published": "",
-                  "url": "",
-                  "insights": {
-                    "method": "",
-                    "dataset": "",
-                    "implementation_notes": ""
-                  }
+                  "title": "GPT-4 Technical Report"
                 },
                 {
-                  "title": "LLaMA 2: Open Foundation Models",
-                  "summary": "",
-                  "abstract": "",
-                  "authors": [],
-                  "published": "",
-                  "url": "",
-                  "insights": {
-                    "method": "",
-                    "dataset": "",
-                    "implementation_notes": ""
-                  }
+                  "title": "LLaMA 2: Open Foundation Models"
                 }
               ],
               "dimensions": [
                 "method",
                 "dataset",
                 "implementation"
-              ],
-              "max_papers": 2
+              ]
             }
           }
         ],
@@ -805,38 +882,17 @@
           "args": {
             "papers": [
               {
-                "title": "GPT-4 Technical Report",
-                "summary": "",
-                "abstract": "",
-                "authors": [],
-                "published": "",
-                "url": "",
-                "insights": {
-                  "method": "",
-                  "dataset": "",
-                  "implementation_notes": ""
-                }
+                "title": "GPT-4 Technical Report"
               },
               {
-                "title": "LLaMA 2: Open Foundation Models",
-                "summary": "",
-                "abstract": "",
-                "authors": [],
-                "published": "",
-                "url": "",
-                "insights": {
-                  "method": "",
-                  "dataset": "",
-                  "implementation_notes": ""
-                }
+                "title": "LLaMA 2: Open Foundation Models"
               }
             ],
             "dimensions": [
               "method",
               "dataset",
               "implementation"
-            ],
-            "max_papers": 2
+            ]
           },
           "result": {
             "tool": "compare_papers",
@@ -939,7 +995,7 @@
           {
             "name": "clarify",
             "args": {
-              "question": "Bạn có thể cung cấp cho tôi đường dẫn hoặc ID của bài paper mà bạn đã tải về không?",
+              "question": "Bạn có thể cung cấp nội dung hoặc đường dẫn đến bài paper mà bạn đã tải về không?",
               "response_type": "text"
             }
           }
@@ -954,12 +1010,12 @@
         {
           "tool": "clarify",
           "args": {
-            "question": "Bạn có thể cung cấp cho tôi đường dẫn hoặc ID của bài paper mà bạn đã tải về không?",
+            "question": "Bạn có thể cung cấp nội dung hoặc đường dẫn đến bài paper mà bạn đã tải về không?",
             "response_type": "text"
           },
           "result": {
             "tool": "ask_user",
-            "question": "Bạn có thể cung cấp cho tôi đường dẫn hoặc ID của bài paper mà bạn đã tải về không?",
+            "question": "Bạn có thể cung cấp nội dung hoặc đường dẫn đến bài paper mà bạn đã tải về không?",
             "response_type": "text",
             "options": [],
             "awaiting_user": true
@@ -996,7 +1052,7 @@
         "routing_correct": true,
         "args_correct": true,
         "actual_tool_calls": [],
-        "actual_text": "Mình có thể giúp bạn với các công việc liên quan đến paper như sau:\n\n1. Tìm kiếm và truy xuất các bài báo khoa học.\n2. Đọc và tóm tắt nội dung của các bài báo.\n3. Trích xuất thông tin quan trọng từ bài báo.\n4. So sánh các bài báo dựa trên các tiêu chí cụ thể.\n5. Tìm kiếm thông tin liên quan đến các chủ đề nghiên cứu.\n\nNếu bạn cần hỗ trợ cụ thể nào, hãy cho mình biết!",
+        "actual_text": "Mình có thể giúp bạn với các công việc liên quan đến paper như sau:\n\n1. **Tìm kiếm bài báo khoa học**: Khám phá và tìm các bài báo mới liên quan đến chủ đề bạn quan tâm.\n2. **Đọc và trích xuất nội dung**: Lấy nội dung từ các bài báo cụ thể hoặc trích xuất thông tin quan trọng từ chúng.\n3. **Đánh giá và tổ chức**: Xếp hạng, so sánh hoặc tổ chức các bài báo dựa trên các tiêu chí cụ thể.\n4. **Tóm tắt và phân tích**: Tóm tắt nội dung hoặc phân tích các khía cạnh khác nhau của bài báo.\n\nNếu bạn có bất kỳ yêu cầu cụ thể nào về paper, hãy cho mình biết!",
         "case_failure_type": "unnecessary_tool",
         "observed_mismatch": null,
         "failure_type": null,
