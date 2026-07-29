@@ -116,3 +116,82 @@ tools:
         max_pages: {type: integer, default: 5, description: "Số trang"}
         max_chars: {type: integer, default: 8000, description: "Số ký tự"}
       required: [arxiv_url]
+
+  # ---------------- Team-authored Research Paper Scout tools ----------------
+  - name: rank_papers
+    description: "Xếp hạng danh sách paper ĐÃ CÓ theo câu hỏi nghiên cứu bằng relevance, recency, implementation hoặc balanced. Không dùng để tìm arXiv, đọc PDF, trích insight hoặc so sánh paper."
+    parameters:
+      type: object
+      properties:
+        papers:
+          type: array
+          description: "Danh sách paper metadata/abstract đã có."
+          items:
+            type: object
+            properties:
+              arxiv_id: {type: string}
+              title: {type: string}
+              summary: {type: string}
+              abstract: {type: string}
+              authors: {type: array, items: {type: string}}
+              published: {type: string}
+              primary_category: {type: string}
+              categories: {type: array, items: {type: string}}
+              url: {type: string}
+        research_question: {type: string, description: "Chủ đề hoặc câu hỏi dùng để chấm relevance."}
+        criteria: {type: string, enum: [relevance, recency, implementation, balanced], default: "balanced", description: "Tiêu chí xếp hạng chính."}
+        top_k: {type: integer, default: 5, description: "Số paper tốt nhất cần trả về."}
+      required: [papers, research_question]
+
+  - name: extract_paper_insights
+    description: "Trích xuất evidence cho problem, method, dataset, results, limitations và implementation từ paper text ĐÃ CÓ. Ưu tiên txt_path do paper_text trả về; cũng nhận text trực tiếp. Không tìm, xếp hạng hoặc so sánh paper và không tự bịa phần bị thiếu."
+    parameters:
+      type: object
+      properties:
+        text: {type: string, default: "", description: "Paper text hoặc excerpt đã có; bỏ trống nếu dùng txt_path."}
+        txt_path: {type: string, default: "", description: "Đường dẫn .txt do paper_text tạo trong starter_v0/arxiv_papers."}
+        title: {type: string, default: "", description: "Tên paper dùng để gắn nhãn output."}
+        focus: {type: string, enum: [general, method, results, limitations, implementation], default: "general", description: "Góc ưu tiên khi trích insight."}
+        max_sentences_per_section: {type: integer, default: 3, description: "Số câu evidence tối đa cho mỗi phần, từ 1 đến 5."}
+        max_chars: {type: integer, default: 50000, description: "Giới hạn ký tự đọc từ nguồn text."}
+
+  - name: compare_papers
+    description: "So sánh từ 2 paper ĐÃ CÓ bằng metadata, abstract, ranking score và insight đã trích; trả dữ liệu có cấu trúc và bảng Markdown. Không tìm arXiv, tải PDF, xếp hạng hoặc bịa claim không có trong input."
+    parameters:
+      type: object
+      properties:
+        papers:
+          type: array
+          description: "Danh sách paper metadata/abstract, có thể kèm score từ rank_papers và insights từ extract_paper_insights."
+          items:
+            type: object
+            properties:
+              arxiv_id: {type: string}
+              title: {type: string}
+              summary: {type: string}
+              abstract: {type: string}
+              authors: {type: array, items: {type: string}}
+              published: {type: string}
+              url: {type: string}
+              rank: {type: integer}
+              score: {type: number}
+              relevance_score: {type: number}
+              ranking_reason: {type: string}
+              insights:
+                type: object
+                properties:
+                  problem: {type: string}
+                  method: {type: string}
+                  dataset: {type: string}
+                  results: {type: string}
+                  limitations: {type: string}
+                  implementation_notes: {type: string}
+        dimensions:
+          type: array
+          default: [research_focus, method, dataset, results, limitations]
+          items:
+            type: string
+            enum: [research_focus, method, dataset, results, limitations, implementation, relevance]
+          description: "Các chiều cần so sánh."
+        max_papers: {type: integer, default: 5, description: "Số paper tối đa trong bảng so sánh, từ 2 đến 10."}
+      required: [papers]
