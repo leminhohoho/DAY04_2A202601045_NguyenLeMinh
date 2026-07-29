@@ -1,0 +1,34 @@
+{
+  "transcript_id": "v0_openrouter_20260729T104235299594",
+  "version": "v0",
+  "artifact_version": "v0+pfa322f088cb8+te137088ed015",
+  "prompt_hash": "fa322f088cb82df203686fdd4859186971586fa83892e96510e07f9e3e14d2dd",
+  "tools_hash": "e137088ed0151ca3d4c7f32d38c97ac67de59df8873fecd02f00b5ca8cbd3662",
+  "provider": "openrouter",
+  "model": "google/gemma-4-31b-it",
+  "system_prompt": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/artifacts/system_prompt.md",
+  "tools": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/artifacts/tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-07-29T10:42:35",
+  "updated_at": "2026-07-29T10:42:54",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T10:42:44",
+      "user": "Ask me a yes no question",
+      "status": "answered",
+      "assistant_text": "I am sorry, but my purpose is to assist with research-related tasks such as discovering, retrieving, and organizing scientific literature. Asking random yes/no questions is outside the scope of Research Paper Scout.\n\nIf you have any research topics you'd like to explore or papers you need help finding, please let me know!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "I am sorry, but my purpose is to assist with research-related tasks such as discovering, retrieving, and organizing scientific literature. Asking random yes/no questions is outside the scope of Research Paper Scout.\n\nIf you have any research topics you'd like to explore or papers you need help finding, please let me know!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [],
+      "ended_at": "2026-07-29T10:42:46"
+    }
+  ]
+}

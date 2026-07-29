@@ -1,0 +1,74 @@
+{
+  "transcript_id": "v0_openrouter_20260729T105450070486",
+  "version": "v0",
+  "artifact_version": "v0+p2ea552764a3e+te137088ed015",
+  "prompt_hash": "2ea552764a3e3a8afc2cccb99ed05abf521ff4d92b861957db6342f41e73d217",
+  "tools_hash": "e137088ed0151ca3d4c7f32d38c97ac67de59df8873fecd02f00b5ca8cbd3662",
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "system_prompt": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/artifacts/system_prompt.md",
+  "tools": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/artifacts/tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-07-29T10:54:50",
+  "updated_at": "2026-07-29T10:55:41",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T10:54:57",
+      "user": "Tóm tắt 5 tweet mới nhất giúp mình",
+      "status": "answered",
+      "assistant_text": "Hiện tại, tôi không thể truy cập vào các tweet mới nhất do thiếu thông tin cần thiết. Bạn có muốn tôi tìm kiếm thông tin khác hoặc giúp đỡ với một yêu cầu khác không?",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "timeline",
+              "args": {
+                "screenname": "ResearchPaperScout",
+                "limit": 5
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "timeline",
+              "args": {
+                "screenname": "ResearchPaperScout",
+                "limit": 5
+              },
+              "result": {
+                "tool": "get_user_tweets",
+                "error": "RuntimeError",
+                "message": "Missing RAPIDAPI_KEY env var"
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Hiện tại, tôi không thể truy cập vào các tweet mới nhất do thiếu thông tin cần thiết. Bạn có muốn tôi tìm kiếm thông tin khác hoặc giúp đỡ với một yêu cầu khác không?",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "timeline",
+          "args": {
+            "screenname": "ResearchPaperScout",
+            "limit": 5
+          },
+          "result": {
+            "tool": "get_user_tweets",
+            "error": "RuntimeError",
+            "message": "Missing RAPIDAPI_KEY env var"
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T10:55:00"
+    }
+  ]
+}

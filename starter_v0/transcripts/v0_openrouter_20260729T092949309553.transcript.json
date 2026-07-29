@@ -1,0 +1,51 @@
+{
+  "transcript_id": "v0_openrouter_20260729T092949309553",
+  "version": "v0",
+  "artifact_version": "v0+pf0c107a9d7a1+t011c271ef0bb",
+  "prompt_hash": "f0c107a9d7a14032c948d642d7c36f2a85cb6d69a099530093a874c94d472446",
+  "tools_hash": "011c271ef0bbad1e19a5d7b660b2ed481b7d72950f1faa8a0798c3bdd8784ee1",
+  "provider": "openrouter",
+  "model": "google/gemma-4-31b-it",
+  "system_prompt": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/artifacts/system_prompt.md",
+  "tools": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/artifacts/tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-07-29T09:29:49",
+  "updated_at": "2026-07-29T09:30:44",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T09:29:53",
+      "user": "Who are you",
+      "status": "answered",
+      "assistant_text": "I am your fast, proactive research assistant. I have access to a variety of tools to help you find information, analyze data, and publish content quickly without needing to ask you for constant clarifications.",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "I am your fast, proactive research assistant. I have access to a variety of tools to help you find information, analyze data, and publish content quickly without needing to ask you for constant clarifications.",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [],
+      "ended_at": "2026-07-29T09:29:56"
+    },
+    {
+      "turn_index": 2,
+      "started_at": "2026-07-29T09:30:14",
+      "user": "Which tools do you have access to ?",
+      "status": "answered",
+      "assistant_text": "I have access to a suite of tools that allow me to research, analyze, and publish information efficiently:\n\n*   **Internet & Research:** I can perform general web searches (`lookup`), fetch content from specific URLs (`fetch`), and search for scientific papers via arXiv (`papers` and `paper_text`).\n*   **Social Media:** I can search for trending topics or keywords (`social_search`) and retrieve recent posts from specific accounts (`timeline`).\n*   **Internal Knowledge:** I can search through internal policy documents (`policy`) to ensure compliance and accuracy.\n*   **Content Processing:** I can format raw data into various professional templates like briefs, threads, or bulleted lists (`format`).\n*   **Execution:** I can send or publish text directly (`send`) so you don't have to do it manually.",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "I have access to a suite of tools that allow me to research, analyze, and publish information efficiently:\n\n*   **Internet & Research:** I can perform general web searches (`lookup`), fetch content from specific URLs (`fetch`), and search for scientific papers via arXiv (`papers` and `paper_text`).\n*   **Social Media:** I can search for trending topics or keywords (`social_search`) and retrieve recent posts from specific accounts (`timeline`).\n*   **Internal Knowledge:** I can search through internal policy documents (`policy`) to ensure compliance and accuracy.\n*   **Content Processing:** I can format raw data into various professional templates like briefs, threads, or bulleted lists (`format`).\n*   **Execution:** I can send or publish text directly (`send`) so you don't have to do it manually.",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [],
+      "ended_at": "2026-07-29T09:30:31"
+    }
+  ]
+}

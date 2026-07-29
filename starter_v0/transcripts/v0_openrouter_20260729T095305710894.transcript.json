@@ -1,0 +1,77 @@
+{
+  "transcript_id": "v0_openrouter_20260729T095305710894",
+  "version": "v0",
+  "artifact_version": "v0+pf0c107a9d7a1+t011c271ef0bb",
+  "prompt_hash": "f0c107a9d7a14032c948d642d7c36f2a85cb6d69a099530093a874c94d472446",
+  "tools_hash": "011c271ef0bbad1e19a5d7b660b2ed481b7d72950f1faa8a0798c3bdd8784ee1",
+  "provider": "openrouter",
+  "model": "google/gemma-4-31b-it",
+  "system_prompt": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/artifacts/system_prompt.md",
+  "tools": "/Users/leminhohoho/repos/learning/DAY04_2A202601045_NguyenLeMinh/starter_v0/artifacts/tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-07-29T09:53:05",
+  "updated_at": "2026-07-29T09:56:23",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T09:53:37",
+      "user": "Search and fetch the latest new about Brad Pitt",
+      "status": "answered",
+      "assistant_text": "I'm sorry, but I encountered a technical error while trying to search for the latest news about Brad Pitt. Please try again in a moment.",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "lookup",
+              "args": {
+                "query": "latest news Brad Pitt",
+                "timeframe": "week",
+                "topic": "news"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "lookup",
+              "args": {
+                "query": "latest news Brad Pitt",
+                "timeframe": "week",
+                "topic": "news"
+              },
+              "result": {
+                "tool": "web_search",
+                "error": "RuntimeError",
+                "message": "Missing TAVILY_API_KEY env var"
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "I'm sorry, but I encountered a technical error while trying to search for the latest news about Brad Pitt. Please try again in a moment.",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "latest news Brad Pitt",
+            "timeframe": "week",
+            "topic": "news"
+          },
+          "result": {
+            "tool": "web_search",
+            "error": "RuntimeError",
+            "message": "Missing TAVILY_API_KEY env var"
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T09:53:42"
+    }
+  ]
+}

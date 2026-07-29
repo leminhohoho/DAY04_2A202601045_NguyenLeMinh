@@ -19,7 +19,7 @@ tools:
       required: [question]
 
   - name: timeline
-    description: "Lấy các bài đăng gần đây."
+    description: "Lấy các bài tweet của 1 user theo tên"
     parameters:
       type: object
       properties:
@@ -28,7 +28,7 @@ tools:
       required: [screenname]
 
   - name: social_search
-    description: "Tìm trên mạng xã hội."
+    description: "Tìm các bài đăng trên mạng xã hội."
     parameters:
       type: object
       properties:
@@ -79,7 +79,7 @@ tools:
 
   # ---------------- Bonus tools ----------------
   - name: send
-    description: "Gửi một đoạn văn bản đi."
+    description: "Gửi một đoạn văn bản đi. LUÔN phải có xác nhận yes_no từ clarify TRƯỚC khi gọi, kể cả khi nội dung chưa đầy đủ. Ưu tiên hỏi xác nhận ý định gửi trước, hỏi chi tiết nội dung sau (ở lượt tiếp theo)."
     parameters:
       type: object
       properties:
