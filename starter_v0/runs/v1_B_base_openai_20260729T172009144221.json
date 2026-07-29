@@ -1,0 +1,1422 @@
+{
+  "run_id": "v1_B_base_openai_20260729T172009144221",
+  "version": "v1",
+  "artifact_version": "v1+pd31b34ec969d+t6cdb53d5d7b8",
+  "prompt_hash": "d31b34ec969da03be27675ee35bc34194715ba0c82c1eb01e989cfaf37ba1857",
+  "tools_hash": "6cdb53d5d7b8de80d60b298b1357f462cedbedfae261d5ba60b08ccc401687c5",
+  "phase": "B",
+  "suite": "base",
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "system_prompt": "D:\\AI_thucchien\\Day4\\Lab4\\DAY04_history_artifacts\\v1\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "D:\\AI_thucchien\\Day4\\Lab4\\DAY04_history_artifacts\\v1\\starter_v0\\artifacts\\tools.yaml",
+  "eval_cases": "data\\eval_base.json",
+  "dataset_id": "day04_v2_research_base",
+  "dataset_role": "base",
+  "description": "Core eval cho research agent: routing đúng tool + đúng args, hỏi lại khi thiếu (ask_user), xác nhận trước khi gửi, và xử lý câu ngoài phạm vi / không cần tool. Chấm trên tool_calls + args (subset). KHÔNG sửa file này — chỉ thêm case vào eval_group.json.",
+  "generated_at": "2026-07-29T17:20:09",
+  "summary": {
+    "total_cases": 20,
+    "measured_cases": 20,
+    "provider_error_cases": 0,
+    "passed_cases": 19,
+    "case_accuracy": 0.95,
+    "tool_routing_accuracy": 1.0,
+    "argument_accuracy": 0.95,
+    "multiturn_accuracy": 1.0,
+    "failure_counts": {
+      "wrong_boundary": 1
+    },
+    "observed_mismatch_counts": {
+      "wrong_arg_value": 1
+    }
+  },
+  "results": [
+    {
+      "id": "R01_user_tweets_routing",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "routing_user_tweets_name_to_handle",
+        "difficulty": "medium",
+        "what_it_tests": "Tin CỦA một người nổi tiếng → map tên Sam Altman thành handle sama rồi gọi get_user_tweets."
+      },
+      "input": "Tweet mới nhất của Sam Altman là gì?",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "timeline",
+            "args": {
+              "screenname": "sama"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "timeline",
+            "args": {
+              "screenname": "sama",
+              "limit": 1
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "timeline",
+          "args": {
+            "screenname": "sama",
+            "limit": 1
+          },
+          "result": {
+            "tool": "get_user_tweets",
+            "error": "RuntimeError",
+            "message": "Missing RAPIDAPI_KEY env var"
+          }
+        }
+      ]
+    },
+    {
+      "id": "R02_search_tweets_routing",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "routing_search_tweets",
+        "difficulty": "easy",
+        "what_it_tests": "Tweet theo CHỦ ĐỀ → search_tweets, không phải get_user_tweets."
+      },
+      "input": "Mọi người đang bàn gì về GPT-5 trên Twitter?",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "social_search",
+            "args": {}
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "social_search",
+            "args": {
+              "query": "GPT-5",
+              "search_type": "Latest",
+              "limit": 5
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "social_search",
+          "args": {
+            "query": "GPT-5",
+            "search_type": "Latest",
+            "limit": 5
+          },
+          "result": {
+            "tool": "search_tweets",
+            "error": "RuntimeError",
+            "message": "Missing RAPIDAPI_KEY env var"
+          }
+        }
+      ]
+    },
+    {
+      "id": "R03_web_news_routing",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "routing_web_news",
+        "difficulty": "medium",
+        "what_it_tests": "Tin thời sự trên web → web_search topic=news, timeframe=day (hôm nay)."
+      },
+      "input": "Tin tức AI hôm nay có gì nổi bật?",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "AI",
+              "topic": "news",
+              "timeframe": "day"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "AI",
+              "topic": "news",
+              "timeframe": "day",
+              "max_results": 5
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "AI",
+            "topic": "news",
+            "timeframe": "day",
+            "max_results": 5
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "AI",
+            "topic": "news",
+            "timeframe": "day",
+            "items": [
+              {
+                "title": "Mark Zuckerberg Says U.S. Should Accelerate AI ...",
+                "url": "https://www.wsj.com/tech/ai/mark-zuckerberg-says-u-s-should-accelerate-ai-development-not-restrict-it-3bbe0868",
+                "source": "wsj.com",
+                "summary": "## Videos\n\n### Most Popular News\n\n### Most Popular\n\n### Further Reading\n\n### CoreWeave’s AI-Native Cloud Faces the Storm\n\n### IBM CEO Arvind Krishna Has Nowhere to Hide From AI\n\n### Japan to Buy Nvidia Chips to Power Its AI Push\n\n### America Needs More Weapons. JPMorgan Wants to Add Its Firepower.\n\n### Microsoft’s Satya Nadella: We Can’t Let AI Giants Eat the Economy [...] Optimism about AI’s impact on the world “should empirically be the default assumption of how this is going to play out,” the Meta Platforms META -0.08%decrease; down pointing triangle chief executive officer said in an interview. He cited historical analogues, recent jobs data and his own personal use of AI for parenting and fitness as informing his positive outlook on the technology.\n\nCopyright ©2026 Dow Jones & Company, Inc. All Rights Reserved. 87990cbe856818d5eddac44c7b1cdeb8\n\n## Videos",
+                "score": 0.1400965982282754
+              },
+              {
+                "title": "Employees at the world’s biggest AI companies are calling for a slowdown in AI development",
+                "url": "https://www.cnn.com/2026/07/28/tech/ai-development-tech-employees-open-letter",
+                "source": "cnn.com",
+                "summary": "OpenAI said in a statement to CNN they agree with potentially pacing the development of AI, adding they “hope to contribute to work led by the U.S. government, alongside other labs” on the topic.\n\nOpenAI CEO Sam Altman suggested it may be time to slow down AI development in a podcast interview Tuesday. The OpenAI models that broke out of their test environment are fueling “long term questions” about how AI companies should address this new rate of progress. [...] The US government should support an international effort to develop tools that can “deliberately pace the frontier of automated AI development,” according to the letter.\n\nMore than 1,000 employees from frontier AI companies signed the letter, including the chief scientist of OpenAI, one of the ChatGPT developer’s original cofounders, some of Anthropic’s cofoundersand vice presidents at Meta, Google and others. [...] “[W]e may have to pace the rate of AI development to give ourselves enough time for society to harden around these new capability levels,” Altman said.\n\nAnthropic said in a statement they are “glad to see broad agreement” on the need to potentially slow AI development “so society can prepare.”\n\nMeta declined to comment. Google did not immediately respond to a request for comment.",
+                "score": 0.13529110309550785
+              },
+              {
+                "title": "Meta's Zuckerberg warns against curbs on Chinese AI ...",
+                "url": "https://www.reuters.com/world/china/metas-zuckerberg-says-us-should-not-block-chinese-ai-models-ft-reports-2026-07-29",
+                "source": "reuters.com",
+                "summary": "19 mins agoWorld categorySK Hynix's record profit misses forecasts, shares slump 10% despite robust AI chip demand Image 6: SK Hynix at the Nasdaq market in New York \n   4 hours agoLegal categoryTech employees call for US-backed global effort to manage risks of advanced AI Image 7: Illustration shows words \"Artificial Intelligence AI\\",
+                "score": 0.130398854452764
+              },
+              {
+                "title": "Accenture wins $821M Pentagon AI data platform contract",
+                "url": "https://federalnewsnetwork.com/defense-news/2026/07/accenture-wins-821m-pentagon-ai-data-platform-contract",
+                "source": "federalnewsnetwork.com",
+                "summary": "#### Advertise with Us\n\n# Accenture wins $821M Pentagon AI data platform contract\n\nAccenture won an $821 million contract to mature the Pentagon's War Data Platform, boosting AI-powered battlefield data and decision-making. [...] The platform aims to combine more than 1,500 data sources, both commercial and military, to securely provide intelligence, targeting data and more to frontline troops and their commands, the AI office said, calling it “one of [DoD]’s most vital data platforms for AI exploitation and mission advantage.” [...] The award advances the Pentagon’s effort to mature its War Data Platform, a clearinghouse of battlefield information that AI applications can crunch to advise troops on potential next moves and speed up wartime decisions.",
+                "score": 0.1297285959735784
+              },
+              {
+                "title": "An AI data center is being built on my grandma's garden",
+                "url": "https://www.ncronline.org/opinion/guest-voices/ai-data-center-being-built-my-grandmas-garden",
+                "source": "ncronline.org",
+                "summary": "He also reminds us to think of the physical impact of utilizing AI while reminding us that data centers are not neutral. He states: \"Current AI systems require enormous amounts of energy and water … which requires an extensive network of machines, cables, data centers and energy-intensive infrastructure … It is essential to develop more sustainable technological solutions.\" [...] When my grandma sold her house last year, she did not know the purchaser. Now her land and the surrounding 672 acres belong to the developer Vantage, who is building an AI data center that costs $15 billion. [...] the window so that those driving by on Highland Drive could see, and smile.",
+                "score": 0.12493450552382028
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "R04_read_url_routing",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "routing_read_url",
+        "difficulty": "easy",
+        "what_it_tests": "Đã có link cụ thể → read_url, không phải web_search."
+      },
+      "input": "Tóm tắt bài này giúp mình: https://openai.com/blog/gpt-5",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "fetch",
+            "args": {
+              "url": "https://openai.com/blog/gpt-5"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "fetch",
+            "args": {
+              "url": "https://openai.com/blog/gpt-5"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "fetch",
+          "args": {
+            "url": "https://openai.com/blog/gpt-5"
+          },
+          "result": {
+            "tool": "read_url",
+            "url": "https://openai.com/blog/gpt-5",
+            "items": [
+              {
+                "title": "OpenAI",
+                "url": "https://openai.com/blog/gpt-5",
+                "source": "openai.com",
+                "summary": "OpenAI\n\n# 404\n\nThe index rests now\n\nQuiet shelves hold their places\n\nChoose another book\n\nby [gpt-5.6-sol(opens in a new window)](https://chatgpt.com/?model=gpt-5.6-sol&openaicom-did=dba71ae9-3a13-449c-a57d-55ef715ec2f2&openaicom_referred=true)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "R05_limit_arg",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "arg_limit",
+        "difficulty": "easy",
+        "what_it_tests": "Trích đúng limit=10 từ '10 tweet'."
+      },
+      "input": "Lấy 10 tweet mới nhất của Elon Musk",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "timeline",
+            "args": {
+              "screenname": "elonmusk",
+              "limit": 10
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "timeline",
+            "args": {
+              "screenname": "elonmusk",
+              "limit": 10
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "timeline",
+          "args": {
+            "screenname": "elonmusk",
+            "limit": 10
+          },
+          "result": {
+            "tool": "get_user_tweets",
+            "error": "RuntimeError",
+            "message": "Missing RAPIDAPI_KEY env var"
+          }
+        }
+      ]
+    },
+    {
+      "id": "R06_timeframe_arg",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "arg_timeframe",
+        "difficulty": "medium",
+        "what_it_tests": "'tuần này' → timeframe=week."
+      },
+      "input": "Tin công nghệ trong tuần này",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "topic": "news",
+              "timeframe": "week"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "công nghệ",
+              "topic": "news",
+              "timeframe": "week",
+              "max_results": 5
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "công nghệ",
+            "topic": "news",
+            "timeframe": "week",
+            "max_results": 5
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "công nghệ",
+            "topic": "news",
+            "timeframe": "week",
+            "items": [
+              {
+                "title": "Digital technologies enabling China's shift toward smart manufacturing - Xinhua",
+                "url": "https://english.news.cn/20260723/89d8abce342447e48771c5e8f0af5c48/c.html",
+                "source": "english.news.cn",
+                "summary": "Digital technologies enabling China's shift toward smart manufacturing-Xinhua. This is how the premium substrate glass panels roll off the cutting-edge G8.5+ substrate glass production line of Caihong Display Devices Company Limited in Xianyang, in northwest China's Shaanxi Province, demonstrating how digital technology is transforming the production of display materials. Caihong's G8.5+ substrate glass production line has broken the long-standing monopoly of overseas companies in the large-size substrate glass market, enabling China to achieve self-reliance and secure supply of high-end display materials, according to an executive of the company who preferred to be anonymous. \"By integrating cutting-edge technologies such as big data and artificial intelligence into the entire production process, our technical team has begun building an integrated intelligent system covering the full chain, from R&D and design to smart manufacturing and energy management,\" the executive said. Caihong's smart G8.5+ substrate glass production line represents a broader trend in which China's manufacturing sector is leveraging digital intelligence to upgrade and break through technological bottlenecks.",
+                "score": 0.18728161
+              },
+              {
+                "title": "Apple is reportedly worried about smart glasses, too - Yahoo Tech",
+                "url": "https://tech.yahoo.com/wearables/article/apple-is-reportedly-worried-about-smart-glasses-too-135710319.html",
+                "source": "tech.yahoo.com",
+                "summary": "Explore the latest in AI technology with expert reviews, news and insights on AI technology, machine learning, AI tools and more. Explore the latest in audio technology with expert reviews, news and insights on headphones, speakers, sound systems and more. Explore the latest in computing with expert reviews, news and insights on computers, laptops, tablets, peripherals and more. Explore the latest in gaming with expert reviews, news and insights on gaming systems, video games, previews, rumors and more. Explore the latest in home entertainment with expert reviews, news and insights on sound systems, home theaters, home audio and more. Explore the latest in streaming technology with expert reviews, news and insights on live TV streaming, streaming platforms and more. Explore the latest in VPN technology with expert reviews, news and insights on VPN services, software, browser extensions and more. Explore the latest in smart home technology with expert reviews, news, and insights on smart home security, smart thermometers, and other home devices and gadgets.",
+                "score": 0.17271566
+              },
+              {
+                "title": "Sam Altman says we are in the singularity: 'This is the moment' - Yahoo Tech",
+                "url": "https://tech.yahoo.com/ai/articles/sam-altman-says-singularity-moment-180054442.html",
+                "source": "tech.yahoo.com",
+                "summary": "Explore the latest in AI technology with expert reviews, news and insights on AI technology, machine learning, AI tools and more. Explore the latest in audio technology with expert reviews, news and insights on headphones, speakers, sound systems and more. Explore the latest in computing with expert reviews, news and insights on computers, laptops, tablets, peripherals and more. Explore the latest in gaming with expert reviews, news and insights on gaming systems, video games, previews, rumors and more. Explore the latest in home entertainment with expert reviews, news and insights on sound systems, home theaters, home audio and more. Explore the latest in streaming technology with expert reviews, news and insights on live TV streaming, streaming platforms and more. Explore the latest in VPN technology with expert reviews, news and insights on VPN services, software, browser extensions and more. Explore the latest in cybersecurity with expert reviews, news, and insights on breaking stories and coverage.",
+                "score": 0.14932065
+              },
+              {
+                "title": "Indonesia’s nickel challenge shifts from mining to processing - Mining Technology",
+                "url": "https://www.mining-technology.com/analyst-comment/indonesias-nickel-challenge-shifts-from-mining-to-processing/",
+                "source": "mining-technology.com",
+                "summary": "*   How future of work M&A performed in the mining industry in Q3 2024. With a free Mining Technology profile, you can:. Mining news and in-depth feature articles on the latest mining company deals and projects covering trends in mineral exploration with up to date data on the most mined metal and mineral commodities. We may store and access personal data such as cookies, device identifiers or other similar technologies on your device and process such data to enhance site navigation, personalize ads and content when you visit our sites, measure ad and content performance, gain audience insights, analyze our site traffic as well as develop and improve our products and services. Blocking some types of cookies may impact your experience of the site and the services we are able to offer. You can set your browser to block or alert you about these cookies, but some parts of the site will not then work.",
+                "score": 0.13717403
+              },
+              {
+                "title": "Yujin Technology Selected for Government AI Manufacturing Platform Project - thelec.net",
+                "url": "https://www.thelec.net/news/articleView.html?idxno=12443",
+                "source": "thelec.net",
+                "summary": "* UPDATE : 2026-07-22 21:26 (Wed). Yujin Technology Selected for Government AI Manufacturing Platform Project. ## Consortium to develop generative AI platform for battery equipment manufacturing with 1.1 billion won in first-year funding. * Published 2026.07.22 21:26. Yujin Technology said on July 22 that it has been selected as the preferred bidder for the South Korean government's 2026 AI Transformation (AX) One-Stop Voucher Program, led by the Ministry of Science and ICT and the National IT Industry Promotion Agency (NIPA). Yujin Technology will carry out the project through a consortium with Plan I and Gabia, developing a generative AI-based manufacturing platform for battery equipment. The project will receive approximately 1.1 billion won in government funding during its first year. A second year of funding of a similar scale is expected following an evaluation of the first year's performance. During the first phase, Yujin Technology plans to complete development of the AI platform and conduct proof-of-concept demonstrations.",
+                "score": 0.13078444
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "R07_search_type_arg",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "arg_search_type",
+        "difficulty": "medium",
+        "what_it_tests": "'phổ biến/top' → search_type=Top (không phải Latest)."
+      },
+      "input": "Cho mình các tweet phổ biến (top) nhất về OpenAI",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "social_search",
+            "args": {
+              "search_type": "Top"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "social_search",
+            "args": {
+              "query": "OpenAI",
+              "search_type": "Top",
+              "limit": 5
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "social_search",
+          "args": {
+            "query": "OpenAI",
+            "search_type": "Top",
+            "limit": 5
+          },
+          "result": {
+            "tool": "search_tweets",
+            "error": "RuntimeError",
+            "message": "Missing RAPIDAPI_KEY env var"
+          }
+        }
+      ]
+    },
+    {
+      "id": "R08_out_of_scope",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "out_of_scope",
+        "difficulty": "easy",
+        "what_it_tests": "Câu ngoài phạm vi research → KHÔNG gọi tool, từ chối/định hướng."
+      },
+      "input": "Giải giúp mình bài toán tích phân: nguyên hàm của x^2 là gì?",
+      "expect": {
+        "no_tool": true,
+        "behavior": "refuse"
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [],
+        "actual_text": "Xin lỗi, nhưng yêu cầu của bạn nằm ngoài phạm vi của Research Paper Scout. Tôi không thể giúp bạn giải bài toán tích phân. Nếu bạn có câu hỏi nào liên quan đến nghiên cứu hoặc tài liệu khoa học, hãy cho tôi biết!",
+        "case_failure_type": "out_of_scope",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": []
+    },
+    {
+      "id": "R09_no_tool_capability",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "no_tool_meta",
+        "difficulty": "easy",
+        "what_it_tests": "Câu hỏi meta → trả lời thẳng, KHÔNG gọi tool."
+      },
+      "input": "Bạn là gì và làm được những gì?",
+      "expect": {
+        "no_tool": true,
+        "behavior": "answer_without_tool"
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [],
+        "actual_text": "Tôi là **Research Paper Scout**, một trợ lý nghiên cứu AI giúp người dùng khám phá, truy xuất, đọc và tổ chức tài liệu khoa học cũng như thông tin nghiên cứu liên quan. \n\nTôi có thể hỗ trợ bạn trong các nhiệm vụ liên quan đến nghiên cứu như:\n- Tìm kiếm bài báo khoa học.\n- Tìm kiếm tin tức nghiên cứu gần đây.\n- Truy xuất thông tin từ các trang web.\n- Tìm kiếm các cuộc thảo luận xã hội liên quan đến các chủ đề nghiên cứu.\n- Định dạng các phát hiện nghiên cứu thành các tóm tắt dễ đọc.\n\nNếu bạn có bất kỳ câu hỏi nào liên quan đến nghiên cứu, hãy cho tôi biết!",
+        "case_failure_type": "unnecessary_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": []
+    },
+    {
+      "id": "R10_missing_handle",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "clarify_missing_handle",
+        "difficulty": "medium",
+        "what_it_tests": "Thiếu handle → ask_user, KHÔNG đoán bừa người nào."
+      },
+      "input": "Tóm tắt 5 tweet mới nhất giúp mình",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "text"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "question": "Bạn có thể cho biết tên tài khoản Twitter mà bạn muốn tóm tắt các tweet mới nhất không?",
+              "response_type": "text"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "missing_info",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "clarify",
+          "args": {
+            "question": "Bạn có thể cho biết tên tài khoản Twitter mà bạn muốn tóm tắt các tweet mới nhất không?",
+            "response_type": "text"
+          },
+          "result": {
+            "tool": "ask_user",
+            "question": "Bạn có thể cho biết tên tài khoản Twitter mà bạn muốn tóm tắt các tweet mới nhất không?",
+            "response_type": "text",
+            "options": [],
+            "awaiting_user": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "R11_missing_url",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "clarify_missing_url",
+        "difficulty": "medium",
+        "what_it_tests": "Nói 'bài này' nhưng không có link → ask_user xin URL."
+      },
+      "input": "Tóm tắt bài viết này hộ mình",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "text"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "question": "Bạn có thể cung cấp địa chỉ URL của bài viết mà bạn muốn tóm tắt không?",
+              "response_type": "text"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "missing_info",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "clarify",
+          "args": {
+            "question": "Bạn có thể cung cấp địa chỉ URL của bài viết mà bạn muốn tóm tắt không?",
+            "response_type": "text"
+          },
+          "result": {
+            "tool": "ask_user",
+            "question": "Bạn có thể cung cấp địa chỉ URL của bài viết mà bạn muốn tóm tắt không?",
+            "response_type": "text",
+            "options": [],
+            "awaiting_user": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "R12_confirm_before_send",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "confirm_before_write",
+        "difficulty": "medium",
+        "what_it_tests": "Hành động ghi (gửi) → xác nhận trước (ask_user yes_no), không tự gửi."
+      },
+      "input": "Đăng bản tin này lên Telegram giúp mình",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "yes_no"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "routing_correct": true,
+        "args_correct": false,
+        "actual_tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "question": "Bạn có thể cung cấp nội dung cụ thể mà bạn muốn đăng lên Telegram không?",
+              "response_type": "text"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_boundary",
+        "observed_mismatch": "wrong_arg_value",
+        "failure_type": "wrong_boundary",
+        "failures": [
+          "response_type: expected 'yes_no', got 'text'"
+        ]
+      },
+      "tool_results": [
+        {
+          "tool": "clarify",
+          "args": {
+            "question": "Bạn có thể cung cấp nội dung cụ thể mà bạn muốn đăng lên Telegram không?",
+            "response_type": "text"
+          },
+          "result": {
+            "tool": "ask_user",
+            "question": "Bạn có thể cung cấp nội dung cụ thể mà bạn muốn đăng lên Telegram không?",
+            "response_type": "text",
+            "options": [],
+            "awaiting_user": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "R13_parallel_web_and_tweets",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "parallel_tool_calls",
+        "difficulty": "hard",
+        "what_it_tests": "Một request cần hai nguồn → gọi cả web_search và search_tweets; eval không phụ thuộc thứ tự tool call."
+      },
+      "input": "Tìm trên web tin AI hôm nay và tìm thêm tweet về AI.",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "AI",
+              "topic": "news",
+              "timeframe": "day"
+            }
+          },
+          {
+            "name": "social_search",
+            "args": {
+              "query": "AI"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "AI",
+              "topic": "news",
+              "timeframe": "day",
+              "max_results": 5
+            }
+          },
+          {
+            "name": "social_search",
+            "args": {
+              "query": "AI",
+              "search_type": "Latest",
+              "limit": 5
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "AI",
+            "topic": "news",
+            "timeframe": "day",
+            "max_results": 5
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "AI",
+            "topic": "news",
+            "timeframe": "day",
+            "items": [
+              {
+                "title": "Mark Zuckerberg Says U.S. Should Accelerate AI ...",
+                "url": "https://www.wsj.com/tech/ai/mark-zuckerberg-says-u-s-should-accelerate-ai-development-not-restrict-it-3bbe0868",
+                "source": "wsj.com",
+                "summary": "## Videos\n\n### Most Popular News\n\n### Most Popular\n\n### Further Reading\n\n### CoreWeave’s AI-Native Cloud Faces the Storm\n\n### IBM CEO Arvind Krishna Has Nowhere to Hide From AI\n\n### Japan to Buy Nvidia Chips to Power Its AI Push\n\n### America Needs More Weapons. JPMorgan Wants to Add Its Firepower.\n\n### Microsoft’s Satya Nadella: We Can’t Let AI Giants Eat the Economy [...] Optimism about AI’s impact on the world “should empirically be the default assumption of how this is going to play out,” the Meta Platforms META -0.08%decrease; down pointing triangle chief executive officer said in an interview. He cited historical analogues, recent jobs data and his own personal use of AI for parenting and fitness as informing his positive outlook on the technology.\n\nCopyright ©2026 Dow Jones & Company, Inc. All Rights Reserved. 87990cbe856818d5eddac44c7b1cdeb8\n\n## Videos",
+                "score": 0.1400965982282754
+              },
+              {
+                "title": "Employees at the world’s biggest AI companies are calling for a slowdown in AI development",
+                "url": "https://www.cnn.com/2026/07/28/tech/ai-development-tech-employees-open-letter",
+                "source": "cnn.com",
+                "summary": "OpenAI said in a statement to CNN they agree with potentially pacing the development of AI, adding they “hope to contribute to work led by the U.S. government, alongside other labs” on the topic.\n\nOpenAI CEO Sam Altman suggested it may be time to slow down AI development in a podcast interview Tuesday. The OpenAI models that broke out of their test environment are fueling “long term questions” about how AI companies should address this new rate of progress. [...] The US government should support an international effort to develop tools that can “deliberately pace the frontier of automated AI development,” according to the letter.\n\nMore than 1,000 employees from frontier AI companies signed the letter, including the chief scientist of OpenAI, one of the ChatGPT developer’s original cofounders, some of Anthropic’s cofoundersand vice presidents at Meta, Google and others. [...] “[W]e may have to pace the rate of AI development to give ourselves enough time for society to harden around these new capability levels,” Altman said.\n\nAnthropic said in a statement they are “glad to see broad agreement” on the need to potentially slow AI development “so society can prepare.”\n\nMeta declined to comment. Google did not immediately respond to a request for comment.",
+                "score": 0.13529110309550785
+              },
+              {
+                "title": "Meta's Zuckerberg warns against curbs on Chinese AI ...",
+                "url": "https://www.reuters.com/world/china/metas-zuckerberg-says-us-should-not-block-chinese-ai-models-ft-reports-2026-07-29",
+                "source": "reuters.com",
+                "summary": "19 mins agoWorld categorySK Hynix's record profit misses forecasts, shares slump 10% despite robust AI chip demand Image 6: SK Hynix at the Nasdaq market in New York \n   4 hours agoLegal categoryTech employees call for US-backed global effort to manage risks of advanced AI Image 7: Illustration shows words \"Artificial Intelligence AI\\",
+                "score": 0.130398854452764
+              },
+              {
+                "title": "Accenture wins $821M Pentagon AI data platform contract",
+                "url": "https://federalnewsnetwork.com/defense-news/2026/07/accenture-wins-821m-pentagon-ai-data-platform-contract",
+                "source": "federalnewsnetwork.com",
+                "summary": "#### Advertise with Us\n\n# Accenture wins $821M Pentagon AI data platform contract\n\nAccenture won an $821 million contract to mature the Pentagon's War Data Platform, boosting AI-powered battlefield data and decision-making. [...] The platform aims to combine more than 1,500 data sources, both commercial and military, to securely provide intelligence, targeting data and more to frontline troops and their commands, the AI office said, calling it “one of [DoD]’s most vital data platforms for AI exploitation and mission advantage.” [...] The award advances the Pentagon’s effort to mature its War Data Platform, a clearinghouse of battlefield information that AI applications can crunch to advise troops on potential next moves and speed up wartime decisions.",
+                "score": 0.1297285959735784
+              },
+              {
+                "title": "An AI data center is being built on my grandma's garden",
+                "url": "https://www.ncronline.org/opinion/guest-voices/ai-data-center-being-built-my-grandmas-garden",
+                "source": "ncronline.org",
+                "summary": "He also reminds us to think of the physical impact of utilizing AI while reminding us that data centers are not neutral. He states: \"Current AI systems require enormous amounts of energy and water … which requires an extensive network of machines, cables, data centers and energy-intensive infrastructure … It is essential to develop more sustainable technological solutions.\" [...] When my grandma sold her house last year, she did not know the purchaser. Now her land and the surrounding 672 acres belong to the developer Vantage, who is building an AI data center that costs $15 billion. [...] the window so that those driving by on Highland Drive could see, and smile.",
+                "score": 0.12493450552382028
+              }
+            ]
+          }
+        },
+        {
+          "tool": "social_search",
+          "args": {
+            "query": "AI",
+            "search_type": "Latest",
+            "limit": 5
+          },
+          "result": {
+            "tool": "search_tweets",
+            "error": "RuntimeError",
+            "message": "Missing RAPIDAPI_KEY env var"
+          }
+        }
+      ]
+    },
+    {
+      "id": "R14_out_of_scope_coding",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "out_of_scope_coding",
+        "difficulty": "easy",
+        "what_it_tests": "Câu coding ngoài phạm vi research/news → KHÔNG gọi tool."
+      },
+      "input": "Viết giúp mình một hàm Python tính Fibonacci bằng recursion.",
+      "expect": {
+        "no_tool": true,
+        "behavior": "refuse"
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [],
+        "actual_text": "Yêu cầu của bạn nằm ngoài phạm vi của Research Paper Scout. Tôi không thể giúp bạn viết mã Python. Nếu bạn cần hỗ trợ về nghiên cứu hoặc tài liệu khoa học, hãy cho tôi biết!",
+        "case_failure_type": "out_of_scope",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": []
+    },
+    {
+      "id": "M01_clarify_then_fill",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_clarify_fill",
+        "difficulty": "hard",
+        "what_it_tests": "3 turns: carry limit=5 từ lượt 1 + map tên Elon Musk thành handle elonmusk từ lượt 2."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tóm tắt 5 tweet mới nhất giúp mình"
+        },
+        {
+          "role": "user",
+          "content": "Của Elon Musk nhé"
+        },
+        {
+          "role": "user",
+          "content": "Giữ đúng 5 tweet, đừng đổi số lượng"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "timeline",
+            "args": {
+              "screenname": "elonmusk",
+              "limit": 5
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "timeline",
+            "args": {
+              "screenname": "elonmusk",
+              "limit": 5
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "missing_info",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "timeline",
+          "args": {
+            "screenname": "elonmusk",
+            "limit": 5
+          },
+          "result": {
+            "tool": "get_user_tweets",
+            "error": "RuntimeError",
+            "message": "Missing RAPIDAPI_KEY env var"
+          }
+        }
+      ]
+    },
+    {
+      "id": "M02_carryover_timeframe",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_carryover",
+        "difficulty": "hard",
+        "what_it_tests": "3 turns: chỉ xử lý latest turn, carry timeframe=day và topic=news, query robotics."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tin AI hôm nay có gì?"
+        },
+        {
+          "role": "user",
+          "content": "Còn về robotics thì sao?"
+        },
+        {
+          "role": "user",
+          "content": "Chỉ tìm robotics thôi, vẫn là tin hôm nay"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "robotics",
+              "topic": "news",
+              "timeframe": "day"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "robotics",
+              "topic": "news",
+              "timeframe": "day",
+              "max_results": 5
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "robotics",
+            "topic": "news",
+            "timeframe": "day",
+            "max_results": 5
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "robotics",
+            "topic": "news",
+            "timeframe": "day",
+            "items": [
+              {
+                "title": "Shanghai Electric expands AI robotics for industrial ...",
+                "url": "https://www.automotivemanufacturingsolutions.com/automation/shanghai-electric-expands-ai-robotics-for-industrial-manufacturing/2707852",
+                "source": "automotivemanufacturingsolutions.com",
+                "summary": "Meanwhile, the Mermaid bionic wheeled humanoid robot is capable of recognising buttons, knobs and air switches before autonomously generating operating paths, reducing the need for manual programming. The company also demonstrated an autonomous pipe inner-wall chamfering robot developed for confined industrial environments. The system can process thousands of pipe hole edges while maintaining positioning accuracy within ±1mm and simultaneously transmitting operational data in real time. [...] The company's robotics portfolio is focused on five manufacturing applications including connector insertion, electrical operations, flexible sorting, intelligent assembly and pipe processing. [...] Presented under the theme \"AI for All: Smart Squad, Shining Without Limits\", the company's latest developments span complete robotic systems, core robotic components, industrial software and factory architecture. Together they reflect an effort to integrate intelligence across every layer of manufacturing, from physical equipment on the shop floor to decision-making systems overseeing production.",
+                "score": 0.41819844
+              },
+              {
+                "title": "All Saints School robotics teams win Innovate Award at premier event",
+                "url": "https://www.thealpenanews.com/news/local-news/2026/07/all-saints-school-robotics-teams-win-innovate-award-at-premier-event",
+                "source": "thealpenanews.com",
+                "summary": "The Innovate Award in the FIRST Tech Challenge celebrates a team with imaginative ingenuity, creativity, and inventiveness to bring a unique robot design solution to life, according to a Tuesday press release from ASCS. It highlights out-of-the-box thinking for the mechanisms used in the robot.\n\nEach year a new game is released in September and robotics teams have to design a robot that can complete the tasks in that game. [...] In the 2025-2026 season, teams had to build a robot that could collect and shoot different colored balls into a target area. The teams could earn extra points if they shot the balls in a specific color pattern. [...] website logo\n\n# All Saints School robotics teams win Innovate Award at premier event\n\n## Trending\n\nALPENA -- After a successful 2025-2026 robotics season, the All Saints Holy Gears were one of 48 teams from across the world invited to the Canadian Rockies Premier Event, where they were the winners of the Innovate Award.",
+                "score": 0.39564833
+              },
+              {
+                "title": "Developing Healthcare Robotics with GPU-Native Medical ...",
+                "url": "https://developer.nvidia.com/blog/developing-healthcare-robotics-with-gpu-native-medical-physics-simulation",
+                "source": "developer.nvidia.com",
+                "summary": "Healthcare robotics faces critical challenges in data scarcity, generalization, and development velocity due to limited access to annotated demonstrations, the prevalence of rare but clinically important scenarios, and slow, resource-intensive prototyping cycles. [...] AI-generated content may summarize information incompletely. Verify important information. Learn more\n\nUnlike autonomous driving or industrial robotics, healthcare robotics can’t rely on internet-scale data collection or unlimited real-world experimentation. Every demonstration requires specialized equipment, clinical expertise, and access to patients or laboratory environments. This creates three fundamental challenges for developers. [...] The third challenge is development velocity. Medical robotics development relies on benchtop phantoms, cadaver studies, animal models, and limited clinical evaluations. These remain essential, but they are inherently sequential, expensive, and difficult to scale. Iterating on designs and algorithms currently takes months, pushing total development cycles to 4–7 years.",
+                "score": 0.37586737
+              },
+              {
+                "title": "FCC bans humanoid robots from China, citing ‘unacceptable risks’",
+                "url": "https://www.theguardian.com/us-news/2026/jul/28/fcc-ban-humanoid-robots-china",
+                "source": "theguardian.com",
+                "summary": "The FCC defines the banned robots as “advanced robotic devices”, which include humanoids and animal-like quadrupeds.\n\n“Advanced robotic devices collect data that could be leveraged by malign actors to surveil Americans, enhance the capabilities of foreign intelligence services, or to remotely commandeer the robots,” FCC officials wrote in their determination of the threat posed by robots. [...] “The President has made clear that the United States must have independent and secure supply chains for critical and emerging technologies like robotic devices and power inverters,” an ⁠administration official, who declined to be named, told Reuters.\n\n“Economic security is national security, and the Trump administration continues to implement a nuanced and multi-faceted policy agenda to reindustrialize America,” he added.",
+                "score": 0.34468657
+              },
+              {
+                "title": "Lenovo Capital takes aim at robotics, coding agents in ‘sniper’ AI investment strategy | South China Morning Post",
+                "url": "https://www.scmp.com/tech/tech-trends/article/3362213/lenovo-capital-takes-aim-robotics-coding-agents-sniper-ai-investment-strategy",
+                "source": "scmp.com",
+                "summary": "The venture capital arm of Lenovo Group is doubling down on artificial intelligence for the next industrial cycle, expanding its focus beyond foundational models into robotics, computing infrastructure and AI agents, according to a senior executive. [...] Artificial intelligence\n\nTechTech Trends\n\n# Lenovo Capital takes aim at robotics, coding agents in ‘sniper’ AI investment strategy\n\nChinese firm makes long-term bets on 100 artificial intelligence companies, from chip and hardware manufacturers to models and applications\n\n2-MIN READ2-MIN\n\nA Lenovo robot forms a heart shape with its hands during the 2025 World AI Conference in Shanghai. Photo: VCG\n\nBen Jiangin Beijing [...] Lenovo Capital has made long-term bets on more than 100 AI companies across the value chain, ranging from chips and hardware infrastructure to models and applications, Song Chunyu, chief investment officer and senior partner at the unit, told the South China Morning Post and other media on Tuesday.\n\nAI-related businesses now make up nearly one-third of the fund’s roughly 300 portfolio holdings, he said.",
+                "score": 0.32749674
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "M03_correction_handle",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_correction",
+        "difficulty": "hard",
+        "what_it_tests": "3 turns: map tên thường, sửa Sam Altman→Andrej Karpathy, dùng handle karpathy và limit=3."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tweet mới nhất của Sam Altman"
+        },
+        {
+          "role": "user",
+          "content": "À nhầm, của Andrej Karpathy"
+        },
+        {
+          "role": "user",
+          "content": "Lấy 3 tweet mới nhất nhé"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "timeline",
+            "args": {
+              "screenname": "karpathy",
+              "limit": 3
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "timeline",
+            "args": {
+              "screenname": "karpathy",
+              "limit": 3
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "timeline",
+          "args": {
+            "screenname": "karpathy",
+            "limit": 3
+          },
+          "result": {
+            "tool": "get_user_tweets",
+            "error": "RuntimeError",
+            "message": "Missing RAPIDAPI_KEY env var"
+          }
+        }
+      ]
+    },
+    {
+      "id": "M04_clarify_then_url",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_clarify_url",
+        "difficulty": "medium",
+        "what_it_tests": "3 turns: sau khi được cung cấp URL, latest turn xác nhận chỉ đọc link đó → read_url đúng url."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tóm tắt bài này hộ mình"
+        },
+        {
+          "role": "user",
+          "content": "https://anthropic.com/news/claude"
+        },
+        {
+          "role": "user",
+          "content": "Chỉ đọc đúng link đó thôi"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "fetch",
+            "args": {
+              "url": "https://anthropic.com/news/claude"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "fetch",
+            "args": {
+              "url": "https://anthropic.com/news/claude"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "missing_info",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "fetch",
+          "args": {
+            "url": "https://anthropic.com/news/claude"
+          },
+          "result": {
+            "tool": "read_url",
+            "url": "https://anthropic.com/news/claude",
+            "items": [
+              {
+                "title": "Not Found \\ Anthropic",
+                "url": "https://anthropic.com/news/claude",
+                "source": "anthropic.com",
+                "summary": "A 404 poem by Claude Haiku 4.5Claude Sonnet 5Claude Opus 5Claude Fable 5\n\nHyperlink"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "M05_correction_limit",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_arg_correction",
+        "difficulty": "hard",
+        "what_it_tests": "3 turns: map tên Elon Musk, carry handle elonmusk, sửa limit 10→3."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Lấy 10 tweet mới nhất của Elon Musk"
+        },
+        {
+          "role": "user",
+          "content": "Cho mình 3 thôi"
+        },
+        {
+          "role": "user",
+          "content": "Vẫn của Elon Musk nhé"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "timeline",
+            "args": {
+              "screenname": "elonmusk",
+              "limit": 3
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "timeline",
+            "args": {
+              "screenname": "elonmusk",
+              "limit": 3
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "timeline",
+          "args": {
+            "screenname": "elonmusk",
+            "limit": 3
+          },
+          "result": {
+            "tool": "get_user_tweets",
+            "error": "RuntimeError",
+            "message": "Missing RAPIDAPI_KEY env var"
+          }
+        }
+      ]
+    },
+    {
+      "id": "M06_switch_tool",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_switch_tool",
+        "difficulty": "hard",
+        "what_it_tests": "3 turns: explicitly bỏ Twitter, chuyển sang web_search news, giữ chủ đề OpenAI."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Mọi người nói gì về OpenAI trên Twitter?"
+        },
+        {
+          "role": "user",
+          "content": "Bỏ Twitter, chuyển sang tìm trên web tin tức đi"
+        },
+        {
+          "role": "user",
+          "content": "Giữ chủ đề OpenAI"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "OpenAI",
+              "topic": "news"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "OpenAI",
+              "topic": "news",
+              "timeframe": "week",
+              "max_results": 5
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "OpenAI",
+            "topic": "news",
+            "timeframe": "week",
+            "max_results": 5
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "OpenAI",
+            "topic": "news",
+            "timeframe": "week",
+            "items": [
+              {
+                "title": "OpenAI says its AI went rogue and launched 'unprecedented' cyber-attack - BBC",
+                "url": "https://www.bbc.com/news/articles/c3ek3gvdnj3o",
+                "source": "bbc.com",
+                "summary": "# OpenAI says its AI went rogue and launched 'unprecedented' cyber-attack. OpenAI has revealed some of its most advanced AI models went rogue and hacked a start-up after it lost control of them during a security test. The ChatGPT-maker said its agents - AI bots which can operate alone after some human instruction – were being tested in a controlled environment, but found vulnerabilities and managed to escape. OpenAI said the incident was \"unprecedented\", and it was working with Hugging Face to investigate what happened and strengthen safeguards. Gina Neff, head of the Minderoo Centre for Technology and Democracy at the University of Cambridge, told BBC Radio 4's Today programme that the security tests - called sandboxes - are \"supposed to be secure environments where you can see what the models are capable of\". Once outside, the AI identified Hugging Face as a likely source of the answers they were seeking in the test, and tried to gain access.",
+                "score": 0.6690754
+              },
+              {
+                "title": "OpenAI promotes Sia to Advanced Partner in its OpenAI Partner Network - Consultancy.eu",
+                "url": "https://www.consultancy.eu/news/amp/14135/openai-promotes-sia-to-advanced-partner-in-its-openai-partner-network",
+                "source": "consultancy.eu",
+                "summary": "# OpenAI promotes Sia to Advanced Partner in its OpenAI Partner Network. ***OpenAI, the company behind ChatGPT and a suite of enterprise AI solutions, has named Sia an Advanced Partner within its OpenAI Partner Network.***. The recognition reflects the consultancy’s track record in helping organisations adopt and scale AI solutions, and its ability to drive enterprise-wide transformation through AI technologies. Launched last month, the OpenAI Partner Network brings together a select group of global consulting and technology firms to accelerate the adoption of OpenAI solutions at scale. Only a limited number of organisations were appointed as Founding Partners, including Accenture, Bain & Company, Boston Consulting Group, McKinsey & Company, PwC, Capgemini, EY and Sia. Sia is now among the first of the cohort to achieve Advanced Partner status, recognising its expertise in integrating ChatGPT Enterprise, Codex and OpenAI’s models into daily operations. “Becoming an OpenAI Advanced Partner reflects our ambition to help organisations move beyond AI experimentation and achieve enterprise-wide transformation,” said Matthieu Courtecuisse, CEO and Founder of Sia.",
+                "score": 0.58123237
+              },
+              {
+                "title": "OpenAI promotes Sia to Advanced Partner in its OpenAI Partner Network - Consultancy.com.au",
+                "url": "https://www.consultancy.com.au/news/amp/12286/openai-promotes-sia-to-advanced-partner-in-its-openai-partner-network",
+                "source": "consultancy.com.au",
+                "summary": "# OpenAI promotes Sia to Advanced Partner in its OpenAI Partner Network. ***OpenAI, the company behind ChatGPT and a suite of enterprise AI solutions, has named Sia an Advanced Partner within its OpenAI Partner Network.***. The recognition reflects the consultancy’s track record in helping organisations adopt and scale AI solutions, and its ability to drive enterprise-wide transformation through AI technologies. Launched last month, the OpenAI Partner Network brings together a select group of global consulting and technology firms to accelerate the adoption of OpenAI solutions at scale. Only a limited number of organisations were appointed as Founding Partners, including Accenture, Bain & Company, Boston Consulting Group, McKinsey & Company, PwC, Capgemini, EY and Sia. Sia is now among the first of the cohort to achieve Advanced Partner status, recognising its expertise in integrating ChatGPT Enterprise, Codex and OpenAI’s models into daily operations. “Becoming an OpenAI Advanced Partner reflects our ambition to help organisations move beyond AI experimentation and achieve enterprise-wide transformation,” said Matthieu Courtecuisse, CEO and Founder of Sia.",
+                "score": 0.5780915
+              },
+              {
+                "title": "OpenAI promotes Sia to Advanced Partner in its OpenAI Partner Network - Consultancy-me.com",
+                "url": "https://www.consultancy-me.com/news/amp/13871/openai-promotes-sia-to-advanced-partner-in-its-openai-partner-network",
+                "source": "consultancy-me.com",
+                "summary": "# OpenAI promotes Sia to Advanced Partner in its OpenAI Partner Network. ***OpenAI, the company behind ChatGPT and a suite of enterprise AI solutions, has named Sia an Advanced Partner within its OpenAI Partner Network.***. The recognition reflects the consultancy’s track record in helping organisations adopt and scale AI solutions, and its ability to drive enterprise-wide transformation through AI technologies. Launched last month, the OpenAI Partner Network brings together a select group of global consulting and technology firms to accelerate the adoption of OpenAI solutions at scale. Only a limited number of organisations were appointed as Founding Partners, including Accenture, Bain & Company, Boston Consulting Group, McKinsey & Company, PwC, Capgemini, EY and Sia. Sia is now among the first of the cohort to achieve Advanced Partner status, recognising its expertise in integrating ChatGPT Enterprise, Codex and OpenAI’s models into daily operations. “Becoming an OpenAI Advanced Partner reflects our ambition to help organisations move beyond AI experimentation and achieve enterprise-wide transformation,” said Matthieu Courtecuisse, CEO and Founder of Sia.",
+                "score": 0.5709301
+              },
+              {
+                "title": "OpenAI promotes Sia to Advanced Partner in its OpenAI Partner Network - Consulting.ca",
+                "url": "https://www.consulting.ca/news/amp/5145/openai-promotes-sia-to-advanced-partner-in-its-openai-partner-network",
+                "source": "consulting.ca",
+                "summary": "# OpenAI promotes Sia to Advanced Partner in its OpenAI Partner Network. ***OpenAI, the company behind ChatGPT and a suite of enterprise AI solutions, has named Sia an Advanced Partner within its OpenAI Partner Network.***. The recognition reflects the consultancy’s track record in helping organisations adopt and scale AI solutions, and its ability to drive enterprise-wide transformation through AI technologies. Launched last month, the OpenAI Partner Network brings together a select group of global consulting and technology firms to accelerate the adoption of OpenAI solutions at scale. Only a limited number of organisations were appointed as Founding Partners, including Accenture, Bain & Company, Boston Consulting Group, McKinsey & Company, PwC, Capgemini, EY and Sia. Sia is now among the first of the cohort to achieve Advanced Partner status, recognising its expertise in integrating ChatGPT Enterprise, Codex and OpenAI’s models into daily operations. “Through the OpenAI Partner Network, Sia can help more enterprises move from AI pilots to measurable business impact.”.",
+                "score": 0.568632
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
