@@ -195,9 +195,11 @@ def main() -> None:
                 st.write(turn.get("user", ""))
             with st.chat_message("assistant"):
                 st.write(turn.get("assistant_text") or "*Không có phản hồi dạng text từ model.*")
-            with st.expander(
-                f"🔎 Vết xử lý — turn {turn.get('turn_index')} ({turn.get('status')})", expanded=False,
-            ):
+            with st.container(border=True):
+                st.markdown(
+                    f"**🔎 Vết xử lý — turn {turn.get('turn_index')} "
+                    f"({turn.get('status')})**"
+                )
                 display_rounds(turn.get("rounds", []))
     else:
         st.info("Chưa có tin nhắn nào. Nhập câu hỏi bên dưới để bắt đầu cuộc hội thoại.")
