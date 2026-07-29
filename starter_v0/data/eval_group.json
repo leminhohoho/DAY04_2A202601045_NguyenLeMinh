@@ -3,5 +3,101 @@
   "dataset_role": "group",
   "description": "Template để NHÓM tự viết đúng 10 case: 5 single-turn dùng query và 5 multi-turn dùng turns. Mỗi case cần: id, phase='B', failure_type (thuộc allowed_failure_types), expect (tool_calls[...] hoặc no_tool=true), và metadata.what_it_tests. File để trống có chủ đích vì mỗi nhóm phải tự thiết kế các case này.",
   "allowed_failure_types": ["wrong_tool", "wrong_arg_value", "wrong_boundary", "unnecessary_tool", "out_of_scope", "missing_info"],
-  "cases": []
+  "cases": [
+    {
+      "id": "G01_rank_papers_already_have_list",
+      "phase": "B",
+      "query": "Mình đã có sẵn 4 paper (title + abstract) về 'sparse attention' rồi, giờ chỉ cần bạn xếp hạng chúng theo mức độ liên quan đến câu hỏi nghiên cứu, không cần tìm thêm paper mới:\n1) Sparse Transformers — attention thưa giảm chi phí tính toán.\n2) Longformer — attention cục bộ + global cho văn bản dài.\n3) BigBird — attention ngẫu nhiên kết hợp block-local.\n4) Linformer — xấp xỉ attention tuyến tính bằng low-rank projection.",
+      "failure_type": "wrong_tool",
+      "expect": {"tool_calls": [{"name": "rank_papers", "args": {"criteria": "relevance"}}]},
+      "metadata": {"skill": "rank_papers_vs_search", "difficulty": "medium", "what_it_tests": "Paper list đã có sẵn + yêu cầu xếp theo relevance, có câu 'không cần tìm thêm' → phải dùng rank_papers, không gọi lại papers (arxiv search) hay lookup."}
+    },
+    {
+      "id": "G02_extract_insights_focus_limitations",
+      "phase": "B",
+      "query": "Đây là đoạn trích từ một paper: 'Our method achieves state-of-the-art accuracy but requires 4x more GPU memory than baseline and does not generalize well to low-resource languages.' Trích giúp mình phần hạn chế (limitations) của paper này.",
+      "failure_type": "wrong_arg_value",
+      "expect": {"tool_calls": [{"name": "extract_paper_insights", "args": {"focus": "limitations"}}]},
+      "metadata": {"skill": "extract_insights_focus_arg", "difficulty": "medium", "what_it_tests": "'phần hạn chế' → focus=limitations, không phải default general; dùng text đã dán, không tự tìm/tải paper khác."}
+    },
+    {
+      "id": "G03_compare_missing_second_paper",
+      "phase": "B",
+      "query": "So sánh paper 'Attention Is All You Need' với các phương pháp attention trước đó xem tốt hơn ở điểm nào.",
+      "failure_type": "missing_info",
+      "expect": {"tool_calls": [{"name": "clarify", "args": {"response_type": "text"}}]},
+      "metadata": {"skill": "compare_needs_two_papers", "difficulty": "medium", "what_it_tests": "Chỉ có 1 paper cụ thể ('các phương pháp trước đó' không rõ paper nào) → compare_papers cần tối thiểu 2 paper cụ thể, phải clarify hỏi paper thứ hai, không tự bịa paper để so sánh."}
+    },
+    {
+      "id": "G04_out_of_scope_ranking_cafes",
+      "phase": "B",
+      "query": "Xếp hạng giúp mình 5 quán cà phê ngon nhất khu vực quận 1 theo đánh giá trên mạng.",
+      "failure_type": "out_of_scope",
+      "expect": {"no_tool": true, "behavior": "refuse"},
+      "metadata": {"skill": "out_of_scope_non_paper_ranking", "difficulty": "easy", "what_it_tests": "Yêu cầu 'xếp hạng' nhưng đối tượng là quán cà phê, không phải paper nghiên cứu → không gọi rank_papers hay tool nào khác, từ chối vì ngoài phạm vi Research Paper Scout."}
+    },
+    {
+      "id": "G05_meta_question_compare_papers",
+      "phase": "B",
+      "query": "compare_papers so sánh paper dựa trên những tiêu chí/dimension nào vậy?",
+      "failure_type": "unnecessary_tool",
+      "expect": {"no_tool": true, "behavior": "answer_without_tool"},
+      "metadata": {"skill": "meta_question_new_tool", "difficulty": "easy", "what_it_tests": "Câu hỏi meta về cách tool hoạt động → trả lời trực tiếp bằng kiến thức đã biết, không gọi compare_papers thật (chưa có paper nào để so sánh)."}
+    },
+    {
+      "id": "G06_send_after_extract_needs_confirm",
+      "phase": "B",
+      "turns": [
+        {"role": "user", "content": "Mình có đoạn trích từ paper: 'We propose a new sparse attention method to reduce memory cost while preserving accuracy on long documents.' Trích giúp mình phần method."},
+        {"role": "user", "content": "Được rồi, giờ đăng luôn phần method vừa trích lên Telegram channel nhóm nhé."}
+      ],
+      "failure_type": "wrong_boundary",
+      "expect": {"tool_calls": [{"name": "clarify", "args": {"response_type": "yes_no"}}]},
+      "metadata": {"skill": "confirm_before_send_after_extract", "difficulty": "hard", "what_it_tests": "Lượt cuối yêu cầu đăng lên Telegram → phải xác nhận yes_no trước khi gửi, dù nội dung đã có sẵn từ lượt trước, không tự động gọi send."}
+    },
+    {
+      "id": "G07_switch_search_to_rank",
+      "phase": "B",
+      "turns": [
+        {"role": "user", "content": "Tìm paper mới về 'LLM agent evaluation' trên arXiv giúp mình."},
+        {"role": "user", "content": "Trong các paper vừa liệt kê ở trên, đừng tìm thêm nữa — xếp hạng lại theo mức độ mới nhất (recency) thôi."}
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {"tool_calls": [{"name": "rank_papers", "args": {"criteria": "recency"}}]},
+      "metadata": {"skill": "multiturn_switch_search_to_rank", "difficulty": "hard", "what_it_tests": "Lượt cuối yêu cầu xếp hạng danh sách ĐÃ CÓ theo recency, có câu 'đừng tìm thêm' → rank_papers, không gọi lại papers (arxiv search)."}
+    },
+    {
+      "id": "G08_compare_dimensions_carryover",
+      "phase": "B",
+      "turns": [
+        {"role": "user", "content": "Mình có 2 paper: 'GPT-4 Technical Report' và 'LLaMA 2: Open Foundation Models'. So sánh giúp mình về method và dataset."},
+        {"role": "user", "content": "Thêm cả khía cạnh implementation vào bảng so sánh nữa nhé, giữ nguyên 2 paper đó."}
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {"tool_calls": [{"name": "compare_papers", "args": {"dimensions": ["method", "dataset", "implementation"]}}]},
+      "metadata": {"skill": "multiturn_dimensions_carryover", "difficulty": "hard", "what_it_tests": "Lượt 2 bổ sung thêm dimension 'implementation' vào yêu cầu so sánh ban đầu (method, dataset) → dimensions phải carry-over + thêm mới, không chỉ có implementation một mình hay quay về default 5 dimensions."}
+    },
+    {
+      "id": "G09_extract_insights_no_source_provided",
+      "phase": "B",
+      "turns": [
+        {"role": "user", "content": "Mình vừa tải xong một bài paper về diffusion models."},
+        {"role": "user", "content": "Trích giúp mình phần kết quả (results) chính của paper đó."}
+      ],
+      "failure_type": "missing_info",
+      "expect": {"tool_calls": [{"name": "clarify", "args": {"response_type": "text"}}]},
+      "metadata": {"skill": "multiturn_extract_missing_source", "difficulty": "medium", "what_it_tests": "Không có text hay txt_path nào thực sự được cung cấp (chỉ nói 'vừa tải xong' nhưng không đưa nội dung/đường dẫn) → phải clarify xin nội dung/paper text, không tự bịa insight."}
+    },
+    {
+      "id": "G10_cancel_compare_meta_question",
+      "phase": "B",
+      "turns": [
+        {"role": "user", "content": "Mình có 3 paper về 'model compression', so sánh giúp mình nhé."},
+        {"role": "user", "content": "Thôi khoan, để lúc khác so sánh. Giờ chỉ cho mình biết bạn có thể giúp gì với paper thôi."}
+      ],
+      "failure_type": "unnecessary_tool",
+      "expect": {"no_tool": true},
+      "metadata": {"skill": "multiturn_cancel_then_meta", "difficulty": "medium", "what_it_tests": "Lượt cuối user đổi ý, huỷ yêu cầu so sánh và chỉ hỏi khả năng của agent (meta) → không gọi compare_papers hay bất kỳ tool nào."}
+    }
+  ]
 }
